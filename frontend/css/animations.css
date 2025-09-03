@@ -1,0 +1,108 @@
+/* Animações */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Aplicação das animações */
+.brain {
+    animation: float 6s ease-in-out infinite;
+}
+
+.brain::before {
+    animation: pulse 4s ease-in-out infinite;
+}
+
+.brain::after {
+    animation: pulse 4s ease-in-out infinite 0.5s;
+}
+
+.brain-pulse {
+    animation: pulse-ring 4s ease-in-out infinite;
+}
+
+.leaf-1 {
+    animation: float 6s ease-in-out infinite;
+}
+
+.leaf-2 {
+    animation: float 6s ease-in-out infinite 1s;
+}
+
+.leaf-3 {
+    animation: float 6s ease-in-out infinite 2s;
+}
+
+.leaf-4 {
+    animation: float 6s ease-in-out infinite 1.5s;
+}
+
+.leaf-5 {
+    animation: float 6s ease-in-out infinite 2.5s;
+}
+
+.leaf-6 {
+    animation: float 6s ease-in-out infinite 3s;
+}
+
+.circle-1 {
+    animation: rotate 20s linear infinite;
+}
+
+.circle-2 {
+    animation: rotate 30s linear infinite reverse;
+}
+
+.circle-3 {
+    animation: rotate 40s linear infinite;
+}
+
+.circle-4 {
+    animation: rotate 50s linear infinite reverse;
+}
+
+.dot-1 { animation: float 4s ease-in-out infinite; }
+.dot-2 { animation: float 4s ease-in-out infinite 0.5s; }
+.dot-3 { animation: float 4s ease-in-out infinite 1s; }
+.dot-4 { animation: float 4s ease-in-out infinite 1.5s; }
+.dot-5 { animation: float 4s ease-in-out infinite 2s; }
+.dot-6 { animation: float 4s ease-in-out infinite 2.5s; } 

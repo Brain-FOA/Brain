@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain - Sua Plataforma de Saúde Mental</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favi.ico">
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/feedback.css">
+    <link rel="stylesheet" href="css/modal-user.css">
+    <link rel="stylesheet" href="css/modal.css">
+
+    <script src="scripts/header.js" defer></script>
+    <script src="scripts/feedbacks/register.js" defer></script>
+    <script src="scripts/modal.js" defer></script>
+    <script src="scripts/responsiveMenu.js" defer></script>
+    <script src="scripts/main.js" defer></script>
+    <script src="scripts/feedback.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">Brain</a>
+            <button class="menu-btn">
+                <span class="material-icons menu-icon">menu</span>
+                <span class="material-icons close-icon">close</span>
+            </button>
+            <div class="nav-links">
+                <a href="comunidade.html">Comunidade</a>
+                <a href="profissionais.html">Profissionais</a>
+                <div class="user-container">
+                    <button class="user-btn">
+                        <span class="material-symbols-outlined">account_circle</span>
+                        <span class="username">Olá, Usuário</span>
+                    </button>
+                    <div class="user-modal">
+                        <div class="modal-content-user">
+                            <a href="update.html" class="modal-option">
+                                <span class="material-symbols-outlined">person</span>
+                                Minha Conta
+                            </a>
+                            <a href="admin.html" class="modal-option">
+                                <span class="material-symbols-outlined">admin_panel_settings</span>
+                                Administração
+                            </a>
+                            <div class="modal-divider"></div>
+                            <a href="#" class="modal-option logout">
+                                <span class="material-symbols-outlined">logout</span>
+                                Sair
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="register-choice.html" class="register-btn">Registrar-se</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="hero-section">
+        <!-- Primeira seção com a ilustração e busca -->
+        <section class="hero-content">
+            <div class="mental-health-illustration">
+                <div class="brain-container">
+                    <div class="brain"></div>
+                    <div class="brain-pulse"></div>
+                </div>
+                <div class="leaves">
+                    <div class="leaf leaf-1"></div>
+                    <div class="leaf leaf-2"></div>
+                    <div class="leaf leaf-3"></div>
+                    <div class="leaf leaf-4"></div>
+                    <div class="leaf leaf-5"></div>
+                    <div class="leaf leaf-6"></div>
+                </div>
+                <div class="circles">
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-2"></div>
+                    <div class="circle circle-3"></div>
+                    <div class="circle circle-4"></div>
+                </div>
+                <div class="dots">
+                    <div class="dot dot-1"></div>
+                    <div class="dot dot-2"></div>
+                    <div class="dot dot-3"></div>
+                    <div class="dot dot-4"></div>
+                    <div class="dot dot-5"></div>
+                    <div class="dot dot-6"></div>
+                </div>
+            </div>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Busque por profissionais via CEP">
+                    <button class="search-btn">
+                        <span class="material-icons">search</span>
+                    </button>
+                </div>
+            </div>
+            <a href="#professional-register" class="scroll-arrow">
+                <span class="scroll-text">Cadastro de Profissionais</span>
+                <span class="material-icons">arrow_downward</span>
+            </a>
+        </section>
+
+        <!-- Segunda seção - Sobre a plataforma -->
+        <section class="about-section">
+            <div class="about-container">
+                <div class="about-content">
+                    <h2>Bem-vindo à Brain</h2>
+                    <p class="about-subtitle">Sua plataforma completa de saúde mental</p>
+                    <div class="about-text">
+                        <p>Na Brain, acreditamos que cuidar da saúde mental é tão importante quanto cuidar da saúde física. Nossa plataforma foi criada para conectar pessoas a profissionais qualificados e criar uma comunidade de apoio.</p>
+                        <p>Oferecemos um espaço seguro onde você pode:</p>
+                        <ul class="about-features">
+                            <li>
+                                <span class="material-icons">psychology</span>
+                                Encontrar profissionais de saúde mental especializados
+                            </li>
+                            <li>
+                                <span class="material-icons">groups</span>
+                                Participar de uma comunidade de apoio e compartilhamento
+                            </li>
+                            <li>
+                                <span class="material-icons">forum</span>
+                                Compartilhar experiências e aprender com outras pessoas
+                            </li>
+                            <li>
+                                <span class="material-icons">verified_user</span>
+                                Ter acesso a conteúdo verificado e de qualidade
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="assets/images/home/undraw_blooming_re_2kc4.svg" alt="Ilustração de saúde mental">
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Números Importantes -->
+        <section class="emergency-section">
+            <h2>Números Importantes</h2>
+            <p class="emergency-subtitle">Em momentos difíceis, você não está sozinho</p>
+            <div class="emergency-grid">
+                <div class="emergency-card">
+                    <div class="emergency-icon">
+                        <span class="material-icons">local_fire_department</span>
+                    </div>
+                    <h3>193</h3>
+                    <p>Bombeiros</p>
+                    <span class="emergency-description">Para emergências que envolvam incêndios, resgates e salvamentos</span>
+                </div>
+
+                <div class="emergency-card">
+                    <div class="emergency-icon">
+                        <span class="material-icons">security</span>
+                    </div>
+                    <h3>190</h3>
+                    <p>Polícia Militar</p>
+                    <span class="emergency-description">Para situações de risco imediato à sua segurança</span>
+                </div>
+
+                <div class="emergency-card">
+                    <div class="emergency-icon">
+                        <span class="material-icons">emergency</span>
+                    </div>
+                    <h3>192</h3>
+                    <p>SAMU</p>
+                    <span class="emergency-description">Para emergências médicas e atendimento de urgência</span>
+                </div>
+
+                <div class="emergency-card">
+                    <div class="emergency-icon">
+                        <span class="material-icons">volunteer_activism</span>
+                    </div>
+                    <h3>188</h3>
+                    <p>CVV - Centro de Valorização da Vida</p>
+                    <span class="emergency-description">Atendimento 24h para apoio emocional e prevenção ao suicídio</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Depoimentos -->
+        <section class="testimonials-section">
+            <h2>O que nossos usuários dizem</h2>
+            <p class="testimonials-subtitle">Histórias reais de pessoas que encontraram apoio na Brain</p>
+            
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"A Brain me ajudou a encontrar um profissional incrível que mudou minha vida. O processo foi simples e rápido, e hoje me sinto muito melhor."</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Maria Silva</h4>
+                                <span>Usuária desde 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"A comunidade da Brain é incrível. Encontrei pessoas que passaram por situações similares e isso me ajudou a não me sentir sozinho."</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>João Santos</h4>
+                                <span>Usuário desde 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Como profissional, a Brain me permitiu alcançar mais pessoas que precisam de ajuda. A plataforma é muito bem estruturada e fácil de usar."</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Dra. Ana Costa <span class="verified-badge"><span class="material-icons">verified</span></span></h4>
+                                <span>Psicóloga</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonials-stats">
+                <div class="stat-item">
+                    <h3>10k+</h3>
+                    <p>Usuários Ativos</p>
+                </div>
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Profissionais</p>
+                </div>
+                <div class="stat-item">
+                    <h3>95%</h3>
+                    <p>Satisfação</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Cadastro para Profissionais -->
+        <section id="professional-register" class="professional-register-section">
+            <div class="professional-register-container">
+                <div class="professional-register-content">
+                    <h2>Seja um Profissional Brain</h2>
+                    <p class="professional-subtitle">Junte-se à nossa rede de profissionais de saúde mental</p>
+                    <div class="professional-benefits">
+                        <div class="benefit-item">
+                            <span class="material-icons">people</span>
+                            <h4>Alcance mais pacientes</h4>
+                            <p>Conecte-se com pessoas que realmente precisam do seu serviço</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="material-icons">schedule</span>
+                            <h4>Gerencie sua agenda</h4>
+                            <p>Organize seus horários e atendimentos de forma eficiente</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="material-icons">verified_user</span>
+                            <h4>Perfil verificado</h4>
+                            <p>Destaque-se com um perfil profissional verificado</p>
+                        </div>
+                    </div>
+                    <div class="professional-cta">
+                        <p>Comece agora mesmo a expandir sua prática profissional</p>
+                        <a href="register-professional.html" class="register-professional-btn">
+                            <span class="material-icons">how_to_reg</span>
+                            Cadastre-se como Profissional
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+        <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Brain</h3>
+                <p>Sua plataforma completa de saúde mental</p>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="comunidade.html">Comunidade</a></li>
+                        <li><a href="profissionais.html">Profissionais</a></li>
+                        <li><a href="register.html">Registrar-se</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="#">Github</a></li>
+                        <li><a href="#" onclick="openModal('feedbackModal'); return false;">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">© 2024 Brain. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Feedback Modal -->
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Enviar Feedback</h2>
+                <button class="close-modal" onclick="closeModal('feedbackModal')">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="feedbackForm" class="feedback-form">
+                    <div class="form-group">
+                        <label for="feedbackTitle">Título</label>
+                        <input type="text" id="feedbackTitle" name="feedbackTitle" maxlength="30"
+                            placeholder="Digite um título para seu feedback">
+                        <div class="word-count"><span id="titleCount">0</span>/30</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="feedbackContent">Mensagem</label>
+                        <textarea id="feedbackContent" name="feedbackContent" rows="5" maxlength="300"
+                                placeholder="Digite seu feedback aqui"></textarea>
+                        <div class="word-count"><span id="contentCount">0</span>/300</div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="cancel-btn" onclick="closeModal('feedbackModal')">Cancelar</button>
+                        <button type="submit" class="submit-btn">Enviar Feedback</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Brain</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favi.ico">
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/modal.css">
+
+
+    <script src="scripts/passwordToggle.js" defer></script>
+    <script src="scripts/responsiveMenu.js" defer></script>
+    <script src="scripts/admin.js" defer></script>
+    <script src="scripts/main.js" defer></script>
+    <script src="scripts/modal.js" defer></script>
+    <script src="scripts/auth/register-user.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">Brain</a>
+            <button class="menu-btn">
+                <span class="material-icons menu-icon">menu</span>
+                <span class="material-icons close-icon">close</span>
+            </button>
+            <div class="nav-links">
+                <a href="comunidade.html">Comunidade</a>
+                <a href="profissionais.html">Profissionais</a>
+                <a href="login.html" class="login-btn">Entrar</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="auth-container">
+            <div class="register-box">
+                <div class="auth-header">
+                    <h1>Criar Conta</h1>
+                    <p>Junte-se à nossa comunidade de saúde mental</p>
+                </div>
+                <form id="registerForm" class="form-container" method="post">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" name="name" placeholder="Digite seu nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="seu@email.com">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="password">Senha</label>
+                            <div class="password-field">
+                                <input type="password" id="password" name="password" placeholder="Digite sua senha">
+                                <button type="button" class="password-toggle">
+                                    <span class="material-icons">visibility</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirmar Senha</label>
+                            <div class="password-field">
+                                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirme sua senha">
+                                <button type="button" class="password-toggle">
+                                    <span class="material-icons">visibility</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn" id="btn-register">Criar Conta</button>
+                </form>
+                <div class="divider">
+                    <span>ou</span>
+                </div>
+                <button class="google-btn">
+                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+                    <span>Registrar com Google</span>
+                </button>
+                <div class="auth-footer">
+                    <p>Já tem uma conta? <a href="login.html">Faça login</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

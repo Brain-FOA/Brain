@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Brain</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favi.ico">
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/modal.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">Brain</a>
+            <button class="menu-btn">
+                <span class="material-icons menu-icon">menu</span>
+                <span class="material-icons close-icon">close</span>
+            </button>
+            <div class="nav-links">
+                <a href="comunidade.html">Comunidade</a>
+                <a href="profissionais.html">Profissionais</a>
+                <a href="register-choice.html" class="register-btn">Registrar-se</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="auth-container">
+            <div class="login-box">
+                <div class="auth-header">
+                    <h1>Bem-vindo de volta!</h1>
+                    <p>Entre para continuar sua jornada</p>
+                </div>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="seu@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha</label>
+                        <div class="password-field">
+                            <input type="password" id="password" name="password" placeholder="Digite sua senha">
+                            <button type="button" class="password-toggle">
+                                <span class="material-icons">visibility</span>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">Entrar</button>
+                </form>
+                <div class="divider">
+                    <span>ou</span>
+                </div>
+                <button class="google-btn">
+                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+                    Entrar com Google
+                </button>
+                <div class="auth-footer">
+                    <p>Não tem uma conta? <a href="register-choice.html">Registre-se</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="scripts/passwordToggle.js"></script>
+    <script src="scripts/responsiveMenu.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/modal.js"></script>
+    <script src="scripts/auth/login.js"></script>
+</body>
+</html>

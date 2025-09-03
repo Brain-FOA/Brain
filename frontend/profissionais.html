@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profissionais - Brain</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favi.ico">
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/profissionais.css">
+    <link rel="stylesheet" href="css/feedback.css">
+    <link rel="stylesheet" href="css/modal.css">
+
+    <script src="scripts/feedbacks/register.js" defer></script>
+    <script src="scripts/modal.js" defer></script>
+    <script src="scripts/header.js" defer></script>
+    <script src="scripts/main.js" defer></script>
+    <script src="scripts/feedback.js" defer></script>
+
+    <script src="scripts/cep.js" defer></script>
+    <script src="scripts/responsiveMenu.js" defer></script>
+    <script src="scripts/profissionais.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">Brain</a>
+            <button class="menu-btn">
+                <span class="material-icons menu-icon">menu</span>
+                <span class="material-icons close-icon">close</span>
+            </button>
+            <div class="nav-links">
+                <a href="comunidade.html">Comunidade</a>
+                <a href="profissionais.html">Profissionais</a>
+                <div class="user-container">
+                    <button class="user-btn">
+                        <span class="material-symbols-outlined">account_circle</span>
+                        <span class="username">Olá, Usuário</span>
+                    </button>
+                    <div class="user-modal">
+                        <div class="modal-content-user">
+                            <a href="update.html" class="modal-option">
+                                <span class="material-symbols-outlined">person</span>
+                                Minha Conta
+                            </a>
+                            <a href="admin.html" class="modal-option">
+                                <span class="material-symbols-outlined">admin_panel_settings</span>
+                                Administração
+                            </a>
+                            <div class="modal-divider"></div>
+                            <a href="#" class="modal-option logout">
+                                <span class="material-symbols-outlined">logout</span>
+                                Sair
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="register-choice.html" class="register-btn">Registrar-se</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="search-section">
+            <div class="search-container">
+                <h1>Encontre o profissional ideal para você</h1>
+                <p>Busque por profissionais próximos a você</p>
+                <div class="search-box">
+                    <input type="text" 
+                        id="searchInput" 
+                        placeholder="Digite seu CEP">
+                    <button class="search-button" onclick="searchProfessionals()">
+                        <i class="fas fa-search"></i>
+                        <span>Buscar</span>
+                    </button>
+                </div>
+                <div id="selectedCity" class="selected-city">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Digite um cep para ver</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="professionals-section">
+            <div class="container">
+                <div class="professional-card">
+                    <div class="card-header">
+                        <div class="professional-image">
+                            <img src="assets/images/noimg.png" alt="Foto do profissional">
+                        </div>
+                        <div class="professional-info">
+                            <h2>Dra. Ana Silva <span class="verified-badge"><span class="material-icons">verified</span></span></h2>
+                            <p class="specialty">Psicóloga Clínica</p>
+                            <p class="crp">CRP: 12345/SP</p>
+                            <p class="location">São Paulo, SP</p>
+                            <button class="btn-view-more" onclick="openContactModal('Dra. Ana Silva', 'ana.silva@email.com', '(11) 99999-9999', 'Av. Paulista, 1000 - Bela Vista, São Paulo - SP')">
+                                Ver mais
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-description">
+                        <h3 class="about-title">Sobre mim</h3>
+                        <p class="description">Especialista em terapia cognitivo-comportamental com foco em ansiedade e depressão. Atendimento presencial e online.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Contato -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h2 id="modalName"></h2>
+                    <p class="modal-specialty">Psicóloga Clínica</p>
+                </div>
+                <button class="close-modal" onclick="closeContactModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-details">
+                            <span class="contact-label">Email</span>
+                            <span id="modalEmail" class="contact-value"></span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div class="contact-details">
+                            <span class="contact-label">Telefone</span>
+                            <span id="modalPhone" class="contact-value"></span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-details">
+                            <span class="contact-label">Endereço</span>
+                            <span id="modalAddress" class="contact-value"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Brain</h3>
+                <p>Sua plataforma completa de saúde mental</p>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="comunidade.html">Comunidade</a></li>
+                        <li><a href="profissionais.html">Profissionais</a></li>
+                        <li><a href="register.html">Registrar-se</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="#">Github</a></li>
+                        <li><a href="#" onclick="openModal('feedbackModal'); return false;">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">© 2024 Brain. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Feedback Modal -->
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Enviar Feedback</h2>
+                <button class="close-modal" onclick="closeModal('feedbackModal')">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="feedbackForm" class="feedback-form">
+                    <div class="form-group">
+                        <label for="feedbackTitle">Título</label>
+                        <input type="text" id="feedbackTitle" name="feedbackTitle" maxlength="30"
+                            placeholder="Digite um título para seu feedback">
+                        <div class="word-count"><span id="titleCount">0</span>/30</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="feedbackContent">Mensagem</label>
+                        <textarea id="feedbackContent" name="feedbackContent" rows="5" maxlength="300"
+                                placeholder="Digite seu feedback aqui"></textarea>
+                        <div class="word-count"><span id="contentCount">0</span>/300</div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="cancel-btn" onclick="closeModal('feedbackModal')">Cancelar</button>
+                        <button type="submit" class="submit-btn">Enviar Feedback</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

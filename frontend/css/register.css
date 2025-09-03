@@ -1,0 +1,375 @@
+/* Variáveis de cores */
+:root {
+    --primary-green: #4CAF50;
+    --secondary-green: #45a049;
+    --light-green: #81C784;
+    --pure-white: #FFFFFF;
+    --off-white: #F5F5F5;
+    --pure-black: #000000;
+    --dark-gray: #333333;
+    --light-gray: #E0E0E0;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+    --google-blue: #4285F4;
+    --google-red: #EA4335;
+    --google-yellow: #FBBC05;
+    --google-green: #34A853;
+}
+
+/* Reset e estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth !important;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--pure-black);
+    background-color: var(--pure-white);
+    scroll-behavior: smooth !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    background-color: var(--pure-white);
+}
+
+/* Container principal */
+.auth-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    z-index: 1;
+}
+
+/* Estilos específicos para a página de registro */
+.register-box {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.register-box .auth-header {
+    margin-bottom: 2rem;
+}
+
+.register-box .auth-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.6rem;
+    color: var(--pure-black);
+    font-weight: 600;
+}
+
+.register-box .auth-header p {
+    color: var(--dark-gray);
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+/* Container do formulário */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* Linha do formulário */
+.form-row {
+    display: flex;
+    gap: 1.2rem;
+}
+
+/* Estilos do formulário */
+.form-group {
+    flex: 1;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: var(--dark-gray);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--light-gray);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    background-color: var(--pure-white);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.08);
+}
+
+/* Campos de senha */
+.password-field {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--dark-gray);
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.password-toggle:hover {
+    opacity: 1;
+    color: var(--primary-green);
+}
+
+/* Checkbox personalizado */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+    justify-content: center;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--light-gray);
+    border-radius: 4px;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.checkbox-group input[type="checkbox"]:checked {
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
+}
+
+.checkbox-group input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    color: var(--pure-white);
+    font-size: 12px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.checkbox-group label {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+    cursor: pointer;
+}
+
+/* Botão de submit */
+.submit-btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.75rem;
+    background-color: var(--primary-green);
+    color: var(--pure-white);
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 1rem auto 0;
+}
+
+.submit-btn:hover {
+    background-color: var(--secondary-green);
+    transform: translateY(-1px);
+}
+
+/* Divisor */
+.divider {
+    text-align: center;
+    margin: 1.8rem 0;
+    position: relative;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 45%;
+    height: 1px;
+    background-color: var(--light-gray);
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+.divider span {
+    background-color: var(--pure-white);
+    padding: 0 1rem;
+    color: var(--dark-gray);
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* Botão do Google */
+.google-btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.75rem;
+    background-color: var(--pure-white);
+    border: 1px solid var(--light-gray);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 0 auto 1.8rem;
+    font-size: 0.95rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.google-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        var(--google-blue) 0%,
+        var(--google-red) 25%,
+        var(--google-yellow) 50%,
+        var(--google-green) 75%,
+        var(--google-blue) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 0;
+}
+
+.google-btn:hover::before {
+    opacity: 0.1;
+}
+
+.google-btn:hover {
+    border-color: var(--dark-gray);
+    transform: translateY(-1px);
+}
+
+.google-btn img {
+    width: 18px;
+    height: 18px;
+    position: relative;
+    z-index: 1;
+}
+
+.google-btn span {
+    position: relative;
+    z-index: 1;
+    color: var(--dark-gray);
+}
+
+/* Footer */
+.auth-footer {
+    text-align: center;
+    margin-top: 1.8rem;
+}
+
+.auth-footer p {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+}
+
+.auth-footer a {
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.auth-footer a:hover {
+    color: var(--secondary-green);
+}
+
+.auth-footer a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -1px;
+    left: 0;
+    background-color: var(--primary-green);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.2s ease;
+}
+
+.auth-footer a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+
+    .register-box {
+        padding: 2.5rem 2rem;
+        margin: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .register-box .auth-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .form-group input {
+        padding: 0.7rem 0.9rem;
+    }
+} 

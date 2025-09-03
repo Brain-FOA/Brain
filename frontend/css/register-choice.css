@@ -1,0 +1,202 @@
+/* Variáveis de cores */
+:root {
+    --primary-green: #4CAF50;
+    --secondary-green: #45a049;
+    --light-green: #81C784;
+    --pure-white: #FFFFFF;
+    --off-white: #F5F5F5;
+    --pure-black: #000000;
+    --dark-gray: #333333;
+}
+
+/* Reset e estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth !important;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--pure-black);
+    background-color: var(--pure-white);
+    scroll-behavior: smooth !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Container principal */
+.auth-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin-top: 80px; /* Altura do header */
+}
+
+/* Estilos específicos para a página de escolha de registro */
+.register-choice-box {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: var(--pure-white);
+    border-radius: 12px;
+    padding: 3rem;
+}
+
+.register-choice-box .auth-header {
+    margin-bottom: 3rem;
+}
+
+.register-choice-box .auth-header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.register-choice-box .auth-header p {
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+}
+
+.register-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.register-option {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border: 2px solid var(--light-gray);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--pure-black);
+    transition: all 0.3s ease;
+    background-color: var(--pure-white);
+}
+
+.register-option:hover {
+    border-color: var(--primary-green);
+    transform: translateY(-5px);
+}
+
+.option-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background-color: var(--light-gray);
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+}
+
+.option-icon .material-icons {
+    font-size: 2.2rem;
+    color: var(--primary-green);
+}
+
+.option-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--pure-black);
+}
+
+.option-content p {
+    color: var(--dark-gray);
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.option-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.option-benefits li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    color: var(--dark-gray);
+    font-size: 0.95rem;
+}
+
+.option-benefits .material-icons {
+    font-size: 1.2rem;
+    color: var(--primary-green);
+}
+
+/* Estilos para o link de login */
+.auth-footer {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.auth-footer a {
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.auth-footer a:hover {
+    color: var(--secondary-green);
+}
+
+.auth-footer a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--primary-green);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.auth-footer a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Responsividade para a página de escolha */
+@media (max-width: 768px) {
+    .register-choice-box {
+        padding: 1.5rem;
+    }
+
+    .register-choice-box .auth-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .register-choice-box .auth-header p {
+        font-size: 1rem;
+    }
+
+    .register-options {
+        grid-template-columns: 1fr;
+    }
+
+    .option-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .option-icon .material-icons {
+        font-size: 2rem;
+    }
+} 

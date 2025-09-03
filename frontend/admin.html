@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Brain</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favi.ico">
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/feedback.css">
+    <link rel="stylesheet" href="css/modal.css">
+    
+    <!-- Scripts -->
+    <script src="scripts/header.js" defer></script>
+    <script src="scripts/modal.js" defer></script>
+    <script src="scripts/specialties/get.js" defer></script>
+    <script src="scripts/specialties/register.js" defer></script>
+    <script src="scripts/specialties/delete.js" defer></script>
+    <script src="scripts/admin.js" defer></script>
+    <script src="scripts/specialties/update.js" defer></script>
+    <script src="scripts/responsiveMenu.js" defer></script>
+    <script src="scripts/feedbacks/getAll.js" defer></script>
+    <script src="scripts/feedbacks/delete.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">Brain</a>
+            <button class="menu-btn">
+                <span class="material-icons menu-icon">menu</span>
+                <span class="material-icons close-icon">close</span>
+            </button>
+            <div class="nav-links">
+                <a href="comunidade.html">Comunidade</a>
+                <a href="profissionais.html">Profissionais</a>
+                <div class="user-container">
+                    <button class="user-btn">
+                        <span class="material-symbols-outlined">account_circle</span>
+                        <span class="username">Olá, Usuário</span>
+                    </button>
+                    <div class="user-modal">
+                        <div class="modal-content-user">
+                            <a href="update.html" class="modal-option">
+                                <span class="material-symbols-outlined">person</span>
+                                Minha Conta
+                            </a>
+                            <a href="admin.html" class="modal-option">
+                                <span class="material-symbols-outlined">admin_panel_settings</span>
+                                Administração
+                            </a>
+                            <div class="modal-divider"></div>
+                            <a href="#" class="modal-option logout">
+                                <span class="material-symbols-outlined">logout</span>
+                                Sair
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="register-choice.html" class="register-btn">Registrar-se</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="admin-container">
+        <main class="admin-main">
+            <div class="admin-content">
+                <div class="dashboard-header">
+                    <h1>Dashboard</h1>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <span class="material-icons">people</span>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total de Profissionais</h3>
+                            <p>150</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <span class="material-icons">pending_actions</span>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Solicitações Pendentes</h3>
+                            <p>5</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <span class="material-icons">verified_user</span>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Profissionais Ativos</h3>
+                            <p>145</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tabs-container">
+                    <div class="tabs-header">
+                        <button class="tab-btn active" data-tab="requests">
+                            <span class="material-icons">pending_actions</span>
+                            Solicitações Pendentes
+                        </button>
+                        <button class="tab-btn" data-tab="feedbacks">
+                            <span class="material-icons">feedback</span>
+                            Feedbacks
+                        </button>
+                        <button class="tab-btn" data-tab="specialties">
+                            <span class="material-icons">category</span>
+                            Especialidades
+                        </button>
+                    </div>
+
+                    <div class="tab-content active" id="requests-tab">
+                        <div class="requests-list">
+                            <div class="professional-card">
+                                <div class="card-header">
+                                    <div class="professional-image">
+                                        <img src="assets/images/noimg.png" alt="Foto do profissional">
+                                    </div>
+                                    <div class="professional-info">
+                                        <h2>Dr. João Silva</h2>
+                                        <p class="specialty">Psicólogo Clínico</p>
+                                        <p class="crp">CRP: 12345/SP</p>
+                                        <p class="location">São Paulo, SP</p>
+                                        <div class="request-actions">
+                                            <button class="action-btn reject-btn">
+                                                <span class="material-icons">close</span>
+                                                Rejeitar
+                                            </button>
+                                            <button class="action-btn approve-btn">
+                                                <span class="material-icons">check</span>
+                                                Aprovar
+                                            </button>
+                                        </div>
+                                        <button class="view-more-btn" onclick="openModal('professionalModal')">
+                                            <span class="material-icons">visibility</span>
+                                            Ver mais
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-description">
+                                    <h3 class="about-title">Sobre mim</h3>
+                                    <p class="description">Especialista em terapia cognitivo-comportamental com foco em ansiedade e depressão. Atendimento presencial e online.</p>
+                                </div>
+                            </div>
+
+                            <div class="professional-card">
+                                <div class="card-header">
+                                    <div class="professional-image">
+                                        <img src="assets/images/noimg.png" alt="Foto do profissional">
+                                    </div>
+                                    <div class="professional-info">
+                                        <h2>Dra. Maria Santos</h2>
+                                        <p class="specialty">Psiquiatra</p>
+                                        <p class="crp">CRM: 67890/SP</p>
+                                        <p class="location">São Paulo, SP</p>
+                                        <div class="request-actions">
+                                            <button class="action-btn reject-btn">
+                                                <span class="material-icons">close</span>
+                                                Rejeitar
+                                            </button>
+                                            <button class="action-btn approve-btn">
+                                                <span class="material-icons">check</span>
+                                                Aprovar
+                                            </button>
+                                        </div>
+                                        <button class="view-more-btn" onclick="openModal('professionalModal')">
+                                            <span class="material-icons">visibility</span>
+                                            Ver mais
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-description">
+                                    <h3 class="about-title">Sobre mim</h3>
+                                    <p class="description">Psiquiatra especializada em saúde mental adulta, com foco em transtornos de ansiedade e depressão. Atendimento online.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="feedbacks-tab">
+                        <div class="feedbacks-list">
+
+                            
+
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="specialties-tab">
+                        <div class="specialties-container">
+                            <div class="specialties-header">
+                                <h2>Gerenciar Especialidades</h2>
+                                <button class="add-specialty-btn" onclick="openModal('specialtyModal')">
+                                    <span class="material-icons">add</span>
+                                    Adicionar Especialidade
+                                </button>
+                            </div>
+                            
+                            <div class="specialties-list">
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de Informações do Profissional -->
+    <div id="professionalModal" class="modal">
+        <div class="modal-content professional-modal">
+            <div class="modal-header">
+                <h2>Informações do Profissional</h2>
+                <button class="close-modal" onclick="closeModal('professionalModal')">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="professional-modal-grid">
+                    <!-- Seção de Identidade -->
+                    <div class="professional-modal-section">
+                        <h4>Identidade</h4>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="label">Nome</span>
+                                <span class="value">Dr. João Silva</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">CRP/CRM</span>
+                                <span class="value">12345/SP</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Especialidade</span>
+                                <span class="value">Psicólogo Clínico</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seção de Endereço -->
+                    <div class="professional-modal-section">
+                        <h4>Endereço</h4>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="label">Rua</span>
+                                <span class="value">Av. Paulista, 1000</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Bairro</span>
+                                <span class="value">Bela Vista</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Cidade</span>
+                                <span class="value">São Paulo</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Estado</span>
+                                <span class="value">SP</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">CEP</span>
+                                <span class="value">01310-100</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seção de Documentos -->
+                    <div class="professional-modal-section">
+                        <h4>Documentos</h4>
+                        <div class="documents-grid">
+                            <div class="document-item">
+                                <h5>Currículo</h5>
+                                <div class="document-image">
+                                    <img src="assets/images/noimg.png" alt="Currículo do profissional">
+                                </div>
+                            </div>
+                            <div class="document-item">
+                                <h5>Identidade</h5>
+                                <div class="document-image">
+                                    <img src="assets/images/noimg.png" alt="Documento de identidade">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Especialidade -->
+    <div id="specialtyModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Adicionar Especialidade</h2>
+                <button class="close-modal" onclick="closeModal('specialtyModal')">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="specialty-form">
+
+                    <div class="form-group">
+                        <label for="specialtyName">Nome da Especialidade</label>
+                        <input type="text" id="specialtyName" name="specialtyName">
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="cancel-btn" onclick="closeModal('specialtyModal')">Cancelar</button>
+                        <button type="submit" class="save-btn">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Edição de Especialidade -->
+    <div id="editSpecialtyModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h2>Editar Especialidade</h2>
+        <button class="close-modal" onclick="closeModal('editSpecialtyModal')">
+            <span class="material-icons">close</span>
+        </button>
+        </div>
+        <div class="modal-body">
+        <form class="specialty-form specialtyFormUpdate" id="editSpecialtyForm">
+            <input type="hidden" id="editSpecialtyId">
+            <div class="form-group">
+            <label for="editSpecialtyName">Nome da Especialidade</label>
+            <input type="text" id="editSpecialtyName" name="specialtyName" required>
+            </div>
+            <div class="form-actions">
+            <button type="button" class="cancel-btn" onclick="closeModal('editSpecialtyModal')">Cancelar</button>
+            <button type="submit" class="save-btn">Salvar</button>
+            </div>
+        </form>
+        </div>
+    </div>
+    </div>
+</body>
+</html> 

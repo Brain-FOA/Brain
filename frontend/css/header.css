@@ -1,0 +1,271 @@
+:root {
+    /* Cores principais */
+    --primary-green: #2E7D32;      /* Verde mais escuro e profissional */
+    --secondary-green: #4CAF50;    /* Verde médio para botões e destaques */
+    --light-green: #81C784;        /* Verde claro para hover e elementos sutis */
+    --accent-green: #1B5E20;       /* Verde escuro para textos e elementos de destaque */
+    
+    /* Neutros */
+    --pure-white: #FFFFFF;         /* Branco puro para fundos */
+    --off-white: #F5F5F5;          /* Branco suave para fundos secundários */
+    --light-gray: #E0E0E0;         /* Cinza claro para bordas e divisões */
+    --dark-gray: #424242;          /* Cinza escuro para textos secundários */
+    --pure-black: #212121;         /* Preto suave para textos principais */
+    
+    /* Cores de estado */
+    --success: #43A047;            /* Verde para mensagens de sucesso */
+    --error: #D32F2F;              /* Vermelho para mensagens de erro */
+    --warning: #FFA000;            /* Laranja para avisos */
+    --info: #1976D2;               /* Azul para informações */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* menu css */
+
+header {
+    width: 100%;
+    padding: 1.25rem 2rem;
+    background-color: var(--pure-white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Classe específica para centralizar o logo nas páginas de auth */
+.nav-container.auth-nav {
+    justify-content: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--pure-black);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--pure-black);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-green);
+}
+
+.register-btn, .login-btn {
+    background-color: var(--secondary-green);
+    color: var(--pure-white) !important;
+    padding: 0.5rem 1.2rem;
+    border: 2px solid var(--secondary-green);
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.register-btn:hover, .login-btn:hover {
+    background-color: transparent;
+    color: var(--secondary-green) !important;
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+}
+
+.register-btn:active, .login-btn:active {
+    transform: translateY(0);
+}
+
+.register-btn::after, .login-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.register-btn:hover::after, .login-btn:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--pure-black);
+    position: relative;
+}
+
+.menu-icon, .close-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+}
+
+.close-icon {
+    opacity: 0;
+}
+
+.menu-btn.active .menu-icon {
+    opacity: 0;
+}
+
+.menu-btn.active .close-icon {
+    opacity: 1;
+}
+
+/* User button styles */
+.user-container {
+    position: relative;
+}
+
+.user-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    height: 40px;
+}
+
+.user-btn:hover {
+    background-color: var(--off-white);
+}
+
+.user-btn .material-symbols-outlined {
+    font-size: 2rem;
+    color: var(--secondary-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.user-btn .username {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+    font-weight: 500;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+}
+
+/* Modal styles */
+.user-modal {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 220px;
+    background-color: var(--pure-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    margin-top: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.user-modal.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.modal-content-user {
+    padding: 0.5rem;
+}
+
+.modal-option {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+    color: var(--dark-gray);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.modal-option:hover {
+    background-color: var(--off-white);
+    color: var(--secondary-green);
+}
+
+.modal-option .material-symbols-outlined {
+    font-size: 1.2rem;
+}
+
+.modal-divider {
+    height: 1px;
+    background-color: var(--light-gray);
+    margin: 0.5rem 0;
+}
+
+.modal-option.logout {
+    color: var(--error);
+}
+
+.modal-option.logout:hover {
+    background-color: #ffebee;
+    color: var(--error);
+}
+
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--pure-white);
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}

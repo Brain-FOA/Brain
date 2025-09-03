@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Profissional - Brain</title>
+
+<!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favi.ico">
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/register-professional.css">
+    <link rel="stylesheet" href="css/modal-user.css">
+
+    <script src="scripts/header.js" defer></script>
+    <script src="scripts/specialties/get-professional-form.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">Brain</a>
+            <button class="menu-btn">
+                <span class="material-icons menu-icon">menu</span>
+                <span class="material-icons close-icon">close</span>
+            </button>
+            <div class="nav-links">
+                <a href="comunidade.html">Comunidade</a>
+                <a href="profissionais.html">Profissionais</a>
+                <div class="user-container">
+                    <button class="user-btn">
+                        <span class="material-symbols-outlined">account_circle</span>
+                        <span class="username">Olá, Usuário</span>
+                    </button>
+                    <div class="user-modal">
+                        <div class="modal-content-user">
+                            <a href="update.html" class="modal-option">
+                                <span class="material-symbols-outlined">person</span>
+                                Minha Conta
+                            </a>
+                            <a href="admin.html" class="modal-option">
+                                <span class="material-symbols-outlined">admin_panel_settings</span>
+                                Administração
+                            </a>
+                            <div class="modal-divider"></div>
+                            <a href="#" class="modal-option logout">
+                                <span class="material-symbols-outlined">logout</span>
+                                Sair
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="register-choice.html" class="register-btn">Registrar-se</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="auth-container">
+        <div class="professional-box">
+            <div class="auth-header">
+                <h1>Cadastro de Profissional</h1>
+                <p>Preencha os dados abaixo para se cadastrar como profissional na Brain</p>
+            </div>
+
+            <form class="form-container" action="#" method="POST">
+                <!-- Dados Pessoais -->
+                <div class="form-section">
+                    <h2>Dados Pessoais</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" name="name" placeholder="Digite seu nome completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="senha">Senha</label>
+                            <div class="password-field">
+                                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                                <button type="button" class="password-toggle">
+                                    <span class="material-icons">visibility_off</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmar-senha">Confirmar Senha</label>
+                            <div class="password-field">
+                                <input type="password" id="confirmar-senha" name="confirmar-senha" placeholder="Confirme sua senha" required>
+                                <button type="button" class="password-toggle">
+                                    <span class="material-icons">visibility_off</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="cpf">CPF</label>
+                            <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Dados Profissionais</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(00) 00000-0000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="crp">CRP</label>
+                            <input type="text" id="crp" name="crp" placeholder="06/12345" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="specialty">Especialidade</label>
+                            <select id="specialty" name="specialty" required>
+                                
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="description">Descrição Profissional</label>
+                            <textarea id="description" name="description" placeholder="Descreva sua experiência profissional e abordagem terapêutica (máximo 400 caracteres)" maxlength="400" required></textarea>
+                            <div class="char-counter"><span id="charCount">0</span>/400</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cep">CEP</label>
+                            <div class="cep-search">
+                                <input type="text" id="cep" name="cep" placeholder="00000-000" required>
+                                <button type="button" id="searchCep" class="search-button">
+                                    <span class="material-icons">search</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">Cidade</label>
+                            <input type="text" id="city" name="city" placeholder="Sua cidade será preenchida" required readonly disabled>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="address">Bairro do Consultório</label>
+                            <input type="text" id="address" name="address" placeholder="Seu bairro será preenchido" required readonly disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="number">Número</label>
+                            <input type="text" id="number" name="number" placeholder="Ex: 123" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documentos -->
+                <div class="form-section">
+                    <h2>Documentos</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="photo">Foto do Profissional</label>
+                            <div class="document-upload" id="photoUpload">
+                                <input type="file" id="photo" name="photo" accept="image/*" required>
+                                <span class="material-icons">upload_file</span>
+                                <p>Clique ou arraste uma foto</p>
+                                <button type="button" class="remove-doc">
+                                    <span class="material-icons">close</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="diploma">Diploma</label>
+                            <div class="document-upload" id="diplomaUpload">
+                                <input type="file" id="diploma" name="diploma" accept=".pdf,.doc,.docx" required>
+                                <span class="material-icons">upload_file</span>
+                                <p>Clique ou arraste um documento</p>
+                                <button type="button" class="remove-doc">
+                                    <span class="material-icons">close</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="identity">Identidade</label>
+                            <div class="document-upload" id="identityUpload">
+                                <input type="file" id="identity" name="identity" accept=".pdf,.doc,.docx" required>
+                                <span class="material-icons">upload_file</span>
+                                <p>Clique ou arraste um documento</p>
+                                <button type="button" class="remove-doc">
+                                    <span class="material-icons">close</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Termos e Condições -->
+                <div class="checkbox-group">
+                    <input type="checkbox" id="termos" name="termos" required>
+                    <label for="termos">Li e concordo com os <a href="#">Termos de Uso</a> e <a href="#">Política de Privacidade</a></label>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span class="material-icons">how_to_reg</span>
+                    Cadastrar como Profissional
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script src="scripts/responsiveMenu.js"></script>
+    <script src="scripts/cep.js"></script>
+    <script src="scripts/documentUpload.js"></script>
+    <script src="scripts/passwordToggle.js"></script>
+    <script src="scripts/cepSearch.js"></script>
+    <script src="scripts/crpMask.js"></script>
+    <script src="scripts/charCounter.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html> 

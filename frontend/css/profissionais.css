@@ -1,0 +1,623 @@
+:root {
+    --primary-green: #4CAF50;
+    --secondary-green: #45a049;
+    --light-green: #81C784;
+    --pure-white: #FFFFFF;
+    --off-white: #F5F5F5;
+    --pure-black: #000000;
+    --dark-gray: #333333;
+    --primary-color: #4CAF50;
+    --primary-dark: #388E3C;
+    --primary-light: #81C784;
+    --accent-color: #8BC34A;
+    --text-color: #333333;
+    --text-light: #666666;
+    --background-light: #F5F5F5;
+    --white: #FFFFFF;
+    --error-color: #D32F2F;
+    --success-color: #388E3C;
+    --border-color: #E0E0E0;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: var(--pure-black);
+    background-color: var(--off-white);
+    scroll-behavior: smooth;
+    -webkit-scroll-behavior: smooth;
+    -moz-scroll-behavior: smooth;
+    -ms-scroll-behavior: smooth;
+    line-height: 1.6;
+}
+
+/* Main Content */
+main {
+    margin-top: 80px; /* Espaço para o header fixo */
+}
+
+/* Search Section */
+.search-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    padding: 4rem 2rem;
+    color: var(--white);
+    text-align: center;
+}
+
+.search-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.search-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.search-container p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.search-box {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-box input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: var(--white) !important;
+    color: var(--text-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Remove a seta do autocomplete */
+.search-box input::-webkit-calendar-picker-indicator,
+.search-box input::-webkit-inner-spin-button,
+.search-box input::-webkit-clear-button,
+.search-box input::-webkit-search-cancel-button {
+    display: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Força o fundo branco no autocomplete */
+.search-box input:-webkit-autofill,
+.search-box input:-webkit-autofill:hover,
+.search-box input:-webkit-autofill:focus,
+.search-box input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: var(--text-color) !important;
+    transition: background-color 5000s ease-in-out 0s;
+    background-color: var(--white) !important;
+}
+
+.search-box input::placeholder {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.search-box input:focus {
+    outline: none;
+}
+
+/* Estilo para as opções do datalist */
+.search-box datalist {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.search-box datalist option {
+    padding: 8px;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    background: var(--white);
+}
+
+.search-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.search-button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.search-button:active {
+    transform: translateY(0);
+}
+
+.search-button i {
+    font-size: 1.1rem;
+}
+
+.location-info {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: var(--white);
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.location-info i {
+    font-size: 1.2rem;
+    color: var(--white);
+}
+
+.location-info p {
+    margin: 0;
+    font-weight: 500;
+}
+
+.location-info #cityName {
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Professionals Section */
+.professionals-section {
+    padding: 4rem 2rem;
+    background-color: var(--white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.professional-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card-header {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.professional-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 2px solid var(--primary-color);
+}
+
+.professional-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.professional-info {
+    flex: 1;
+}
+
+.card-description {
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.about-title {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem 0;
+}
+
+.card-description .description {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.professional-info h2 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.professional-info .specialty {
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.professional-info .crp,
+.professional-info .location {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.btn-view-more {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 0;
+    transition: color 0.3s ease;
+}
+
+.btn-view-more:hover {
+    color: var(--primary-dark);
+}
+
+.btn-view-more .material-icons {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-view-more:hover .material-icons {
+    transform: translateX(4px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .search-box {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0.75rem;
+        margin: 0 1rem;
+        width: calc(100% - 2rem);
+    }
+
+    .search-box input {
+        width: 100%;
+        padding: 0.875rem 1rem;
+        font-size: 16px;
+    }
+
+    .search-button {
+        width: 100%;
+        justify-content: center;
+        padding: 0.875rem;
+    }
+
+    .search-button span {
+        font-size: 1.1rem;
+    }
+
+    .location-info {
+        font-size: 1.1rem;
+        padding: 0.75rem 1.5rem;
+    }
+
+    .professional-card {
+        padding: 1.5rem;
+        gap: 1.25rem;
+    }
+
+    .card-header {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    .professional-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .professional-info {
+        text-align: center;
+    }
+
+    .btn-view-more {
+        margin: 0 auto;
+    }
+
+    .card-description {
+        text-align: center;
+    }
+
+    .about-title {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .selected-city {
+        width: calc(100% - 2rem);
+        max-width: 600px;
+        margin: 1rem auto 0;
+        padding: 0.875rem 1.25rem;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-section {
+        padding: 3rem 1rem;
+    }
+
+    .search-container h1 {
+        font-size: 2rem;
+    }
+
+    .search-container p {
+        font-size: 1rem;
+    }
+
+    .location-info {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .search-box {
+        padding: 0.5rem;
+        margin: 0 0.75rem;
+        width: calc(100% - 1.5rem);
+    }
+
+    .search-box input {
+        padding: 0.75rem;
+        font-size: 0.95rem;
+    }
+
+    .search-button {
+        padding: 0.75rem;
+    }
+
+    .search-button span {
+        font-size: 1rem;
+    }
+
+    .selected-city {
+        width: calc(100% - 1.5rem);
+        padding: 0.75rem 1rem;
+        font-size: 0.95rem;
+    }
+
+    .professional-card {
+        padding: 1.25rem;
+        gap: 1rem;
+    }
+
+    .card-header {
+        gap: 1.25rem;
+    }
+
+    .professional-image {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+/* Modal de Contato */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.modal-content {
+    background: var(--white);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.modal-title {
+    flex: 1;
+}
+
+.modal-title h2 {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.modal-specialty {
+    margin: 0.5rem 0 0;
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: var(--text-color);
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background: var(--background-light);
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    background: var(--background-hover);
+}
+
+.contact-item i {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    width: 24px;
+    margin-top: 0.2rem;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.contact-label {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.contact-value {
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 1rem;
+    }
+
+    .modal-header {
+        padding: 1.25rem;
+    }
+
+    .modal-title h2 {
+        font-size: 1.3rem;
+    }
+
+    .contact-item {
+        padding: 0.75rem;
+    }
+
+    .contact-value {
+        font-size: 0.95rem;
+    }
+}
+
+.selected-city {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--white);
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-color);
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.selected-city i {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.selected-city span {
+    font-weight: 500;
+}
+
+.verified-badge {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 4px;
+}
+
+.verified-badge .material-icons {
+    color: #4CAF50;
+    font-size: 1.2rem;
+    vertical-align: middle;
+} 
