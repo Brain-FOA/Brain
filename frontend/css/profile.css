@@ -280,11 +280,11 @@
 .profile-image-preview {
     width: 150px;
     height: 150px;
-    border-radius: 50%;
+    
     overflow: hidden;
     margin-bottom: 1rem;
-    border: 3px solid var(--primary-green);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--primary-green);
+    box-shadow: 0 4px 15px rgba(150, 118, 118, 0.1);
     position: relative;
     display: flex;
     align-items: center;
