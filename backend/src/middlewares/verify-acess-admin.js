@@ -10,7 +10,7 @@ export const verifyAccessAdmin = async (req, res, next) => {
             return next()
         }
 
-        return res.status(401).json({ status: 401, message: 'Acesso negado, área restrita para administradores', error: true })
+        return res.status(401).json({ status: 401, message: 'Acesso negado, área restrita para administradores.', error: true })
 
     } catch (e) {
         return res.status(500).json({ status: 500, message: e.message || e, error: true })

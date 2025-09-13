@@ -8,7 +8,7 @@ export class SpecialtiesController {
         try {
             const specialties = await prisma.especialidade.findMany({orderBy: { id: 'asc' }})
 
-            return res.status(201).json({ status: 201, message: 'Trazendo todas as especialidades.', error: false, data: specialties })
+            return res.status(200).json({ status: 200, message: 'Trazendo todas as especialidades.', error: false, data: specialties })
 
         } catch(e) {
             res.status(500).json({ status: 500, message: e, error: true })
@@ -43,7 +43,7 @@ export class SpecialtiesController {
 
         try {
             const specialtie = await prisma.especialidade.update({ where: { id: Number(id) }, data: { nome: nome } })
-            return res.status(201).json({ status: 201, message: 'Especialidade editada com sucesso.', error: false, data: specialtie })
+            return res.status(200).json({ status: 200, message: 'Especialidade editada com sucesso.', error: false, data: specialtie })
 
         } catch(e) {
             res.status(500).json({ status: 500, message: e, error: true })
@@ -56,7 +56,7 @@ export class SpecialtiesController {
         try {
             const specialtie = await prisma.especialidade.delete({ where: { id: Number(id) } })
 
-            return res.status(201).json({ status: 201, message: 'Especialidade excluida com sucesso.', error: false })
+            return res.status(200).json({ status: 200, message: 'Especialidade excluida com sucesso.', error: false })
 
         } catch(e) {
             res.status(500).json({ status: 500, message: e, error: true })
