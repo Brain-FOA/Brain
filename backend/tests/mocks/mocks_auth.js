@@ -40,5 +40,3 @@ export async function mock_valid_login(email = null) {
 export async function delete_mock_login(email) {
     await prisma.usuario.delete({ where: { email } });
 }
-
-// mocks para /user

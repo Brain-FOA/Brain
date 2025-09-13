@@ -4,7 +4,7 @@ import assert from "node:assert";
 
 import { app } from "../src/app.js";
 
-import { mock_invalid_login, mock_valid_login, delete_mock_login, mock_invalid_register, mock_valid_register } from "./mocks/mocks.js";
+import { mock_invalid_login, mock_valid_login, delete_mock_login, mock_invalid_register, mock_valid_register } from "./mocks/mocks_auth.js";
 
 let userData;
 
