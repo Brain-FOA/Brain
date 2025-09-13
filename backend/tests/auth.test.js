@@ -4,9 +4,7 @@ import assert from "node:assert";
 
 import { app } from "../src/app.js";
 
-import { mock_invalid_login, mock_valid_login, delete_mock_login, mock_invalid_register, mock_valid_register } from "./mocks/mocks_auth.js";
-
-let userData;
+import { mock_invalid_login, mock_valid_login, delete_mock, mock_invalid_register, mock_valid_register } from "./mocks/mocks.js";
 
 describe('Testes para as rotas de /auth',{ icon: '🚀' }) 
 
@@ -28,7 +26,7 @@ test("Teste de falha para /auth/login (usuário inválido)", async () => {
 });
 
 test("Teste de sucesso para /auth/login", async () => {
-    userData = await mock_valid_login();
+    let userData = await mock_valid_login();
 
     const res = await request(app).post("/auth/login").send(userData);
         
@@ -36,7 +34,7 @@ test("Teste de sucesso para /auth/login", async () => {
     assert.strictEqual(res.body.error, false);
     assert.strictEqual(res.body.message, "Login feito com sucesso.");
 
-    await delete_mock_login(userData.email);
+    await delete_mock(userData.email);
 });
 
 // register
@@ -63,7 +61,7 @@ test("Teste de sucesso para /auth/register", async () => {
     assert.strictEqual(res.body.error, false);
     assert.strictEqual(res.body.message, "Registro feito com sucesso.");
 
-    await delete_mock_login(mock_valid_register.email);
+    await delete_mock(mock_valid_register.email);
 });
 
 

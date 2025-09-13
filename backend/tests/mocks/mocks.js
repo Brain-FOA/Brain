@@ -3,7 +3,6 @@ import bcrypt from "bcrypt"
 
 const prisma = new PrismaClient();
 
-// mocks para /auth
 export let mock_invalid_login = { email: `teste_${Date.now()}@gmail.com`, senha: "123456" }
 
 export const mock_invalid_register = {
@@ -37,6 +36,6 @@ export async function mock_valid_login(email = null) {
     return { email: user.email, senha }
 }
 
-export async function delete_mock_login(email) {
+export async function delete_mock(email) {
     await prisma.usuario.delete({ where: { email } });
 }

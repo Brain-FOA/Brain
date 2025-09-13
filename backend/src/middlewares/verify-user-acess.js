@@ -6,7 +6,7 @@ export const verifyUserAccess = async (req, res, next) => {
         const token = getToken(req)
 
         if (!token) {
-            return res.status(401).json({ status: 401, message: 'Acesso negado.', error: true })
+            return res.status(401).json({ status: 401, message: 'Acesso negado!', error: true })
         }
 
         const { email } = req.body || {}
