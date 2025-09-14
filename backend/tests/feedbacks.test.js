@@ -161,6 +161,8 @@ test("Teste de sucesso para /feedbacks/update/:id", async () => {
     assert.strictEqual(res.status, 200);
     assert.strictEqual(res.body.error, false);
     assert.strictEqual(res.body.message, "Feedback atualizado com sucesso.");
+    assert.strictEqual(res.body.data.titulo, updatedFeedback.titulo);
+    assert.strictEqual(res.body.data.conteudo, updatedFeedback.conteudo);
 
     await delete_mock_feedback(feedbackId);
     await delete_mock(userData.email);

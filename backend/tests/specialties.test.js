@@ -94,14 +94,17 @@ test("Teste de sucesso para /specialties/update/:id", async () => {
     const login = await request(app).post("/auth/login").send(userData);
     const { token } = login.body; 
 
+    const updatedName = "Especialidade Atualizada";
+
     const res = await request(app)
         .put(`/specialties/update/${specialtieData.id}`)
         .set("Authorization", `Bearer ${token}`)
-        .send({ nome: "Especialidade Atualizada" });
-
+        .send({ nome: updatedName });
+        
     assert.strictEqual(res.body.error, false);
     assert.strictEqual(res.status, 200);
     assert.strictEqual(res.body.message, "Especialidade editada com sucesso.");
+    assert.strictEqual(res.body.data.nome, updatedName);
 
     await delete_mock_specialtie("Especialidade Atualizada")
     await delete_mock(userData.email);
