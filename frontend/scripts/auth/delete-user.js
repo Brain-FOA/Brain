@@ -28,7 +28,7 @@ userInputEmail.value = payload.email
 
 async function deleteUser(form) {
         //enviar dados para API
-        const req = await fetch('http://localhost:3000/user/delete',{
+        const req = await fetch('http://localhost:3000/users/delete',{
             method: 'PATCH',
             headers: {
                 "Content-Type": "application/json",

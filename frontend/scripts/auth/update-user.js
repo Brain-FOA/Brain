@@ -49,7 +49,7 @@ async function update(form) {
 async function sendData(formData) {
     const token = localStorage.getItem('token');
 
-    const req = await fetch('http://localhost:3000/user/update', {
+    const req = await fetch('http://localhost:3000/users/update', {
         method: 'PATCH',
         headers: {
             'Authorization': `Bearer ${token}`
