@@ -11,7 +11,7 @@ export class FeedbacksController {
             const feedbacks = await prisma.feedback.findMany({orderBy: { id: 'asc' }, include: { usuario: { select: { email: true } }
             }})
 
-            return res.status(201).json({ status: 201, message: 'Trazendo todos os feedbacks.', error: false, data: feedbacks })
+            return res.status(200).json({ status: 200, message: 'Trazendo todos os feedbacks.', error: false, data: feedbacks })
 
         } catch(e) {
             res.status(500).json({ status: 500, message: e, error: true })
@@ -20,12 +20,12 @@ export class FeedbacksController {
 
     static async viewUser(req, res) {
         try {
-            const token = getToken(req)
+            const token = await getToken(req)
             const user = await getUserByToken(token, req, res)
 
             const userFeedbacks = await prisma.feedback.findMany({where: { userId: user.id }, orderBy: { id: 'asc' }})
 
-            return res.status(201).json({ status: 201, message: 'Trazendo todos os feedbacks do usuário.', error: false, data: userFeedbacks })
+            return res.status(200).json({ status: 200, message: 'Trazendo todos os feedbacks do usuário.', error: false, data: userFeedbacks })
 
         } catch(e) {
             res.status(500).json({ status: 500, message: e, error: true })
@@ -38,7 +38,7 @@ export class FeedbacksController {
         if(!titulo || !conteudo) return res.status(400).json({ status: 400, message: 'Preencha todos os campos.', error: true })
 
         try {
-            const token = getToken(req)
+            const token = await getToken(req)
             const user = await getUserByToken(token, req, res)
 
             const newFeedback = await prisma.feedback.create({data: { titulo, conteudo, userId: user.id }});
@@ -64,7 +64,7 @@ export class FeedbacksController {
 
         try {
             await prisma.feedback.delete({ where: { id: Number(id) } })
-            return res.status(201).json({ status: 201, message: 'Feedback excluido com sucesso.', error: false, data: feedback })
+            return res.status(200).json({ status: 200, message: 'Feedback excluido com sucesso.', error: false, data: feedback })
 
         } catch(e) {
             res.status(500).json({ status: 500, message: e, error: true })
@@ -75,7 +75,7 @@ export class FeedbacksController {
         const { titulo, conteudo } = req.body || {};
         const { id } = req.params;
 
-        const token = getToken(req);
+        const token = await getToken(req);
         const user = await getUserByToken(token, req, res);
 
         const feedback = await prisma.feedback.findUnique({

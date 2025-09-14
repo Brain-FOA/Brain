@@ -6,7 +6,7 @@ import { app } from "../src/app.js";
 
 import { mock_valid_login, mock_valid_login_admin, delete_mock, delete_mock_specialtie, mock_valid_specialty } from "./mocks/mocks.js";
 
-describe('Testes para as rotas de /specialties',{ icon: '🚀' }) 
+describe('Testes para as rotas de /specialties', { icon: '🚀' }) 
 
 test("Teste de falha para /specialties/register (sem token)", async () => {
     const res = await request(app).post("/specialties/register").send({});
@@ -107,7 +107,6 @@ test("Teste de sucesso para /specialties/update/:id", async () => {
     await delete_mock(userData.email);
 });
 
-
 test("Teste de falha para /specialties/delete/:id (sem permissão)", async () => {
     let userData = await mock_valid_login();
     let specialtieData = await mock_valid_specialty();
@@ -123,9 +122,9 @@ test("Teste de falha para /specialties/delete/:id (sem permissão)", async () =>
     assert.strictEqual(res.status, 401);
     assert.strictEqual(res.body.message, "Acesso negado, área restrita para administradores.");
 
+    await delete_mock_specialtie(specialtieData.nome)
     await delete_mock(userData.email);
 });
-
 
 test("Teste de sucesso para /specialties/delete/:id", async () => {
     let userData = await mock_valid_login_admin();
@@ -146,3 +145,4 @@ test("Teste de sucesso para /specialties/delete/:id", async () => {
     // await delete_mock_specialtie(specialtieData.nome)
     await delete_mock(userData.email);
 });
+

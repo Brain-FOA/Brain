@@ -51,7 +51,7 @@ export class UserController {
 
             const token = await createUserToken(updatedUser, req, res)
 
-            res.status(201).json({ status: 201, message: 'Conta editada com sucesso.', error: false, token })
+            res.status(200).json({ status: 200, message: 'Conta editada com sucesso.', error: false, token })
 
         } catch(e) {
             res.status(500).json({ status: 500, message: 'Falha ao editar.', error: true })
@@ -72,7 +72,7 @@ export class UserController {
 
         try {
             await prisma.usuario.update({ where: { email: email }, data: { deletedAt: new Date() } })
-            res.status(201).json({ status: 201, message: 'Conta excluida com sucesso.', error: false })
+            res.status(200).json({ status: 200, message: 'Conta excluida com sucesso.', error: false })
 
         } catch(e) {
             res.status(500).json({ status: 500, message: 'Falha ao deletar.', error: true })
