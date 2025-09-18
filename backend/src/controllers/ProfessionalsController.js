@@ -59,7 +59,7 @@ export class ProfessionalsController {
 
         const professionalTelefone = await prisma.professional.findUnique({ where: { crp }})
 
-        if (professionalCRP) {
+        if (professionalTelefone) {
             return res.status(400).json({
                 status: 400,
                 message: 'Esse telefone ja foi cadastrado em uma conta profissional.',
