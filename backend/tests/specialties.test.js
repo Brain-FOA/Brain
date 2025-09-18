@@ -140,4 +140,3 @@ test("Teste de sucesso para /specialties/delete/:id", async () => {
 
     await delete_mock(userData.email);
 });
-

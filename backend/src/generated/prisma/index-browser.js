@@ -158,6 +158,7 @@ exports.Prisma.ProfessionalScalarFieldEnum = {
   crp: 'crp',
   descricao: 'descricao',
   cpf: 'cpf',
+  aprovacao: 'aprovacao',
   especialidadeId: 'especialidadeId',
   usuarioId: 'usuarioId'
 };

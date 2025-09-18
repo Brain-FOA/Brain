@@ -5242,6 +5242,7 @@ export namespace Prisma {
     crp: string | null
     descricao: string | null
     cpf: string | null
+    aprovacao: boolean | null
     especialidadeId: number | null
     usuarioId: number | null
   }
@@ -5252,6 +5253,7 @@ export namespace Prisma {
     crp: string | null
     descricao: string | null
     cpf: string | null
+    aprovacao: boolean | null
     especialidadeId: number | null
     usuarioId: number | null
   }
@@ -5262,6 +5264,7 @@ export namespace Prisma {
     crp: number
     descricao: number
     cpf: number
+    aprovacao: number
     especialidadeId: number
     usuarioId: number
     _all: number
@@ -5286,6 +5289,7 @@ export namespace Prisma {
     crp?: true
     descricao?: true
     cpf?: true
+    aprovacao?: true
     especialidadeId?: true
     usuarioId?: true
   }
@@ -5296,6 +5300,7 @@ export namespace Prisma {
     crp?: true
     descricao?: true
     cpf?: true
+    aprovacao?: true
     especialidadeId?: true
     usuarioId?: true
   }
@@ -5306,6 +5311,7 @@ export namespace Prisma {
     crp?: true
     descricao?: true
     cpf?: true
+    aprovacao?: true
     especialidadeId?: true
     usuarioId?: true
     _all?: true
@@ -5403,6 +5409,7 @@ export namespace Prisma {
     crp: string
     descricao: string
     cpf: string
+    aprovacao: boolean | null
     especialidadeId: number
     usuarioId: number
     _count: ProfessionalCountAggregateOutputType | null
@@ -5432,6 +5439,7 @@ export namespace Prisma {
     crp?: boolean
     descricao?: boolean
     cpf?: boolean
+    aprovacao?: boolean
     especialidadeId?: boolean
     usuarioId?: boolean
     especialidade?: boolean | EspecialidadeDefaultArgs<ExtArgs>
@@ -5446,11 +5454,12 @@ export namespace Prisma {
     crp?: boolean
     descricao?: boolean
     cpf?: boolean
+    aprovacao?: boolean
     especialidadeId?: boolean
     usuarioId?: boolean
   }
 
-  export type ProfessionalOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "telefone" | "crp" | "descricao" | "cpf" | "especialidadeId" | "usuarioId", ExtArgs["result"]["professional"]>
+  export type ProfessionalOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "telefone" | "crp" | "descricao" | "cpf" | "aprovacao" | "especialidadeId" | "usuarioId", ExtArgs["result"]["professional"]>
   export type ProfessionalInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     especialidade?: boolean | EspecialidadeDefaultArgs<ExtArgs>
     usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
@@ -5468,6 +5477,7 @@ export namespace Prisma {
       crp: string
       descricao: string
       cpf: string
+      aprovacao: boolean | null
       especialidadeId: number
       usuarioId: number
     }, ExtArgs["result"]["professional"]>
@@ -5846,6 +5856,7 @@ export namespace Prisma {
     readonly crp: FieldRef<"Professional", 'String'>
     readonly descricao: FieldRef<"Professional", 'String'>
     readonly cpf: FieldRef<"Professional", 'String'>
+    readonly aprovacao: FieldRef<"Professional", 'Boolean'>
     readonly especialidadeId: FieldRef<"Professional", 'Int'>
     readonly usuarioId: FieldRef<"Professional", 'Int'>
   }
@@ -6273,6 +6284,7 @@ export namespace Prisma {
     crp: 'crp',
     descricao: 'descricao',
     cpf: 'cpf',
+    aprovacao: 'aprovacao',
     especialidadeId: 'especialidadeId',
     usuarioId: 'usuarioId'
   };
@@ -6365,6 +6377,13 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -6625,6 +6644,7 @@ export namespace Prisma {
     crp?: StringFilter<"Professional"> | string
     descricao?: StringFilter<"Professional"> | string
     cpf?: StringFilter<"Professional"> | string
+    aprovacao?: BoolNullableFilter<"Professional"> | boolean | null
     especialidadeId?: IntFilter<"Professional"> | number
     usuarioId?: IntFilter<"Professional"> | number
     especialidade?: XOR<EspecialidadeScalarRelationFilter, EspecialidadeWhereInput>
@@ -6637,6 +6657,7 @@ export namespace Prisma {
     crp?: SortOrder
     descricao?: SortOrder
     cpf?: SortOrder
+    aprovacao?: SortOrderInput | SortOrder
     especialidadeId?: SortOrder
     usuarioId?: SortOrder
     especialidade?: EspecialidadeOrderByWithRelationInput
@@ -6646,18 +6667,19 @@ export namespace Prisma {
 
   export type ProfessionalWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    telefone?: string
     crp?: string
     cpf?: string
     usuarioId?: number
     AND?: ProfessionalWhereInput | ProfessionalWhereInput[]
     OR?: ProfessionalWhereInput[]
     NOT?: ProfessionalWhereInput | ProfessionalWhereInput[]
-    telefone?: StringFilter<"Professional"> | string
     descricao?: StringFilter<"Professional"> | string
+    aprovacao?: BoolNullableFilter<"Professional"> | boolean | null
     especialidadeId?: IntFilter<"Professional"> | number
     especialidade?: XOR<EspecialidadeScalarRelationFilter, EspecialidadeWhereInput>
     usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
-  }, "id" | "crp" | "cpf" | "usuarioId">
+  }, "id" | "telefone" | "crp" | "cpf" | "usuarioId">
 
   export type ProfessionalOrderByWithAggregationInput = {
     id?: SortOrder
@@ -6665,6 +6687,7 @@ export namespace Prisma {
     crp?: SortOrder
     descricao?: SortOrder
     cpf?: SortOrder
+    aprovacao?: SortOrderInput | SortOrder
     especialidadeId?: SortOrder
     usuarioId?: SortOrder
     _count?: ProfessionalCountOrderByAggregateInput
@@ -6683,6 +6706,7 @@ export namespace Prisma {
     crp?: StringWithAggregatesFilter<"Professional"> | string
     descricao?: StringWithAggregatesFilter<"Professional"> | string
     cpf?: StringWithAggregatesFilter<"Professional"> | string
+    aprovacao?: BoolNullableWithAggregatesFilter<"Professional"> | boolean | null
     especialidadeId?: IntWithAggregatesFilter<"Professional"> | number
     usuarioId?: IntWithAggregatesFilter<"Professional"> | number
   }
@@ -6918,6 +6942,7 @@ export namespace Prisma {
     crp: string
     descricao: string
     cpf: string
+    aprovacao?: boolean | null
     especialidade: EspecialidadeCreateNestedOneWithoutProfissionalInput
     usuario: UsuarioCreateNestedOneWithoutProfissionalInput
   }
@@ -6928,6 +6953,7 @@ export namespace Prisma {
     crp: string
     descricao: string
     cpf: string
+    aprovacao?: boolean | null
     especialidadeId: number
     usuarioId: number
   }
@@ -6937,6 +6963,7 @@ export namespace Prisma {
     crp?: StringFieldUpdateOperationsInput | string
     descricao?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
+    aprovacao?: NullableBoolFieldUpdateOperationsInput | boolean | null
     especialidade?: EspecialidadeUpdateOneRequiredWithoutProfissionalNestedInput
     usuario?: UsuarioUpdateOneRequiredWithoutProfissionalNestedInput
   }
@@ -6947,6 +6974,7 @@ export namespace Prisma {
     crp?: StringFieldUpdateOperationsInput | string
     descricao?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
+    aprovacao?: NullableBoolFieldUpdateOperationsInput | boolean | null
     especialidadeId?: IntFieldUpdateOperationsInput | number
     usuarioId?: IntFieldUpdateOperationsInput | number
   }
@@ -6957,6 +6985,7 @@ export namespace Prisma {
     crp: string
     descricao: string
     cpf: string
+    aprovacao?: boolean | null
     especialidadeId: number
     usuarioId: number
   }
@@ -6966,6 +6995,7 @@ export namespace Prisma {
     crp?: StringFieldUpdateOperationsInput | string
     descricao?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
+    aprovacao?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type ProfessionalUncheckedUpdateManyInput = {
@@ -6974,6 +7004,7 @@ export namespace Prisma {
     crp?: StringFieldUpdateOperationsInput | string
     descricao?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
+    aprovacao?: NullableBoolFieldUpdateOperationsInput | boolean | null
     especialidadeId?: IntFieldUpdateOperationsInput | number
     usuarioId?: IntFieldUpdateOperationsInput | number
   }
@@ -7317,6 +7348,11 @@ export namespace Prisma {
     usuarioId?: SortOrder
   }
 
+  export type BoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+
   export type EspecialidadeScalarRelationFilter = {
     is?: EspecialidadeWhereInput
     isNot?: EspecialidadeWhereInput
@@ -7334,6 +7370,7 @@ export namespace Prisma {
     crp?: SortOrder
     descricao?: SortOrder
     cpf?: SortOrder
+    aprovacao?: SortOrder
     especialidadeId?: SortOrder
     usuarioId?: SortOrder
   }
@@ -7350,6 +7387,7 @@ export namespace Prisma {
     crp?: SortOrder
     descricao?: SortOrder
     cpf?: SortOrder
+    aprovacao?: SortOrder
     especialidadeId?: SortOrder
     usuarioId?: SortOrder
   }
@@ -7360,6 +7398,7 @@ export namespace Prisma {
     crp?: SortOrder
     descricao?: SortOrder
     cpf?: SortOrder
+    aprovacao?: SortOrder
     especialidadeId?: SortOrder
     usuarioId?: SortOrder
   }
@@ -7368,6 +7407,14 @@ export namespace Prisma {
     id?: SortOrder
     especialidadeId?: SortOrder
     usuarioId?: SortOrder
+  }
+
+  export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
   export type FeedbackCreateNestedManyWithoutUsuarioInput = {
@@ -7582,6 +7629,10 @@ export namespace Prisma {
     connect?: UsuarioWhereUniqueInput
   }
 
+  export type NullableBoolFieldUpdateOperationsInput = {
+    set?: boolean | null
+  }
+
   export type EspecialidadeUpdateOneRequiredWithoutProfissionalNestedInput = {
     create?: XOR<EspecialidadeCreateWithoutProfissionalInput, EspecialidadeUncheckedCreateWithoutProfissionalInput>
     connectOrCreate?: EspecialidadeCreateOrConnectWithoutProfissionalInput
@@ -7763,6 +7814,19 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type NestedBoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+
+  export type NestedBoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
+  }
+
   export type FeedbackCreateWithoutUsuarioInput = {
     titulo: string
     conteudo: string
@@ -7811,6 +7875,7 @@ export namespace Prisma {
     crp: string
     descricao: string
     cpf: string
+    aprovacao?: boolean | null
     especialidade: EspecialidadeCreateNestedOneWithoutProfissionalInput
   }
 
@@ -7820,6 +7885,7 @@ export namespace Prisma {
     crp: string
     descricao: string
     cpf: string
+    aprovacao?: boolean | null
     especialidadeId: number
   }
 
@@ -7897,6 +7963,7 @@ export namespace Prisma {
     crp?: StringFieldUpdateOperationsInput | string
     descricao?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
+    aprovacao?: NullableBoolFieldUpdateOperationsInput | boolean | null
     especialidade?: EspecialidadeUpdateOneRequiredWithoutProfissionalNestedInput
   }
 
@@ -7906,6 +7973,7 @@ export namespace Prisma {
     crp?: StringFieldUpdateOperationsInput | string
     descricao?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
+    aprovacao?: NullableBoolFieldUpdateOperationsInput | boolean | null
     especialidadeId?: IntFieldUpdateOperationsInput | number
   }
 
@@ -7914,6 +7982,7 @@ export namespace Prisma {
     crp: string
     descricao: string
     cpf: string
+    aprovacao?: boolean | null
     usuario: UsuarioCreateNestedOneWithoutProfissionalInput
   }
 
@@ -7923,6 +7992,7 @@ export namespace Prisma {
     crp: string
     descricao: string
     cpf: string
+    aprovacao?: boolean | null
     usuarioId: number
   }
 
@@ -7961,6 +8031,7 @@ export namespace Prisma {
     crp?: StringFilter<"Professional"> | string
     descricao?: StringFilter<"Professional"> | string
     cpf?: StringFilter<"Professional"> | string
+    aprovacao?: BoolNullableFilter<"Professional"> | boolean | null
     especialidadeId?: IntFilter<"Professional"> | number
     usuarioId?: IntFilter<"Professional"> | number
   }
@@ -8218,6 +8289,7 @@ export namespace Prisma {
     crp: string
     descricao: string
     cpf: string
+    aprovacao?: boolean | null
     usuarioId: number
   }
 
@@ -8226,6 +8298,7 @@ export namespace Prisma {
     crp?: StringFieldUpdateOperationsInput | string
     descricao?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
+    aprovacao?: NullableBoolFieldUpdateOperationsInput | boolean | null
     usuario?: UsuarioUpdateOneRequiredWithoutProfissionalNestedInput
   }
 
@@ -8235,6 +8308,7 @@ export namespace Prisma {
     crp?: StringFieldUpdateOperationsInput | string
     descricao?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
+    aprovacao?: NullableBoolFieldUpdateOperationsInput | boolean | null
     usuarioId?: IntFieldUpdateOperationsInput | number
   }
 
@@ -8244,6 +8318,7 @@ export namespace Prisma {
     crp?: StringFieldUpdateOperationsInput | string
     descricao?: StringFieldUpdateOperationsInput | string
     cpf?: StringFieldUpdateOperationsInput | string
+    aprovacao?: NullableBoolFieldUpdateOperationsInput | boolean | null
     usuarioId?: IntFieldUpdateOperationsInput | number
   }
 

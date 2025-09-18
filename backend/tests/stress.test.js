@@ -4,7 +4,7 @@ import autocannon from "autocannon";
 import { app } from "../src/app.js";
 import { mock_valid_login, delete_mock, mock_valid_register } from "./mocks/mocks.js";
 
-describe('Testes de stress para rotas mais requisitadas do app',{ icon: '🚀' })
+describe('Testes de stress para rotas de cadastro',{ icon: '🚀' })
 
 test("Stress test para /auth/login", async () => {
     const userData = await mock_valid_login();
@@ -60,6 +60,3 @@ test("Stress test para /auth/register", async () => {
     server.close();
     await delete_mock(mock_valid_register.email);
 });
-
-
-

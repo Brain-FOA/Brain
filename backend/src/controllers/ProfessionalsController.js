@@ -125,4 +125,66 @@ export class ProfessionalsController {
             return res.status(500).json({ status: 500, message: "Falha ao registrar.", error: true, details: e.message })
         }
     }
+
+    static async accept(req, res) {
+        const { id } = req.params;
+
+        if (!id) {
+            return res.status(400).json({ status: 400, message: "ID inválido", error: true });
+        }
+
+        const professionalExist = await prisma.professional.findUnique({ where: { usuarioId: parseInt(id) }})
+        
+        if(!professionalExist) {
+            return res.status(400).json({ status: 400, message: "Profissional não encontrado.", error: true });
+        }
+
+        try {
+            const updated = await prisma.professional.update({
+                where: { usuarioId: parseInt(id) },
+                data: { aprovacao: true }
+            });
+
+            return res.status(200).json({
+                status: 200,
+                message: "Profissional aprovado com sucesso.",
+                error: false,
+                data: updated
+            });
+
+        } catch (e) {
+            return res.status(500).json({ status: 500, message: "Falha ao aprovar profissional.", error: true, details: e.message });
+        }
+    }
+
+    static async reject(req, res) {
+        const { id } = req.params;
+
+        if (!id) {
+            return res.status(400).json({ status: 400, message: "ID inválido.", error: true });
+        }
+
+        const professionalExist = await prisma.professional.findUnique({ where: { usuarioId: parseInt(id) }})
+
+        if(!professionalExist) {
+            return res.status(400).json({ status: 400, message: "Profissional não encontrado.", error: true });
+        }
+
+        try {
+            const updated = await prisma.professional.update({
+                where: { usuarioId: parseInt(id) },
+                data: { aprovacao: false }
+            });
+
+            return res.status(200).json({
+                status: 200,
+                message: "Profissional reprovado com sucesso.",
+                error: false,
+                data: updated
+            });
+
+        } catch (e) {
+            return res.status(500).json({ status: 500, message: "Falha ao aprovar profissional.", error: true, details: e.message });
+        }
+    }
 }

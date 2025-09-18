@@ -65,11 +65,12 @@ model Endereco {
 }
 
 model Professional {
-  id        Int    @id @default(autoincrement())
-  telefone  String @db.VarChar(20)
-  crp       String @unique @db.VarChar(20)
-  descricao String @db.VarChar(400)
-  cpf       String @unique @db.VarChar(14)
+  id        Int      @id @default(autoincrement())
+  telefone  String   @unique @db.VarChar(20)
+  crp       String   @unique @db.VarChar(20)
+  descricao String   @db.VarChar(400)
+  cpf       String   @unique @db.VarChar(14)
+  aprovacao Boolean?
 
   especialidade   Especialidade @relation(fields: [especialidadeId], references: [id])
   especialidadeId Int
