@@ -143,6 +143,25 @@ exports.Prisma.FeedbackScalarFieldEnum = {
   userId: 'userId'
 };
 
+exports.Prisma.EnderecoScalarFieldEnum = {
+  id: 'id',
+  cep: 'cep',
+  cidade: 'cidade',
+  bairro: 'bairro',
+  numero: 'numero',
+  usuarioId: 'usuarioId'
+};
+
+exports.Prisma.ProfessionalScalarFieldEnum = {
+  id: 'id',
+  telefone: 'telefone',
+  crp: 'crp',
+  descricao: 'descricao',
+  cpf: 'cpf',
+  especialidadeId: 'especialidadeId',
+  usuarioId: 'usuarioId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -170,11 +189,27 @@ exports.Prisma.FeedbackOrderByRelevanceFieldEnum = {
   conteudo: 'conteudo'
 };
 
+exports.Prisma.EnderecoOrderByRelevanceFieldEnum = {
+  cep: 'cep',
+  cidade: 'cidade',
+  bairro: 'bairro',
+  numero: 'numero'
+};
+
+exports.Prisma.ProfessionalOrderByRelevanceFieldEnum = {
+  telefone: 'telefone',
+  crp: 'crp',
+  descricao: 'descricao',
+  cpf: 'cpf'
+};
+
 
 exports.Prisma.ModelName = {
   Usuario: 'Usuario',
   Especialidade: 'Especialidade',
-  Feedback: 'Feedback'
+  Feedback: 'Feedback',
+  Endereco: 'Endereco',
+  Professional: 'Professional'
 };
 
 /**

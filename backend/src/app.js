@@ -17,9 +17,10 @@ import { router as authRouter } from './routes/authRoutes.js'
 import { router as userRouter } from './routes/userRoutes.js'
 import { router as specialtiesRoutes } from './routes/specialtiesRoutes.js'
 import { router as feedbacksRoutes } from './routes/feedbacksRoutes.js';
+import { router as professionalsRoutes } from './routes/professionalsRoutes.js';
 
 app.use('/auth', authRouter)
 app.use('/users', userRouter)
 app.use('/specialties', specialtiesRoutes)
 app.use('/feedbacks', feedbacksRoutes)
-
+app.use('/professionals', professionalsRoutes)

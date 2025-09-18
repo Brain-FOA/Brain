@@ -28,6 +28,16 @@ export type Especialidade = $Result.DefaultSelection<Prisma.$EspecialidadePayloa
  * 
  */
 export type Feedback = $Result.DefaultSelection<Prisma.$FeedbackPayload>
+/**
+ * Model Endereco
+ * 
+ */
+export type Endereco = $Result.DefaultSelection<Prisma.$EnderecoPayload>
+/**
+ * Model Professional
+ * 
+ */
+export type Professional = $Result.DefaultSelection<Prisma.$ProfessionalPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -183,6 +193,26 @@ export class PrismaClient<
     * ```
     */
   get feedback(): Prisma.FeedbackDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.endereco`: Exposes CRUD operations for the **Endereco** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Enderecos
+    * const enderecos = await prisma.endereco.findMany()
+    * ```
+    */
+  get endereco(): Prisma.EnderecoDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.professional`: Exposes CRUD operations for the **Professional** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Professionals
+    * const professionals = await prisma.professional.findMany()
+    * ```
+    */
+  get professional(): Prisma.ProfessionalDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -625,7 +655,9 @@ export namespace Prisma {
   export const ModelName: {
     Usuario: 'Usuario',
     Especialidade: 'Especialidade',
-    Feedback: 'Feedback'
+    Feedback: 'Feedback',
+    Endereco: 'Endereco',
+    Professional: 'Professional'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -644,7 +676,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "usuario" | "especialidade" | "feedback"
+      modelProps: "usuario" | "especialidade" | "feedback" | "endereco" | "professional"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -846,6 +878,138 @@ export namespace Prisma {
           }
         }
       }
+      Endereco: {
+        payload: Prisma.$EnderecoPayload<ExtArgs>
+        fields: Prisma.EnderecoFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.EnderecoFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EnderecoPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.EnderecoFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EnderecoPayload>
+          }
+          findFirst: {
+            args: Prisma.EnderecoFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EnderecoPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.EnderecoFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EnderecoPayload>
+          }
+          findMany: {
+            args: Prisma.EnderecoFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EnderecoPayload>[]
+          }
+          create: {
+            args: Prisma.EnderecoCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EnderecoPayload>
+          }
+          createMany: {
+            args: Prisma.EnderecoCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.EnderecoDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EnderecoPayload>
+          }
+          update: {
+            args: Prisma.EnderecoUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EnderecoPayload>
+          }
+          deleteMany: {
+            args: Prisma.EnderecoDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.EnderecoUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.EnderecoUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EnderecoPayload>
+          }
+          aggregate: {
+            args: Prisma.EnderecoAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEndereco>
+          }
+          groupBy: {
+            args: Prisma.EnderecoGroupByArgs<ExtArgs>
+            result: $Utils.Optional<EnderecoGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.EnderecoCountArgs<ExtArgs>
+            result: $Utils.Optional<EnderecoCountAggregateOutputType> | number
+          }
+        }
+      }
+      Professional: {
+        payload: Prisma.$ProfessionalPayload<ExtArgs>
+        fields: Prisma.ProfessionalFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProfessionalFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionalPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProfessionalFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionalPayload>
+          }
+          findFirst: {
+            args: Prisma.ProfessionalFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionalPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProfessionalFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionalPayload>
+          }
+          findMany: {
+            args: Prisma.ProfessionalFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionalPayload>[]
+          }
+          create: {
+            args: Prisma.ProfessionalCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionalPayload>
+          }
+          createMany: {
+            args: Prisma.ProfessionalCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.ProfessionalDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionalPayload>
+          }
+          update: {
+            args: Prisma.ProfessionalUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionalPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProfessionalDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProfessionalUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.ProfessionalUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProfessionalPayload>
+          }
+          aggregate: {
+            args: Prisma.ProfessionalAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProfessional>
+          }
+          groupBy: {
+            args: Prisma.ProfessionalGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProfessionalGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProfessionalCountArgs<ExtArgs>
+            result: $Utils.Optional<ProfessionalCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -933,6 +1097,8 @@ export namespace Prisma {
     usuario?: UsuarioOmit
     especialidade?: EspecialidadeOmit
     feedback?: FeedbackOmit
+    endereco?: EnderecoOmit
+    professional?: ProfessionalOmit
   }
 
   /* Types for Logging */
@@ -1050,6 +1216,37 @@ export namespace Prisma {
    */
   export type UsuarioCountOutputTypeCountFeedbacksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: FeedbackWhereInput
+  }
+
+
+  /**
+   * Count Type EspecialidadeCountOutputType
+   */
+
+  export type EspecialidadeCountOutputType = {
+    profissional: number
+  }
+
+  export type EspecialidadeCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profissional?: boolean | EspecialidadeCountOutputTypeCountProfissionalArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * EspecialidadeCountOutputType without action
+   */
+  export type EspecialidadeCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EspecialidadeCountOutputType
+     */
+    select?: EspecialidadeCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * EspecialidadeCountOutputType without action
+   */
+  export type EspecialidadeCountOutputTypeCountProfissionalArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProfessionalWhereInput
   }
 
 
@@ -1272,6 +1469,8 @@ export namespace Prisma {
     acesso?: boolean
     deletedAt?: boolean
     feedbacks?: boolean | Usuario$feedbacksArgs<ExtArgs>
+    endereco?: boolean | Usuario$enderecoArgs<ExtArgs>
+    profissional?: boolean | Usuario$profissionalArgs<ExtArgs>
     _count?: boolean | UsuarioCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["usuario"]>
 
@@ -1290,6 +1489,8 @@ export namespace Prisma {
   export type UsuarioOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome" | "email" | "senha" | "foto" | "acesso" | "deletedAt", ExtArgs["result"]["usuario"]>
   export type UsuarioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     feedbacks?: boolean | Usuario$feedbacksArgs<ExtArgs>
+    endereco?: boolean | Usuario$enderecoArgs<ExtArgs>
+    profissional?: boolean | Usuario$profissionalArgs<ExtArgs>
     _count?: boolean | UsuarioCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -1297,6 +1498,8 @@ export namespace Prisma {
     name: "Usuario"
     objects: {
       feedbacks: Prisma.$FeedbackPayload<ExtArgs>[]
+      endereco: Prisma.$EnderecoPayload<ExtArgs> | null
+      profissional: Prisma.$ProfessionalPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -1647,6 +1850,8 @@ export namespace Prisma {
   export interface Prisma__UsuarioClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     feedbacks<T extends Usuario$feedbacksArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$feedbacksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FeedbackPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    endereco<T extends Usuario$enderecoArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$enderecoArgs<ExtArgs>>): Prisma__EnderecoClient<$Result.GetResult<Prisma.$EnderecoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    profissional<T extends Usuario$profissionalArgs<ExtArgs> = {}>(args?: Subset<T, Usuario$profissionalArgs<ExtArgs>>): Prisma__ProfessionalClient<$Result.GetResult<Prisma.$ProfessionalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2050,6 +2255,44 @@ export namespace Prisma {
   }
 
   /**
+   * Usuario.endereco
+   */
+  export type Usuario$enderecoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Endereco
+     */
+    select?: EnderecoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Endereco
+     */
+    omit?: EnderecoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EnderecoInclude<ExtArgs> | null
+    where?: EnderecoWhereInput
+  }
+
+  /**
+   * Usuario.profissional
+   */
+  export type Usuario$profissionalArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professional
+     */
+    select?: ProfessionalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professional
+     */
+    omit?: ProfessionalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionalInclude<ExtArgs> | null
+    where?: ProfessionalWhereInput
+  }
+
+  /**
    * Usuario without action
    */
   export type UsuarioDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2242,6 +2485,8 @@ export namespace Prisma {
   export type EspecialidadeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     nome?: boolean
+    profissional?: boolean | Especialidade$profissionalArgs<ExtArgs>
+    _count?: boolean | EspecialidadeCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["especialidade"]>
 
 
@@ -2252,10 +2497,16 @@ export namespace Prisma {
   }
 
   export type EspecialidadeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nome", ExtArgs["result"]["especialidade"]>
+  export type EspecialidadeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    profissional?: boolean | Especialidade$profissionalArgs<ExtArgs>
+    _count?: boolean | EspecialidadeCountOutputTypeDefaultArgs<ExtArgs>
+  }
 
   export type $EspecialidadePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Especialidade"
-    objects: {}
+    objects: {
+      profissional: Prisma.$ProfessionalPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       nome: string
@@ -2599,6 +2850,7 @@ export namespace Prisma {
    */
   export interface Prisma__EspecialidadeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    profissional<T extends Especialidade$profissionalArgs<ExtArgs> = {}>(args?: Subset<T, Especialidade$profissionalArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfessionalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2647,6 +2899,10 @@ export namespace Prisma {
      */
     omit?: EspecialidadeOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EspecialidadeInclude<ExtArgs> | null
+    /**
      * Filter, which Especialidade to fetch.
      */
     where: EspecialidadeWhereUniqueInput
@@ -2665,6 +2921,10 @@ export namespace Prisma {
      */
     omit?: EspecialidadeOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EspecialidadeInclude<ExtArgs> | null
+    /**
      * Filter, which Especialidade to fetch.
      */
     where: EspecialidadeWhereUniqueInput
@@ -2682,6 +2942,10 @@ export namespace Prisma {
      * Omit specific fields from the Especialidade
      */
     omit?: EspecialidadeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EspecialidadeInclude<ExtArgs> | null
     /**
      * Filter, which Especialidade to fetch.
      */
@@ -2731,6 +2995,10 @@ export namespace Prisma {
      */
     omit?: EspecialidadeOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EspecialidadeInclude<ExtArgs> | null
+    /**
      * Filter, which Especialidade to fetch.
      */
     where?: EspecialidadeWhereInput
@@ -2779,6 +3047,10 @@ export namespace Prisma {
      */
     omit?: EspecialidadeOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EspecialidadeInclude<ExtArgs> | null
+    /**
      * Filter, which Especialidades to fetch.
      */
     where?: EspecialidadeWhereInput
@@ -2822,6 +3094,10 @@ export namespace Prisma {
      */
     omit?: EspecialidadeOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EspecialidadeInclude<ExtArgs> | null
+    /**
      * The data needed to create a Especialidade.
      */
     data: XOR<EspecialidadeCreateInput, EspecialidadeUncheckedCreateInput>
@@ -2850,6 +3126,10 @@ export namespace Prisma {
      * Omit specific fields from the Especialidade
      */
     omit?: EspecialidadeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EspecialidadeInclude<ExtArgs> | null
     /**
      * The data needed to update a Especialidade.
      */
@@ -2891,6 +3171,10 @@ export namespace Prisma {
      */
     omit?: EspecialidadeOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EspecialidadeInclude<ExtArgs> | null
+    /**
      * The filter to search for the Especialidade to update in case it exists.
      */
     where: EspecialidadeWhereUniqueInput
@@ -2917,6 +3201,10 @@ export namespace Prisma {
      */
     omit?: EspecialidadeOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EspecialidadeInclude<ExtArgs> | null
+    /**
      * Filter which Especialidade to delete.
      */
     where: EspecialidadeWhereUniqueInput
@@ -2937,6 +3225,30 @@ export namespace Prisma {
   }
 
   /**
+   * Especialidade.profissional
+   */
+  export type Especialidade$profissionalArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professional
+     */
+    select?: ProfessionalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professional
+     */
+    omit?: ProfessionalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionalInclude<ExtArgs> | null
+    where?: ProfessionalWhereInput
+    orderBy?: ProfessionalOrderByWithRelationInput | ProfessionalOrderByWithRelationInput[]
+    cursor?: ProfessionalWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProfessionalScalarFieldEnum | ProfessionalScalarFieldEnum[]
+  }
+
+  /**
    * Especialidade without action
    */
   export type EspecialidadeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2948,6 +3260,10 @@ export namespace Prisma {
      * Omit specific fields from the Especialidade
      */
     omit?: EspecialidadeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EspecialidadeInclude<ExtArgs> | null
   }
 
 
@@ -3919,6 +4235,1981 @@ export namespace Prisma {
 
 
   /**
+   * Model Endereco
+   */
+
+  export type AggregateEndereco = {
+    _count: EnderecoCountAggregateOutputType | null
+    _avg: EnderecoAvgAggregateOutputType | null
+    _sum: EnderecoSumAggregateOutputType | null
+    _min: EnderecoMinAggregateOutputType | null
+    _max: EnderecoMaxAggregateOutputType | null
+  }
+
+  export type EnderecoAvgAggregateOutputType = {
+    id: number | null
+    usuarioId: number | null
+  }
+
+  export type EnderecoSumAggregateOutputType = {
+    id: number | null
+    usuarioId: number | null
+  }
+
+  export type EnderecoMinAggregateOutputType = {
+    id: number | null
+    cep: string | null
+    cidade: string | null
+    bairro: string | null
+    numero: string | null
+    usuarioId: number | null
+  }
+
+  export type EnderecoMaxAggregateOutputType = {
+    id: number | null
+    cep: string | null
+    cidade: string | null
+    bairro: string | null
+    numero: string | null
+    usuarioId: number | null
+  }
+
+  export type EnderecoCountAggregateOutputType = {
+    id: number
+    cep: number
+    cidade: number
+    bairro: number
+    numero: number
+    usuarioId: number
+    _all: number
+  }
+
+
+  export type EnderecoAvgAggregateInputType = {
+    id?: true
+    usuarioId?: true
+  }
+
+  export type EnderecoSumAggregateInputType = {
+    id?: true
+    usuarioId?: true
+  }
+
+  export type EnderecoMinAggregateInputType = {
+    id?: true
+    cep?: true
+    cidade?: true
+    bairro?: true
+    numero?: true
+    usuarioId?: true
+  }
+
+  export type EnderecoMaxAggregateInputType = {
+    id?: true
+    cep?: true
+    cidade?: true
+    bairro?: true
+    numero?: true
+    usuarioId?: true
+  }
+
+  export type EnderecoCountAggregateInputType = {
+    id?: true
+    cep?: true
+    cidade?: true
+    bairro?: true
+    numero?: true
+    usuarioId?: true
+    _all?: true
+  }
+
+  export type EnderecoAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Endereco to aggregate.
+     */
+    where?: EnderecoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Enderecos to fetch.
+     */
+    orderBy?: EnderecoOrderByWithRelationInput | EnderecoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: EnderecoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Enderecos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Enderecos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Enderecos
+    **/
+    _count?: true | EnderecoCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: EnderecoAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: EnderecoSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: EnderecoMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: EnderecoMaxAggregateInputType
+  }
+
+  export type GetEnderecoAggregateType<T extends EnderecoAggregateArgs> = {
+        [P in keyof T & keyof AggregateEndereco]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateEndereco[P]>
+      : GetScalarType<T[P], AggregateEndereco[P]>
+  }
+
+
+
+
+  export type EnderecoGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EnderecoWhereInput
+    orderBy?: EnderecoOrderByWithAggregationInput | EnderecoOrderByWithAggregationInput[]
+    by: EnderecoScalarFieldEnum[] | EnderecoScalarFieldEnum
+    having?: EnderecoScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: EnderecoCountAggregateInputType | true
+    _avg?: EnderecoAvgAggregateInputType
+    _sum?: EnderecoSumAggregateInputType
+    _min?: EnderecoMinAggregateInputType
+    _max?: EnderecoMaxAggregateInputType
+  }
+
+  export type EnderecoGroupByOutputType = {
+    id: number
+    cep: string
+    cidade: string
+    bairro: string
+    numero: string
+    usuarioId: number
+    _count: EnderecoCountAggregateOutputType | null
+    _avg: EnderecoAvgAggregateOutputType | null
+    _sum: EnderecoSumAggregateOutputType | null
+    _min: EnderecoMinAggregateOutputType | null
+    _max: EnderecoMaxAggregateOutputType | null
+  }
+
+  type GetEnderecoGroupByPayload<T extends EnderecoGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<EnderecoGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof EnderecoGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], EnderecoGroupByOutputType[P]>
+            : GetScalarType<T[P], EnderecoGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type EnderecoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    cep?: boolean
+    cidade?: boolean
+    bairro?: boolean
+    numero?: boolean
+    usuarioId?: boolean
+    usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["endereco"]>
+
+
+
+  export type EnderecoSelectScalar = {
+    id?: boolean
+    cep?: boolean
+    cidade?: boolean
+    bairro?: boolean
+    numero?: boolean
+    usuarioId?: boolean
+  }
+
+  export type EnderecoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "cep" | "cidade" | "bairro" | "numero" | "usuarioId", ExtArgs["result"]["endereco"]>
+  export type EnderecoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
+  }
+
+  export type $EnderecoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Endereco"
+    objects: {
+      usuario: Prisma.$UsuarioPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      cep: string
+      cidade: string
+      bairro: string
+      numero: string
+      usuarioId: number
+    }, ExtArgs["result"]["endereco"]>
+    composites: {}
+  }
+
+  type EnderecoGetPayload<S extends boolean | null | undefined | EnderecoDefaultArgs> = $Result.GetResult<Prisma.$EnderecoPayload, S>
+
+  type EnderecoCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<EnderecoFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: EnderecoCountAggregateInputType | true
+    }
+
+  export interface EnderecoDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Endereco'], meta: { name: 'Endereco' } }
+    /**
+     * Find zero or one Endereco that matches the filter.
+     * @param {EnderecoFindUniqueArgs} args - Arguments to find a Endereco
+     * @example
+     * // Get one Endereco
+     * const endereco = await prisma.endereco.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends EnderecoFindUniqueArgs>(args: SelectSubset<T, EnderecoFindUniqueArgs<ExtArgs>>): Prisma__EnderecoClient<$Result.GetResult<Prisma.$EnderecoPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Endereco that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {EnderecoFindUniqueOrThrowArgs} args - Arguments to find a Endereco
+     * @example
+     * // Get one Endereco
+     * const endereco = await prisma.endereco.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends EnderecoFindUniqueOrThrowArgs>(args: SelectSubset<T, EnderecoFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EnderecoClient<$Result.GetResult<Prisma.$EnderecoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Endereco that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EnderecoFindFirstArgs} args - Arguments to find a Endereco
+     * @example
+     * // Get one Endereco
+     * const endereco = await prisma.endereco.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends EnderecoFindFirstArgs>(args?: SelectSubset<T, EnderecoFindFirstArgs<ExtArgs>>): Prisma__EnderecoClient<$Result.GetResult<Prisma.$EnderecoPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Endereco that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EnderecoFindFirstOrThrowArgs} args - Arguments to find a Endereco
+     * @example
+     * // Get one Endereco
+     * const endereco = await prisma.endereco.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends EnderecoFindFirstOrThrowArgs>(args?: SelectSubset<T, EnderecoFindFirstOrThrowArgs<ExtArgs>>): Prisma__EnderecoClient<$Result.GetResult<Prisma.$EnderecoPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Enderecos that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EnderecoFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Enderecos
+     * const enderecos = await prisma.endereco.findMany()
+     * 
+     * // Get first 10 Enderecos
+     * const enderecos = await prisma.endereco.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const enderecoWithIdOnly = await prisma.endereco.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends EnderecoFindManyArgs>(args?: SelectSubset<T, EnderecoFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EnderecoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Endereco.
+     * @param {EnderecoCreateArgs} args - Arguments to create a Endereco.
+     * @example
+     * // Create one Endereco
+     * const Endereco = await prisma.endereco.create({
+     *   data: {
+     *     // ... data to create a Endereco
+     *   }
+     * })
+     * 
+     */
+    create<T extends EnderecoCreateArgs>(args: SelectSubset<T, EnderecoCreateArgs<ExtArgs>>): Prisma__EnderecoClient<$Result.GetResult<Prisma.$EnderecoPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Enderecos.
+     * @param {EnderecoCreateManyArgs} args - Arguments to create many Enderecos.
+     * @example
+     * // Create many Enderecos
+     * const endereco = await prisma.endereco.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends EnderecoCreateManyArgs>(args?: SelectSubset<T, EnderecoCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Endereco.
+     * @param {EnderecoDeleteArgs} args - Arguments to delete one Endereco.
+     * @example
+     * // Delete one Endereco
+     * const Endereco = await prisma.endereco.delete({
+     *   where: {
+     *     // ... filter to delete one Endereco
+     *   }
+     * })
+     * 
+     */
+    delete<T extends EnderecoDeleteArgs>(args: SelectSubset<T, EnderecoDeleteArgs<ExtArgs>>): Prisma__EnderecoClient<$Result.GetResult<Prisma.$EnderecoPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Endereco.
+     * @param {EnderecoUpdateArgs} args - Arguments to update one Endereco.
+     * @example
+     * // Update one Endereco
+     * const endereco = await prisma.endereco.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends EnderecoUpdateArgs>(args: SelectSubset<T, EnderecoUpdateArgs<ExtArgs>>): Prisma__EnderecoClient<$Result.GetResult<Prisma.$EnderecoPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Enderecos.
+     * @param {EnderecoDeleteManyArgs} args - Arguments to filter Enderecos to delete.
+     * @example
+     * // Delete a few Enderecos
+     * const { count } = await prisma.endereco.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends EnderecoDeleteManyArgs>(args?: SelectSubset<T, EnderecoDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Enderecos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EnderecoUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Enderecos
+     * const endereco = await prisma.endereco.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends EnderecoUpdateManyArgs>(args: SelectSubset<T, EnderecoUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Endereco.
+     * @param {EnderecoUpsertArgs} args - Arguments to update or create a Endereco.
+     * @example
+     * // Update or create a Endereco
+     * const endereco = await prisma.endereco.upsert({
+     *   create: {
+     *     // ... data to create a Endereco
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Endereco we want to update
+     *   }
+     * })
+     */
+    upsert<T extends EnderecoUpsertArgs>(args: SelectSubset<T, EnderecoUpsertArgs<ExtArgs>>): Prisma__EnderecoClient<$Result.GetResult<Prisma.$EnderecoPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Enderecos.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EnderecoCountArgs} args - Arguments to filter Enderecos to count.
+     * @example
+     * // Count the number of Enderecos
+     * const count = await prisma.endereco.count({
+     *   where: {
+     *     // ... the filter for the Enderecos we want to count
+     *   }
+     * })
+    **/
+    count<T extends EnderecoCountArgs>(
+      args?: Subset<T, EnderecoCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], EnderecoCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Endereco.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EnderecoAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends EnderecoAggregateArgs>(args: Subset<T, EnderecoAggregateArgs>): Prisma.PrismaPromise<GetEnderecoAggregateType<T>>
+
+    /**
+     * Group by Endereco.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {EnderecoGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends EnderecoGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: EnderecoGroupByArgs['orderBy'] }
+        : { orderBy?: EnderecoGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, EnderecoGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEnderecoGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Endereco model
+   */
+  readonly fields: EnderecoFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Endereco.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__EnderecoClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    usuario<T extends UsuarioDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsuarioDefaultArgs<ExtArgs>>): Prisma__UsuarioClient<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Endereco model
+   */
+  interface EnderecoFieldRefs {
+    readonly id: FieldRef<"Endereco", 'Int'>
+    readonly cep: FieldRef<"Endereco", 'String'>
+    readonly cidade: FieldRef<"Endereco", 'String'>
+    readonly bairro: FieldRef<"Endereco", 'String'>
+    readonly numero: FieldRef<"Endereco", 'String'>
+    readonly usuarioId: FieldRef<"Endereco", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Endereco findUnique
+   */
+  export type EnderecoFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Endereco
+     */
+    select?: EnderecoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Endereco
+     */
+    omit?: EnderecoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EnderecoInclude<ExtArgs> | null
+    /**
+     * Filter, which Endereco to fetch.
+     */
+    where: EnderecoWhereUniqueInput
+  }
+
+  /**
+   * Endereco findUniqueOrThrow
+   */
+  export type EnderecoFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Endereco
+     */
+    select?: EnderecoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Endereco
+     */
+    omit?: EnderecoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EnderecoInclude<ExtArgs> | null
+    /**
+     * Filter, which Endereco to fetch.
+     */
+    where: EnderecoWhereUniqueInput
+  }
+
+  /**
+   * Endereco findFirst
+   */
+  export type EnderecoFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Endereco
+     */
+    select?: EnderecoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Endereco
+     */
+    omit?: EnderecoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EnderecoInclude<ExtArgs> | null
+    /**
+     * Filter, which Endereco to fetch.
+     */
+    where?: EnderecoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Enderecos to fetch.
+     */
+    orderBy?: EnderecoOrderByWithRelationInput | EnderecoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Enderecos.
+     */
+    cursor?: EnderecoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Enderecos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Enderecos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Enderecos.
+     */
+    distinct?: EnderecoScalarFieldEnum | EnderecoScalarFieldEnum[]
+  }
+
+  /**
+   * Endereco findFirstOrThrow
+   */
+  export type EnderecoFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Endereco
+     */
+    select?: EnderecoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Endereco
+     */
+    omit?: EnderecoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EnderecoInclude<ExtArgs> | null
+    /**
+     * Filter, which Endereco to fetch.
+     */
+    where?: EnderecoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Enderecos to fetch.
+     */
+    orderBy?: EnderecoOrderByWithRelationInput | EnderecoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Enderecos.
+     */
+    cursor?: EnderecoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Enderecos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Enderecos.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Enderecos.
+     */
+    distinct?: EnderecoScalarFieldEnum | EnderecoScalarFieldEnum[]
+  }
+
+  /**
+   * Endereco findMany
+   */
+  export type EnderecoFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Endereco
+     */
+    select?: EnderecoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Endereco
+     */
+    omit?: EnderecoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EnderecoInclude<ExtArgs> | null
+    /**
+     * Filter, which Enderecos to fetch.
+     */
+    where?: EnderecoWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Enderecos to fetch.
+     */
+    orderBy?: EnderecoOrderByWithRelationInput | EnderecoOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Enderecos.
+     */
+    cursor?: EnderecoWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Enderecos from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Enderecos.
+     */
+    skip?: number
+    distinct?: EnderecoScalarFieldEnum | EnderecoScalarFieldEnum[]
+  }
+
+  /**
+   * Endereco create
+   */
+  export type EnderecoCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Endereco
+     */
+    select?: EnderecoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Endereco
+     */
+    omit?: EnderecoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EnderecoInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Endereco.
+     */
+    data: XOR<EnderecoCreateInput, EnderecoUncheckedCreateInput>
+  }
+
+  /**
+   * Endereco createMany
+   */
+  export type EnderecoCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Enderecos.
+     */
+    data: EnderecoCreateManyInput | EnderecoCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Endereco update
+   */
+  export type EnderecoUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Endereco
+     */
+    select?: EnderecoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Endereco
+     */
+    omit?: EnderecoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EnderecoInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Endereco.
+     */
+    data: XOR<EnderecoUpdateInput, EnderecoUncheckedUpdateInput>
+    /**
+     * Choose, which Endereco to update.
+     */
+    where: EnderecoWhereUniqueInput
+  }
+
+  /**
+   * Endereco updateMany
+   */
+  export type EnderecoUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Enderecos.
+     */
+    data: XOR<EnderecoUpdateManyMutationInput, EnderecoUncheckedUpdateManyInput>
+    /**
+     * Filter which Enderecos to update
+     */
+    where?: EnderecoWhereInput
+    /**
+     * Limit how many Enderecos to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Endereco upsert
+   */
+  export type EnderecoUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Endereco
+     */
+    select?: EnderecoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Endereco
+     */
+    omit?: EnderecoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EnderecoInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Endereco to update in case it exists.
+     */
+    where: EnderecoWhereUniqueInput
+    /**
+     * In case the Endereco found by the `where` argument doesn't exist, create a new Endereco with this data.
+     */
+    create: XOR<EnderecoCreateInput, EnderecoUncheckedCreateInput>
+    /**
+     * In case the Endereco was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<EnderecoUpdateInput, EnderecoUncheckedUpdateInput>
+  }
+
+  /**
+   * Endereco delete
+   */
+  export type EnderecoDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Endereco
+     */
+    select?: EnderecoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Endereco
+     */
+    omit?: EnderecoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EnderecoInclude<ExtArgs> | null
+    /**
+     * Filter which Endereco to delete.
+     */
+    where: EnderecoWhereUniqueInput
+  }
+
+  /**
+   * Endereco deleteMany
+   */
+  export type EnderecoDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Enderecos to delete
+     */
+    where?: EnderecoWhereInput
+    /**
+     * Limit how many Enderecos to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Endereco without action
+   */
+  export type EnderecoDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Endereco
+     */
+    select?: EnderecoSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Endereco
+     */
+    omit?: EnderecoOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EnderecoInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Professional
+   */
+
+  export type AggregateProfessional = {
+    _count: ProfessionalCountAggregateOutputType | null
+    _avg: ProfessionalAvgAggregateOutputType | null
+    _sum: ProfessionalSumAggregateOutputType | null
+    _min: ProfessionalMinAggregateOutputType | null
+    _max: ProfessionalMaxAggregateOutputType | null
+  }
+
+  export type ProfessionalAvgAggregateOutputType = {
+    id: number | null
+    especialidadeId: number | null
+    usuarioId: number | null
+  }
+
+  export type ProfessionalSumAggregateOutputType = {
+    id: number | null
+    especialidadeId: number | null
+    usuarioId: number | null
+  }
+
+  export type ProfessionalMinAggregateOutputType = {
+    id: number | null
+    telefone: string | null
+    crp: string | null
+    descricao: string | null
+    cpf: string | null
+    especialidadeId: number | null
+    usuarioId: number | null
+  }
+
+  export type ProfessionalMaxAggregateOutputType = {
+    id: number | null
+    telefone: string | null
+    crp: string | null
+    descricao: string | null
+    cpf: string | null
+    especialidadeId: number | null
+    usuarioId: number | null
+  }
+
+  export type ProfessionalCountAggregateOutputType = {
+    id: number
+    telefone: number
+    crp: number
+    descricao: number
+    cpf: number
+    especialidadeId: number
+    usuarioId: number
+    _all: number
+  }
+
+
+  export type ProfessionalAvgAggregateInputType = {
+    id?: true
+    especialidadeId?: true
+    usuarioId?: true
+  }
+
+  export type ProfessionalSumAggregateInputType = {
+    id?: true
+    especialidadeId?: true
+    usuarioId?: true
+  }
+
+  export type ProfessionalMinAggregateInputType = {
+    id?: true
+    telefone?: true
+    crp?: true
+    descricao?: true
+    cpf?: true
+    especialidadeId?: true
+    usuarioId?: true
+  }
+
+  export type ProfessionalMaxAggregateInputType = {
+    id?: true
+    telefone?: true
+    crp?: true
+    descricao?: true
+    cpf?: true
+    especialidadeId?: true
+    usuarioId?: true
+  }
+
+  export type ProfessionalCountAggregateInputType = {
+    id?: true
+    telefone?: true
+    crp?: true
+    descricao?: true
+    cpf?: true
+    especialidadeId?: true
+    usuarioId?: true
+    _all?: true
+  }
+
+  export type ProfessionalAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Professional to aggregate.
+     */
+    where?: ProfessionalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Professionals to fetch.
+     */
+    orderBy?: ProfessionalOrderByWithRelationInput | ProfessionalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProfessionalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Professionals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Professionals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Professionals
+    **/
+    _count?: true | ProfessionalCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ProfessionalAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ProfessionalSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProfessionalMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProfessionalMaxAggregateInputType
+  }
+
+  export type GetProfessionalAggregateType<T extends ProfessionalAggregateArgs> = {
+        [P in keyof T & keyof AggregateProfessional]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProfessional[P]>
+      : GetScalarType<T[P], AggregateProfessional[P]>
+  }
+
+
+
+
+  export type ProfessionalGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProfessionalWhereInput
+    orderBy?: ProfessionalOrderByWithAggregationInput | ProfessionalOrderByWithAggregationInput[]
+    by: ProfessionalScalarFieldEnum[] | ProfessionalScalarFieldEnum
+    having?: ProfessionalScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProfessionalCountAggregateInputType | true
+    _avg?: ProfessionalAvgAggregateInputType
+    _sum?: ProfessionalSumAggregateInputType
+    _min?: ProfessionalMinAggregateInputType
+    _max?: ProfessionalMaxAggregateInputType
+  }
+
+  export type ProfessionalGroupByOutputType = {
+    id: number
+    telefone: string
+    crp: string
+    descricao: string
+    cpf: string
+    especialidadeId: number
+    usuarioId: number
+    _count: ProfessionalCountAggregateOutputType | null
+    _avg: ProfessionalAvgAggregateOutputType | null
+    _sum: ProfessionalSumAggregateOutputType | null
+    _min: ProfessionalMinAggregateOutputType | null
+    _max: ProfessionalMaxAggregateOutputType | null
+  }
+
+  type GetProfessionalGroupByPayload<T extends ProfessionalGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProfessionalGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProfessionalGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProfessionalGroupByOutputType[P]>
+            : GetScalarType<T[P], ProfessionalGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProfessionalSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    telefone?: boolean
+    crp?: boolean
+    descricao?: boolean
+    cpf?: boolean
+    especialidadeId?: boolean
+    usuarioId?: boolean
+    especialidade?: boolean | EspecialidadeDefaultArgs<ExtArgs>
+    usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["professional"]>
+
+
+
+  export type ProfessionalSelectScalar = {
+    id?: boolean
+    telefone?: boolean
+    crp?: boolean
+    descricao?: boolean
+    cpf?: boolean
+    especialidadeId?: boolean
+    usuarioId?: boolean
+  }
+
+  export type ProfessionalOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "telefone" | "crp" | "descricao" | "cpf" | "especialidadeId" | "usuarioId", ExtArgs["result"]["professional"]>
+  export type ProfessionalInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    especialidade?: boolean | EspecialidadeDefaultArgs<ExtArgs>
+    usuario?: boolean | UsuarioDefaultArgs<ExtArgs>
+  }
+
+  export type $ProfessionalPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Professional"
+    objects: {
+      especialidade: Prisma.$EspecialidadePayload<ExtArgs>
+      usuario: Prisma.$UsuarioPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      telefone: string
+      crp: string
+      descricao: string
+      cpf: string
+      especialidadeId: number
+      usuarioId: number
+    }, ExtArgs["result"]["professional"]>
+    composites: {}
+  }
+
+  type ProfessionalGetPayload<S extends boolean | null | undefined | ProfessionalDefaultArgs> = $Result.GetResult<Prisma.$ProfessionalPayload, S>
+
+  type ProfessionalCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProfessionalFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProfessionalCountAggregateInputType | true
+    }
+
+  export interface ProfessionalDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Professional'], meta: { name: 'Professional' } }
+    /**
+     * Find zero or one Professional that matches the filter.
+     * @param {ProfessionalFindUniqueArgs} args - Arguments to find a Professional
+     * @example
+     * // Get one Professional
+     * const professional = await prisma.professional.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProfessionalFindUniqueArgs>(args: SelectSubset<T, ProfessionalFindUniqueArgs<ExtArgs>>): Prisma__ProfessionalClient<$Result.GetResult<Prisma.$ProfessionalPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Professional that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProfessionalFindUniqueOrThrowArgs} args - Arguments to find a Professional
+     * @example
+     * // Get one Professional
+     * const professional = await prisma.professional.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProfessionalFindUniqueOrThrowArgs>(args: SelectSubset<T, ProfessionalFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProfessionalClient<$Result.GetResult<Prisma.$ProfessionalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Professional that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionalFindFirstArgs} args - Arguments to find a Professional
+     * @example
+     * // Get one Professional
+     * const professional = await prisma.professional.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProfessionalFindFirstArgs>(args?: SelectSubset<T, ProfessionalFindFirstArgs<ExtArgs>>): Prisma__ProfessionalClient<$Result.GetResult<Prisma.$ProfessionalPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Professional that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionalFindFirstOrThrowArgs} args - Arguments to find a Professional
+     * @example
+     * // Get one Professional
+     * const professional = await prisma.professional.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProfessionalFindFirstOrThrowArgs>(args?: SelectSubset<T, ProfessionalFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProfessionalClient<$Result.GetResult<Prisma.$ProfessionalPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Professionals that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionalFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Professionals
+     * const professionals = await prisma.professional.findMany()
+     * 
+     * // Get first 10 Professionals
+     * const professionals = await prisma.professional.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const professionalWithIdOnly = await prisma.professional.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProfessionalFindManyArgs>(args?: SelectSubset<T, ProfessionalFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProfessionalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Professional.
+     * @param {ProfessionalCreateArgs} args - Arguments to create a Professional.
+     * @example
+     * // Create one Professional
+     * const Professional = await prisma.professional.create({
+     *   data: {
+     *     // ... data to create a Professional
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProfessionalCreateArgs>(args: SelectSubset<T, ProfessionalCreateArgs<ExtArgs>>): Prisma__ProfessionalClient<$Result.GetResult<Prisma.$ProfessionalPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Professionals.
+     * @param {ProfessionalCreateManyArgs} args - Arguments to create many Professionals.
+     * @example
+     * // Create many Professionals
+     * const professional = await prisma.professional.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProfessionalCreateManyArgs>(args?: SelectSubset<T, ProfessionalCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Professional.
+     * @param {ProfessionalDeleteArgs} args - Arguments to delete one Professional.
+     * @example
+     * // Delete one Professional
+     * const Professional = await prisma.professional.delete({
+     *   where: {
+     *     // ... filter to delete one Professional
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProfessionalDeleteArgs>(args: SelectSubset<T, ProfessionalDeleteArgs<ExtArgs>>): Prisma__ProfessionalClient<$Result.GetResult<Prisma.$ProfessionalPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Professional.
+     * @param {ProfessionalUpdateArgs} args - Arguments to update one Professional.
+     * @example
+     * // Update one Professional
+     * const professional = await prisma.professional.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProfessionalUpdateArgs>(args: SelectSubset<T, ProfessionalUpdateArgs<ExtArgs>>): Prisma__ProfessionalClient<$Result.GetResult<Prisma.$ProfessionalPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Professionals.
+     * @param {ProfessionalDeleteManyArgs} args - Arguments to filter Professionals to delete.
+     * @example
+     * // Delete a few Professionals
+     * const { count } = await prisma.professional.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProfessionalDeleteManyArgs>(args?: SelectSubset<T, ProfessionalDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Professionals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionalUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Professionals
+     * const professional = await prisma.professional.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProfessionalUpdateManyArgs>(args: SelectSubset<T, ProfessionalUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Professional.
+     * @param {ProfessionalUpsertArgs} args - Arguments to update or create a Professional.
+     * @example
+     * // Update or create a Professional
+     * const professional = await prisma.professional.upsert({
+     *   create: {
+     *     // ... data to create a Professional
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Professional we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProfessionalUpsertArgs>(args: SelectSubset<T, ProfessionalUpsertArgs<ExtArgs>>): Prisma__ProfessionalClient<$Result.GetResult<Prisma.$ProfessionalPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Professionals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionalCountArgs} args - Arguments to filter Professionals to count.
+     * @example
+     * // Count the number of Professionals
+     * const count = await prisma.professional.count({
+     *   where: {
+     *     // ... the filter for the Professionals we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProfessionalCountArgs>(
+      args?: Subset<T, ProfessionalCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProfessionalCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Professional.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionalAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProfessionalAggregateArgs>(args: Subset<T, ProfessionalAggregateArgs>): Prisma.PrismaPromise<GetProfessionalAggregateType<T>>
+
+    /**
+     * Group by Professional.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProfessionalGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProfessionalGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProfessionalGroupByArgs['orderBy'] }
+        : { orderBy?: ProfessionalGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProfessionalGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProfessionalGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Professional model
+   */
+  readonly fields: ProfessionalFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Professional.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProfessionalClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    especialidade<T extends EspecialidadeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EspecialidadeDefaultArgs<ExtArgs>>): Prisma__EspecialidadeClient<$Result.GetResult<Prisma.$EspecialidadePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    usuario<T extends UsuarioDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UsuarioDefaultArgs<ExtArgs>>): Prisma__UsuarioClient<$Result.GetResult<Prisma.$UsuarioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Professional model
+   */
+  interface ProfessionalFieldRefs {
+    readonly id: FieldRef<"Professional", 'Int'>
+    readonly telefone: FieldRef<"Professional", 'String'>
+    readonly crp: FieldRef<"Professional", 'String'>
+    readonly descricao: FieldRef<"Professional", 'String'>
+    readonly cpf: FieldRef<"Professional", 'String'>
+    readonly especialidadeId: FieldRef<"Professional", 'Int'>
+    readonly usuarioId: FieldRef<"Professional", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Professional findUnique
+   */
+  export type ProfessionalFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professional
+     */
+    select?: ProfessionalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professional
+     */
+    omit?: ProfessionalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionalInclude<ExtArgs> | null
+    /**
+     * Filter, which Professional to fetch.
+     */
+    where: ProfessionalWhereUniqueInput
+  }
+
+  /**
+   * Professional findUniqueOrThrow
+   */
+  export type ProfessionalFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professional
+     */
+    select?: ProfessionalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professional
+     */
+    omit?: ProfessionalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionalInclude<ExtArgs> | null
+    /**
+     * Filter, which Professional to fetch.
+     */
+    where: ProfessionalWhereUniqueInput
+  }
+
+  /**
+   * Professional findFirst
+   */
+  export type ProfessionalFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professional
+     */
+    select?: ProfessionalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professional
+     */
+    omit?: ProfessionalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionalInclude<ExtArgs> | null
+    /**
+     * Filter, which Professional to fetch.
+     */
+    where?: ProfessionalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Professionals to fetch.
+     */
+    orderBy?: ProfessionalOrderByWithRelationInput | ProfessionalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Professionals.
+     */
+    cursor?: ProfessionalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Professionals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Professionals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Professionals.
+     */
+    distinct?: ProfessionalScalarFieldEnum | ProfessionalScalarFieldEnum[]
+  }
+
+  /**
+   * Professional findFirstOrThrow
+   */
+  export type ProfessionalFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professional
+     */
+    select?: ProfessionalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professional
+     */
+    omit?: ProfessionalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionalInclude<ExtArgs> | null
+    /**
+     * Filter, which Professional to fetch.
+     */
+    where?: ProfessionalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Professionals to fetch.
+     */
+    orderBy?: ProfessionalOrderByWithRelationInput | ProfessionalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Professionals.
+     */
+    cursor?: ProfessionalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Professionals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Professionals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Professionals.
+     */
+    distinct?: ProfessionalScalarFieldEnum | ProfessionalScalarFieldEnum[]
+  }
+
+  /**
+   * Professional findMany
+   */
+  export type ProfessionalFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professional
+     */
+    select?: ProfessionalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professional
+     */
+    omit?: ProfessionalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionalInclude<ExtArgs> | null
+    /**
+     * Filter, which Professionals to fetch.
+     */
+    where?: ProfessionalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Professionals to fetch.
+     */
+    orderBy?: ProfessionalOrderByWithRelationInput | ProfessionalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Professionals.
+     */
+    cursor?: ProfessionalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Professionals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Professionals.
+     */
+    skip?: number
+    distinct?: ProfessionalScalarFieldEnum | ProfessionalScalarFieldEnum[]
+  }
+
+  /**
+   * Professional create
+   */
+  export type ProfessionalCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professional
+     */
+    select?: ProfessionalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professional
+     */
+    omit?: ProfessionalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionalInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Professional.
+     */
+    data: XOR<ProfessionalCreateInput, ProfessionalUncheckedCreateInput>
+  }
+
+  /**
+   * Professional createMany
+   */
+  export type ProfessionalCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Professionals.
+     */
+    data: ProfessionalCreateManyInput | ProfessionalCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Professional update
+   */
+  export type ProfessionalUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professional
+     */
+    select?: ProfessionalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professional
+     */
+    omit?: ProfessionalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionalInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Professional.
+     */
+    data: XOR<ProfessionalUpdateInput, ProfessionalUncheckedUpdateInput>
+    /**
+     * Choose, which Professional to update.
+     */
+    where: ProfessionalWhereUniqueInput
+  }
+
+  /**
+   * Professional updateMany
+   */
+  export type ProfessionalUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Professionals.
+     */
+    data: XOR<ProfessionalUpdateManyMutationInput, ProfessionalUncheckedUpdateManyInput>
+    /**
+     * Filter which Professionals to update
+     */
+    where?: ProfessionalWhereInput
+    /**
+     * Limit how many Professionals to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Professional upsert
+   */
+  export type ProfessionalUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professional
+     */
+    select?: ProfessionalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professional
+     */
+    omit?: ProfessionalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionalInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Professional to update in case it exists.
+     */
+    where: ProfessionalWhereUniqueInput
+    /**
+     * In case the Professional found by the `where` argument doesn't exist, create a new Professional with this data.
+     */
+    create: XOR<ProfessionalCreateInput, ProfessionalUncheckedCreateInput>
+    /**
+     * In case the Professional was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProfessionalUpdateInput, ProfessionalUncheckedUpdateInput>
+  }
+
+  /**
+   * Professional delete
+   */
+  export type ProfessionalDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professional
+     */
+    select?: ProfessionalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professional
+     */
+    omit?: ProfessionalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionalInclude<ExtArgs> | null
+    /**
+     * Filter which Professional to delete.
+     */
+    where: ProfessionalWhereUniqueInput
+  }
+
+  /**
+   * Professional deleteMany
+   */
+  export type ProfessionalDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Professionals to delete
+     */
+    where?: ProfessionalWhereInput
+    /**
+     * Limit how many Professionals to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Professional without action
+   */
+  export type ProfessionalDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Professional
+     */
+    select?: ProfessionalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Professional
+     */
+    omit?: ProfessionalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProfessionalInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -3964,6 +6255,31 @@ export namespace Prisma {
   export type FeedbackScalarFieldEnum = (typeof FeedbackScalarFieldEnum)[keyof typeof FeedbackScalarFieldEnum]
 
 
+  export const EnderecoScalarFieldEnum: {
+    id: 'id',
+    cep: 'cep',
+    cidade: 'cidade',
+    bairro: 'bairro',
+    numero: 'numero',
+    usuarioId: 'usuarioId'
+  };
+
+  export type EnderecoScalarFieldEnum = (typeof EnderecoScalarFieldEnum)[keyof typeof EnderecoScalarFieldEnum]
+
+
+  export const ProfessionalScalarFieldEnum: {
+    id: 'id',
+    telefone: 'telefone',
+    crp: 'crp',
+    descricao: 'descricao',
+    cpf: 'cpf',
+    especialidadeId: 'especialidadeId',
+    usuarioId: 'usuarioId'
+  };
+
+  export type ProfessionalScalarFieldEnum = (typeof ProfessionalScalarFieldEnum)[keyof typeof ProfessionalScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -4004,6 +6320,26 @@ export namespace Prisma {
   };
 
   export type FeedbackOrderByRelevanceFieldEnum = (typeof FeedbackOrderByRelevanceFieldEnum)[keyof typeof FeedbackOrderByRelevanceFieldEnum]
+
+
+  export const EnderecoOrderByRelevanceFieldEnum: {
+    cep: 'cep',
+    cidade: 'cidade',
+    bairro: 'bairro',
+    numero: 'numero'
+  };
+
+  export type EnderecoOrderByRelevanceFieldEnum = (typeof EnderecoOrderByRelevanceFieldEnum)[keyof typeof EnderecoOrderByRelevanceFieldEnum]
+
+
+  export const ProfessionalOrderByRelevanceFieldEnum: {
+    telefone: 'telefone',
+    crp: 'crp',
+    descricao: 'descricao',
+    cpf: 'cpf'
+  };
+
+  export type ProfessionalOrderByRelevanceFieldEnum = (typeof ProfessionalOrderByRelevanceFieldEnum)[keyof typeof ProfessionalOrderByRelevanceFieldEnum]
 
 
   /**
@@ -4054,6 +6390,8 @@ export namespace Prisma {
     acesso?: StringFilter<"Usuario"> | string
     deletedAt?: DateTimeNullableFilter<"Usuario"> | Date | string | null
     feedbacks?: FeedbackListRelationFilter
+    endereco?: XOR<EnderecoNullableScalarRelationFilter, EnderecoWhereInput> | null
+    profissional?: XOR<ProfessionalNullableScalarRelationFilter, ProfessionalWhereInput> | null
   }
 
   export type UsuarioOrderByWithRelationInput = {
@@ -4065,6 +6403,8 @@ export namespace Prisma {
     acesso?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
     feedbacks?: FeedbackOrderByRelationAggregateInput
+    endereco?: EnderecoOrderByWithRelationInput
+    profissional?: ProfessionalOrderByWithRelationInput
     _relevance?: UsuarioOrderByRelevanceInput
   }
 
@@ -4080,6 +6420,8 @@ export namespace Prisma {
     acesso?: StringFilter<"Usuario"> | string
     deletedAt?: DateTimeNullableFilter<"Usuario"> | Date | string | null
     feedbacks?: FeedbackListRelationFilter
+    endereco?: XOR<EnderecoNullableScalarRelationFilter, EnderecoWhereInput> | null
+    profissional?: XOR<ProfessionalNullableScalarRelationFilter, ProfessionalWhereInput> | null
   }, "id" | "email">
 
   export type UsuarioOrderByWithAggregationInput = {
@@ -4116,11 +6458,13 @@ export namespace Prisma {
     NOT?: EspecialidadeWhereInput | EspecialidadeWhereInput[]
     id?: IntFilter<"Especialidade"> | number
     nome?: StringFilter<"Especialidade"> | string
+    profissional?: ProfessionalListRelationFilter
   }
 
   export type EspecialidadeOrderByWithRelationInput = {
     id?: SortOrder
     nome?: SortOrder
+    profissional?: ProfessionalOrderByRelationAggregateInput
     _relevance?: EspecialidadeOrderByRelevanceInput
   }
 
@@ -4130,6 +6474,7 @@ export namespace Prisma {
     AND?: EspecialidadeWhereInput | EspecialidadeWhereInput[]
     OR?: EspecialidadeWhereInput[]
     NOT?: EspecialidadeWhereInput | EspecialidadeWhereInput[]
+    profissional?: ProfessionalListRelationFilter
   }, "id" | "nome">
 
   export type EspecialidadeOrderByWithAggregationInput = {
@@ -4208,6 +6553,140 @@ export namespace Prisma {
     userId?: IntWithAggregatesFilter<"Feedback"> | number
   }
 
+  export type EnderecoWhereInput = {
+    AND?: EnderecoWhereInput | EnderecoWhereInput[]
+    OR?: EnderecoWhereInput[]
+    NOT?: EnderecoWhereInput | EnderecoWhereInput[]
+    id?: IntFilter<"Endereco"> | number
+    cep?: StringFilter<"Endereco"> | string
+    cidade?: StringFilter<"Endereco"> | string
+    bairro?: StringFilter<"Endereco"> | string
+    numero?: StringFilter<"Endereco"> | string
+    usuarioId?: IntFilter<"Endereco"> | number
+    usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
+  }
+
+  export type EnderecoOrderByWithRelationInput = {
+    id?: SortOrder
+    cep?: SortOrder
+    cidade?: SortOrder
+    bairro?: SortOrder
+    numero?: SortOrder
+    usuarioId?: SortOrder
+    usuario?: UsuarioOrderByWithRelationInput
+    _relevance?: EnderecoOrderByRelevanceInput
+  }
+
+  export type EnderecoWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    usuarioId?: number
+    AND?: EnderecoWhereInput | EnderecoWhereInput[]
+    OR?: EnderecoWhereInput[]
+    NOT?: EnderecoWhereInput | EnderecoWhereInput[]
+    cep?: StringFilter<"Endereco"> | string
+    cidade?: StringFilter<"Endereco"> | string
+    bairro?: StringFilter<"Endereco"> | string
+    numero?: StringFilter<"Endereco"> | string
+    usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
+  }, "id" | "usuarioId">
+
+  export type EnderecoOrderByWithAggregationInput = {
+    id?: SortOrder
+    cep?: SortOrder
+    cidade?: SortOrder
+    bairro?: SortOrder
+    numero?: SortOrder
+    usuarioId?: SortOrder
+    _count?: EnderecoCountOrderByAggregateInput
+    _avg?: EnderecoAvgOrderByAggregateInput
+    _max?: EnderecoMaxOrderByAggregateInput
+    _min?: EnderecoMinOrderByAggregateInput
+    _sum?: EnderecoSumOrderByAggregateInput
+  }
+
+  export type EnderecoScalarWhereWithAggregatesInput = {
+    AND?: EnderecoScalarWhereWithAggregatesInput | EnderecoScalarWhereWithAggregatesInput[]
+    OR?: EnderecoScalarWhereWithAggregatesInput[]
+    NOT?: EnderecoScalarWhereWithAggregatesInput | EnderecoScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Endereco"> | number
+    cep?: StringWithAggregatesFilter<"Endereco"> | string
+    cidade?: StringWithAggregatesFilter<"Endereco"> | string
+    bairro?: StringWithAggregatesFilter<"Endereco"> | string
+    numero?: StringWithAggregatesFilter<"Endereco"> | string
+    usuarioId?: IntWithAggregatesFilter<"Endereco"> | number
+  }
+
+  export type ProfessionalWhereInput = {
+    AND?: ProfessionalWhereInput | ProfessionalWhereInput[]
+    OR?: ProfessionalWhereInput[]
+    NOT?: ProfessionalWhereInput | ProfessionalWhereInput[]
+    id?: IntFilter<"Professional"> | number
+    telefone?: StringFilter<"Professional"> | string
+    crp?: StringFilter<"Professional"> | string
+    descricao?: StringFilter<"Professional"> | string
+    cpf?: StringFilter<"Professional"> | string
+    especialidadeId?: IntFilter<"Professional"> | number
+    usuarioId?: IntFilter<"Professional"> | number
+    especialidade?: XOR<EspecialidadeScalarRelationFilter, EspecialidadeWhereInput>
+    usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
+  }
+
+  export type ProfessionalOrderByWithRelationInput = {
+    id?: SortOrder
+    telefone?: SortOrder
+    crp?: SortOrder
+    descricao?: SortOrder
+    cpf?: SortOrder
+    especialidadeId?: SortOrder
+    usuarioId?: SortOrder
+    especialidade?: EspecialidadeOrderByWithRelationInput
+    usuario?: UsuarioOrderByWithRelationInput
+    _relevance?: ProfessionalOrderByRelevanceInput
+  }
+
+  export type ProfessionalWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    crp?: string
+    cpf?: string
+    usuarioId?: number
+    AND?: ProfessionalWhereInput | ProfessionalWhereInput[]
+    OR?: ProfessionalWhereInput[]
+    NOT?: ProfessionalWhereInput | ProfessionalWhereInput[]
+    telefone?: StringFilter<"Professional"> | string
+    descricao?: StringFilter<"Professional"> | string
+    especialidadeId?: IntFilter<"Professional"> | number
+    especialidade?: XOR<EspecialidadeScalarRelationFilter, EspecialidadeWhereInput>
+    usuario?: XOR<UsuarioScalarRelationFilter, UsuarioWhereInput>
+  }, "id" | "crp" | "cpf" | "usuarioId">
+
+  export type ProfessionalOrderByWithAggregationInput = {
+    id?: SortOrder
+    telefone?: SortOrder
+    crp?: SortOrder
+    descricao?: SortOrder
+    cpf?: SortOrder
+    especialidadeId?: SortOrder
+    usuarioId?: SortOrder
+    _count?: ProfessionalCountOrderByAggregateInput
+    _avg?: ProfessionalAvgOrderByAggregateInput
+    _max?: ProfessionalMaxOrderByAggregateInput
+    _min?: ProfessionalMinOrderByAggregateInput
+    _sum?: ProfessionalSumOrderByAggregateInput
+  }
+
+  export type ProfessionalScalarWhereWithAggregatesInput = {
+    AND?: ProfessionalScalarWhereWithAggregatesInput | ProfessionalScalarWhereWithAggregatesInput[]
+    OR?: ProfessionalScalarWhereWithAggregatesInput[]
+    NOT?: ProfessionalScalarWhereWithAggregatesInput | ProfessionalScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Professional"> | number
+    telefone?: StringWithAggregatesFilter<"Professional"> | string
+    crp?: StringWithAggregatesFilter<"Professional"> | string
+    descricao?: StringWithAggregatesFilter<"Professional"> | string
+    cpf?: StringWithAggregatesFilter<"Professional"> | string
+    especialidadeId?: IntWithAggregatesFilter<"Professional"> | number
+    usuarioId?: IntWithAggregatesFilter<"Professional"> | number
+  }
+
   export type UsuarioCreateInput = {
     nome: string
     email: string
@@ -4216,6 +6695,8 @@ export namespace Prisma {
     acesso: string
     deletedAt?: Date | string | null
     feedbacks?: FeedbackCreateNestedManyWithoutUsuarioInput
+    endereco?: EnderecoCreateNestedOneWithoutUsuarioInput
+    profissional?: ProfessionalCreateNestedOneWithoutUsuarioInput
   }
 
   export type UsuarioUncheckedCreateInput = {
@@ -4227,6 +6708,8 @@ export namespace Prisma {
     acesso: string
     deletedAt?: Date | string | null
     feedbacks?: FeedbackUncheckedCreateNestedManyWithoutUsuarioInput
+    endereco?: EnderecoUncheckedCreateNestedOneWithoutUsuarioInput
+    profissional?: ProfessionalUncheckedCreateNestedOneWithoutUsuarioInput
   }
 
   export type UsuarioUpdateInput = {
@@ -4237,6 +6720,8 @@ export namespace Prisma {
     acesso?: StringFieldUpdateOperationsInput | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     feedbacks?: FeedbackUpdateManyWithoutUsuarioNestedInput
+    endereco?: EnderecoUpdateOneWithoutUsuarioNestedInput
+    profissional?: ProfessionalUpdateOneWithoutUsuarioNestedInput
   }
 
   export type UsuarioUncheckedUpdateInput = {
@@ -4248,6 +6733,8 @@ export namespace Prisma {
     acesso?: StringFieldUpdateOperationsInput | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     feedbacks?: FeedbackUncheckedUpdateManyWithoutUsuarioNestedInput
+    endereco?: EnderecoUncheckedUpdateOneWithoutUsuarioNestedInput
+    profissional?: ProfessionalUncheckedUpdateOneWithoutUsuarioNestedInput
   }
 
   export type UsuarioCreateManyInput = {
@@ -4281,20 +6768,24 @@ export namespace Prisma {
 
   export type EspecialidadeCreateInput = {
     nome: string
+    profissional?: ProfessionalCreateNestedManyWithoutEspecialidadeInput
   }
 
   export type EspecialidadeUncheckedCreateInput = {
     id?: number
     nome: string
+    profissional?: ProfessionalUncheckedCreateNestedManyWithoutEspecialidadeInput
   }
 
   export type EspecialidadeUpdateInput = {
     nome?: StringFieldUpdateOperationsInput | string
+    profissional?: ProfessionalUpdateManyWithoutEspecialidadeNestedInput
   }
 
   export type EspecialidadeUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     nome?: StringFieldUpdateOperationsInput | string
+    profissional?: ProfessionalUncheckedUpdateManyWithoutEspecialidadeNestedInput
   }
 
   export type EspecialidadeCreateManyInput = {
@@ -4363,6 +6854,130 @@ export namespace Prisma {
     userId?: IntFieldUpdateOperationsInput | number
   }
 
+  export type EnderecoCreateInput = {
+    cep: string
+    cidade: string
+    bairro: string
+    numero: string
+    usuario: UsuarioCreateNestedOneWithoutEnderecoInput
+  }
+
+  export type EnderecoUncheckedCreateInput = {
+    id?: number
+    cep: string
+    cidade: string
+    bairro: string
+    numero: string
+    usuarioId: number
+  }
+
+  export type EnderecoUpdateInput = {
+    cep?: StringFieldUpdateOperationsInput | string
+    cidade?: StringFieldUpdateOperationsInput | string
+    bairro?: StringFieldUpdateOperationsInput | string
+    numero?: StringFieldUpdateOperationsInput | string
+    usuario?: UsuarioUpdateOneRequiredWithoutEnderecoNestedInput
+  }
+
+  export type EnderecoUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    cep?: StringFieldUpdateOperationsInput | string
+    cidade?: StringFieldUpdateOperationsInput | string
+    bairro?: StringFieldUpdateOperationsInput | string
+    numero?: StringFieldUpdateOperationsInput | string
+    usuarioId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type EnderecoCreateManyInput = {
+    id?: number
+    cep: string
+    cidade: string
+    bairro: string
+    numero: string
+    usuarioId: number
+  }
+
+  export type EnderecoUpdateManyMutationInput = {
+    cep?: StringFieldUpdateOperationsInput | string
+    cidade?: StringFieldUpdateOperationsInput | string
+    bairro?: StringFieldUpdateOperationsInput | string
+    numero?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type EnderecoUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    cep?: StringFieldUpdateOperationsInput | string
+    cidade?: StringFieldUpdateOperationsInput | string
+    bairro?: StringFieldUpdateOperationsInput | string
+    numero?: StringFieldUpdateOperationsInput | string
+    usuarioId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProfessionalCreateInput = {
+    telefone: string
+    crp: string
+    descricao: string
+    cpf: string
+    especialidade: EspecialidadeCreateNestedOneWithoutProfissionalInput
+    usuario: UsuarioCreateNestedOneWithoutProfissionalInput
+  }
+
+  export type ProfessionalUncheckedCreateInput = {
+    id?: number
+    telefone: string
+    crp: string
+    descricao: string
+    cpf: string
+    especialidadeId: number
+    usuarioId: number
+  }
+
+  export type ProfessionalUpdateInput = {
+    telefone?: StringFieldUpdateOperationsInput | string
+    crp?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    especialidade?: EspecialidadeUpdateOneRequiredWithoutProfissionalNestedInput
+    usuario?: UsuarioUpdateOneRequiredWithoutProfissionalNestedInput
+  }
+
+  export type ProfessionalUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    telefone?: StringFieldUpdateOperationsInput | string
+    crp?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    especialidadeId?: IntFieldUpdateOperationsInput | number
+    usuarioId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProfessionalCreateManyInput = {
+    id?: number
+    telefone: string
+    crp: string
+    descricao: string
+    cpf: string
+    especialidadeId: number
+    usuarioId: number
+  }
+
+  export type ProfessionalUpdateManyMutationInput = {
+    telefone?: StringFieldUpdateOperationsInput | string
+    crp?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProfessionalUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    telefone?: StringFieldUpdateOperationsInput | string
+    crp?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    especialidadeId?: IntFieldUpdateOperationsInput | number
+    usuarioId?: IntFieldUpdateOperationsInput | number
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -4419,6 +7034,16 @@ export namespace Prisma {
     every?: FeedbackWhereInput
     some?: FeedbackWhereInput
     none?: FeedbackWhereInput
+  }
+
+  export type EnderecoNullableScalarRelationFilter = {
+    is?: EnderecoWhereInput | null
+    isNot?: EnderecoWhereInput | null
+  }
+
+  export type ProfessionalNullableScalarRelationFilter = {
+    is?: ProfessionalWhereInput | null
+    isNot?: ProfessionalWhereInput | null
   }
 
   export type SortOrderInput = {
@@ -4540,6 +7165,16 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
+  export type ProfessionalListRelationFilter = {
+    every?: ProfessionalWhereInput
+    some?: ProfessionalWhereInput
+    none?: ProfessionalWhereInput
+  }
+
+  export type ProfessionalOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type EspecialidadeOrderByRelevanceInput = {
     fields: EspecialidadeOrderByRelevanceFieldEnum | EspecialidadeOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -4639,6 +7274,102 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type EnderecoOrderByRelevanceInput = {
+    fields: EnderecoOrderByRelevanceFieldEnum | EnderecoOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type EnderecoCountOrderByAggregateInput = {
+    id?: SortOrder
+    cep?: SortOrder
+    cidade?: SortOrder
+    bairro?: SortOrder
+    numero?: SortOrder
+    usuarioId?: SortOrder
+  }
+
+  export type EnderecoAvgOrderByAggregateInput = {
+    id?: SortOrder
+    usuarioId?: SortOrder
+  }
+
+  export type EnderecoMaxOrderByAggregateInput = {
+    id?: SortOrder
+    cep?: SortOrder
+    cidade?: SortOrder
+    bairro?: SortOrder
+    numero?: SortOrder
+    usuarioId?: SortOrder
+  }
+
+  export type EnderecoMinOrderByAggregateInput = {
+    id?: SortOrder
+    cep?: SortOrder
+    cidade?: SortOrder
+    bairro?: SortOrder
+    numero?: SortOrder
+    usuarioId?: SortOrder
+  }
+
+  export type EnderecoSumOrderByAggregateInput = {
+    id?: SortOrder
+    usuarioId?: SortOrder
+  }
+
+  export type EspecialidadeScalarRelationFilter = {
+    is?: EspecialidadeWhereInput
+    isNot?: EspecialidadeWhereInput
+  }
+
+  export type ProfessionalOrderByRelevanceInput = {
+    fields: ProfessionalOrderByRelevanceFieldEnum | ProfessionalOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type ProfessionalCountOrderByAggregateInput = {
+    id?: SortOrder
+    telefone?: SortOrder
+    crp?: SortOrder
+    descricao?: SortOrder
+    cpf?: SortOrder
+    especialidadeId?: SortOrder
+    usuarioId?: SortOrder
+  }
+
+  export type ProfessionalAvgOrderByAggregateInput = {
+    id?: SortOrder
+    especialidadeId?: SortOrder
+    usuarioId?: SortOrder
+  }
+
+  export type ProfessionalMaxOrderByAggregateInput = {
+    id?: SortOrder
+    telefone?: SortOrder
+    crp?: SortOrder
+    descricao?: SortOrder
+    cpf?: SortOrder
+    especialidadeId?: SortOrder
+    usuarioId?: SortOrder
+  }
+
+  export type ProfessionalMinOrderByAggregateInput = {
+    id?: SortOrder
+    telefone?: SortOrder
+    crp?: SortOrder
+    descricao?: SortOrder
+    cpf?: SortOrder
+    especialidadeId?: SortOrder
+    usuarioId?: SortOrder
+  }
+
+  export type ProfessionalSumOrderByAggregateInput = {
+    id?: SortOrder
+    especialidadeId?: SortOrder
+    usuarioId?: SortOrder
+  }
+
   export type FeedbackCreateNestedManyWithoutUsuarioInput = {
     create?: XOR<FeedbackCreateWithoutUsuarioInput, FeedbackUncheckedCreateWithoutUsuarioInput> | FeedbackCreateWithoutUsuarioInput[] | FeedbackUncheckedCreateWithoutUsuarioInput[]
     connectOrCreate?: FeedbackCreateOrConnectWithoutUsuarioInput | FeedbackCreateOrConnectWithoutUsuarioInput[]
@@ -4646,11 +7377,35 @@ export namespace Prisma {
     connect?: FeedbackWhereUniqueInput | FeedbackWhereUniqueInput[]
   }
 
+  export type EnderecoCreateNestedOneWithoutUsuarioInput = {
+    create?: XOR<EnderecoCreateWithoutUsuarioInput, EnderecoUncheckedCreateWithoutUsuarioInput>
+    connectOrCreate?: EnderecoCreateOrConnectWithoutUsuarioInput
+    connect?: EnderecoWhereUniqueInput
+  }
+
+  export type ProfessionalCreateNestedOneWithoutUsuarioInput = {
+    create?: XOR<ProfessionalCreateWithoutUsuarioInput, ProfessionalUncheckedCreateWithoutUsuarioInput>
+    connectOrCreate?: ProfessionalCreateOrConnectWithoutUsuarioInput
+    connect?: ProfessionalWhereUniqueInput
+  }
+
   export type FeedbackUncheckedCreateNestedManyWithoutUsuarioInput = {
     create?: XOR<FeedbackCreateWithoutUsuarioInput, FeedbackUncheckedCreateWithoutUsuarioInput> | FeedbackCreateWithoutUsuarioInput[] | FeedbackUncheckedCreateWithoutUsuarioInput[]
     connectOrCreate?: FeedbackCreateOrConnectWithoutUsuarioInput | FeedbackCreateOrConnectWithoutUsuarioInput[]
     createMany?: FeedbackCreateManyUsuarioInputEnvelope
     connect?: FeedbackWhereUniqueInput | FeedbackWhereUniqueInput[]
+  }
+
+  export type EnderecoUncheckedCreateNestedOneWithoutUsuarioInput = {
+    create?: XOR<EnderecoCreateWithoutUsuarioInput, EnderecoUncheckedCreateWithoutUsuarioInput>
+    connectOrCreate?: EnderecoCreateOrConnectWithoutUsuarioInput
+    connect?: EnderecoWhereUniqueInput
+  }
+
+  export type ProfessionalUncheckedCreateNestedOneWithoutUsuarioInput = {
+    create?: XOR<ProfessionalCreateWithoutUsuarioInput, ProfessionalUncheckedCreateWithoutUsuarioInput>
+    connectOrCreate?: ProfessionalCreateOrConnectWithoutUsuarioInput
+    connect?: ProfessionalWhereUniqueInput
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -4679,6 +7434,26 @@ export namespace Prisma {
     deleteMany?: FeedbackScalarWhereInput | FeedbackScalarWhereInput[]
   }
 
+  export type EnderecoUpdateOneWithoutUsuarioNestedInput = {
+    create?: XOR<EnderecoCreateWithoutUsuarioInput, EnderecoUncheckedCreateWithoutUsuarioInput>
+    connectOrCreate?: EnderecoCreateOrConnectWithoutUsuarioInput
+    upsert?: EnderecoUpsertWithoutUsuarioInput
+    disconnect?: EnderecoWhereInput | boolean
+    delete?: EnderecoWhereInput | boolean
+    connect?: EnderecoWhereUniqueInput
+    update?: XOR<XOR<EnderecoUpdateToOneWithWhereWithoutUsuarioInput, EnderecoUpdateWithoutUsuarioInput>, EnderecoUncheckedUpdateWithoutUsuarioInput>
+  }
+
+  export type ProfessionalUpdateOneWithoutUsuarioNestedInput = {
+    create?: XOR<ProfessionalCreateWithoutUsuarioInput, ProfessionalUncheckedCreateWithoutUsuarioInput>
+    connectOrCreate?: ProfessionalCreateOrConnectWithoutUsuarioInput
+    upsert?: ProfessionalUpsertWithoutUsuarioInput
+    disconnect?: ProfessionalWhereInput | boolean
+    delete?: ProfessionalWhereInput | boolean
+    connect?: ProfessionalWhereUniqueInput
+    update?: XOR<XOR<ProfessionalUpdateToOneWithWhereWithoutUsuarioInput, ProfessionalUpdateWithoutUsuarioInput>, ProfessionalUncheckedUpdateWithoutUsuarioInput>
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -4701,6 +7476,68 @@ export namespace Prisma {
     deleteMany?: FeedbackScalarWhereInput | FeedbackScalarWhereInput[]
   }
 
+  export type EnderecoUncheckedUpdateOneWithoutUsuarioNestedInput = {
+    create?: XOR<EnderecoCreateWithoutUsuarioInput, EnderecoUncheckedCreateWithoutUsuarioInput>
+    connectOrCreate?: EnderecoCreateOrConnectWithoutUsuarioInput
+    upsert?: EnderecoUpsertWithoutUsuarioInput
+    disconnect?: EnderecoWhereInput | boolean
+    delete?: EnderecoWhereInput | boolean
+    connect?: EnderecoWhereUniqueInput
+    update?: XOR<XOR<EnderecoUpdateToOneWithWhereWithoutUsuarioInput, EnderecoUpdateWithoutUsuarioInput>, EnderecoUncheckedUpdateWithoutUsuarioInput>
+  }
+
+  export type ProfessionalUncheckedUpdateOneWithoutUsuarioNestedInput = {
+    create?: XOR<ProfessionalCreateWithoutUsuarioInput, ProfessionalUncheckedCreateWithoutUsuarioInput>
+    connectOrCreate?: ProfessionalCreateOrConnectWithoutUsuarioInput
+    upsert?: ProfessionalUpsertWithoutUsuarioInput
+    disconnect?: ProfessionalWhereInput | boolean
+    delete?: ProfessionalWhereInput | boolean
+    connect?: ProfessionalWhereUniqueInput
+    update?: XOR<XOR<ProfessionalUpdateToOneWithWhereWithoutUsuarioInput, ProfessionalUpdateWithoutUsuarioInput>, ProfessionalUncheckedUpdateWithoutUsuarioInput>
+  }
+
+  export type ProfessionalCreateNestedManyWithoutEspecialidadeInput = {
+    create?: XOR<ProfessionalCreateWithoutEspecialidadeInput, ProfessionalUncheckedCreateWithoutEspecialidadeInput> | ProfessionalCreateWithoutEspecialidadeInput[] | ProfessionalUncheckedCreateWithoutEspecialidadeInput[]
+    connectOrCreate?: ProfessionalCreateOrConnectWithoutEspecialidadeInput | ProfessionalCreateOrConnectWithoutEspecialidadeInput[]
+    createMany?: ProfessionalCreateManyEspecialidadeInputEnvelope
+    connect?: ProfessionalWhereUniqueInput | ProfessionalWhereUniqueInput[]
+  }
+
+  export type ProfessionalUncheckedCreateNestedManyWithoutEspecialidadeInput = {
+    create?: XOR<ProfessionalCreateWithoutEspecialidadeInput, ProfessionalUncheckedCreateWithoutEspecialidadeInput> | ProfessionalCreateWithoutEspecialidadeInput[] | ProfessionalUncheckedCreateWithoutEspecialidadeInput[]
+    connectOrCreate?: ProfessionalCreateOrConnectWithoutEspecialidadeInput | ProfessionalCreateOrConnectWithoutEspecialidadeInput[]
+    createMany?: ProfessionalCreateManyEspecialidadeInputEnvelope
+    connect?: ProfessionalWhereUniqueInput | ProfessionalWhereUniqueInput[]
+  }
+
+  export type ProfessionalUpdateManyWithoutEspecialidadeNestedInput = {
+    create?: XOR<ProfessionalCreateWithoutEspecialidadeInput, ProfessionalUncheckedCreateWithoutEspecialidadeInput> | ProfessionalCreateWithoutEspecialidadeInput[] | ProfessionalUncheckedCreateWithoutEspecialidadeInput[]
+    connectOrCreate?: ProfessionalCreateOrConnectWithoutEspecialidadeInput | ProfessionalCreateOrConnectWithoutEspecialidadeInput[]
+    upsert?: ProfessionalUpsertWithWhereUniqueWithoutEspecialidadeInput | ProfessionalUpsertWithWhereUniqueWithoutEspecialidadeInput[]
+    createMany?: ProfessionalCreateManyEspecialidadeInputEnvelope
+    set?: ProfessionalWhereUniqueInput | ProfessionalWhereUniqueInput[]
+    disconnect?: ProfessionalWhereUniqueInput | ProfessionalWhereUniqueInput[]
+    delete?: ProfessionalWhereUniqueInput | ProfessionalWhereUniqueInput[]
+    connect?: ProfessionalWhereUniqueInput | ProfessionalWhereUniqueInput[]
+    update?: ProfessionalUpdateWithWhereUniqueWithoutEspecialidadeInput | ProfessionalUpdateWithWhereUniqueWithoutEspecialidadeInput[]
+    updateMany?: ProfessionalUpdateManyWithWhereWithoutEspecialidadeInput | ProfessionalUpdateManyWithWhereWithoutEspecialidadeInput[]
+    deleteMany?: ProfessionalScalarWhereInput | ProfessionalScalarWhereInput[]
+  }
+
+  export type ProfessionalUncheckedUpdateManyWithoutEspecialidadeNestedInput = {
+    create?: XOR<ProfessionalCreateWithoutEspecialidadeInput, ProfessionalUncheckedCreateWithoutEspecialidadeInput> | ProfessionalCreateWithoutEspecialidadeInput[] | ProfessionalUncheckedCreateWithoutEspecialidadeInput[]
+    connectOrCreate?: ProfessionalCreateOrConnectWithoutEspecialidadeInput | ProfessionalCreateOrConnectWithoutEspecialidadeInput[]
+    upsert?: ProfessionalUpsertWithWhereUniqueWithoutEspecialidadeInput | ProfessionalUpsertWithWhereUniqueWithoutEspecialidadeInput[]
+    createMany?: ProfessionalCreateManyEspecialidadeInputEnvelope
+    set?: ProfessionalWhereUniqueInput | ProfessionalWhereUniqueInput[]
+    disconnect?: ProfessionalWhereUniqueInput | ProfessionalWhereUniqueInput[]
+    delete?: ProfessionalWhereUniqueInput | ProfessionalWhereUniqueInput[]
+    connect?: ProfessionalWhereUniqueInput | ProfessionalWhereUniqueInput[]
+    update?: ProfessionalUpdateWithWhereUniqueWithoutEspecialidadeInput | ProfessionalUpdateWithWhereUniqueWithoutEspecialidadeInput[]
+    updateMany?: ProfessionalUpdateManyWithWhereWithoutEspecialidadeInput | ProfessionalUpdateManyWithWhereWithoutEspecialidadeInput[]
+    deleteMany?: ProfessionalScalarWhereInput | ProfessionalScalarWhereInput[]
+  }
+
   export type UsuarioCreateNestedOneWithoutFeedbacksInput = {
     create?: XOR<UsuarioCreateWithoutFeedbacksInput, UsuarioUncheckedCreateWithoutFeedbacksInput>
     connectOrCreate?: UsuarioCreateOrConnectWithoutFeedbacksInput
@@ -4717,6 +7554,48 @@ export namespace Prisma {
     upsert?: UsuarioUpsertWithoutFeedbacksInput
     connect?: UsuarioWhereUniqueInput
     update?: XOR<XOR<UsuarioUpdateToOneWithWhereWithoutFeedbacksInput, UsuarioUpdateWithoutFeedbacksInput>, UsuarioUncheckedUpdateWithoutFeedbacksInput>
+  }
+
+  export type UsuarioCreateNestedOneWithoutEnderecoInput = {
+    create?: XOR<UsuarioCreateWithoutEnderecoInput, UsuarioUncheckedCreateWithoutEnderecoInput>
+    connectOrCreate?: UsuarioCreateOrConnectWithoutEnderecoInput
+    connect?: UsuarioWhereUniqueInput
+  }
+
+  export type UsuarioUpdateOneRequiredWithoutEnderecoNestedInput = {
+    create?: XOR<UsuarioCreateWithoutEnderecoInput, UsuarioUncheckedCreateWithoutEnderecoInput>
+    connectOrCreate?: UsuarioCreateOrConnectWithoutEnderecoInput
+    upsert?: UsuarioUpsertWithoutEnderecoInput
+    connect?: UsuarioWhereUniqueInput
+    update?: XOR<XOR<UsuarioUpdateToOneWithWhereWithoutEnderecoInput, UsuarioUpdateWithoutEnderecoInput>, UsuarioUncheckedUpdateWithoutEnderecoInput>
+  }
+
+  export type EspecialidadeCreateNestedOneWithoutProfissionalInput = {
+    create?: XOR<EspecialidadeCreateWithoutProfissionalInput, EspecialidadeUncheckedCreateWithoutProfissionalInput>
+    connectOrCreate?: EspecialidadeCreateOrConnectWithoutProfissionalInput
+    connect?: EspecialidadeWhereUniqueInput
+  }
+
+  export type UsuarioCreateNestedOneWithoutProfissionalInput = {
+    create?: XOR<UsuarioCreateWithoutProfissionalInput, UsuarioUncheckedCreateWithoutProfissionalInput>
+    connectOrCreate?: UsuarioCreateOrConnectWithoutProfissionalInput
+    connect?: UsuarioWhereUniqueInput
+  }
+
+  export type EspecialidadeUpdateOneRequiredWithoutProfissionalNestedInput = {
+    create?: XOR<EspecialidadeCreateWithoutProfissionalInput, EspecialidadeUncheckedCreateWithoutProfissionalInput>
+    connectOrCreate?: EspecialidadeCreateOrConnectWithoutProfissionalInput
+    upsert?: EspecialidadeUpsertWithoutProfissionalInput
+    connect?: EspecialidadeWhereUniqueInput
+    update?: XOR<XOR<EspecialidadeUpdateToOneWithWhereWithoutProfissionalInput, EspecialidadeUpdateWithoutProfissionalInput>, EspecialidadeUncheckedUpdateWithoutProfissionalInput>
+  }
+
+  export type UsuarioUpdateOneRequiredWithoutProfissionalNestedInput = {
+    create?: XOR<UsuarioCreateWithoutProfissionalInput, UsuarioUncheckedCreateWithoutProfissionalInput>
+    connectOrCreate?: UsuarioCreateOrConnectWithoutProfissionalInput
+    upsert?: UsuarioUpsertWithoutProfissionalInput
+    connect?: UsuarioWhereUniqueInput
+    update?: XOR<XOR<UsuarioUpdateToOneWithWhereWithoutProfissionalInput, UsuarioUpdateWithoutProfissionalInput>, UsuarioUncheckedUpdateWithoutProfissionalInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -4907,6 +7786,48 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type EnderecoCreateWithoutUsuarioInput = {
+    cep: string
+    cidade: string
+    bairro: string
+    numero: string
+  }
+
+  export type EnderecoUncheckedCreateWithoutUsuarioInput = {
+    id?: number
+    cep: string
+    cidade: string
+    bairro: string
+    numero: string
+  }
+
+  export type EnderecoCreateOrConnectWithoutUsuarioInput = {
+    where: EnderecoWhereUniqueInput
+    create: XOR<EnderecoCreateWithoutUsuarioInput, EnderecoUncheckedCreateWithoutUsuarioInput>
+  }
+
+  export type ProfessionalCreateWithoutUsuarioInput = {
+    telefone: string
+    crp: string
+    descricao: string
+    cpf: string
+    especialidade: EspecialidadeCreateNestedOneWithoutProfissionalInput
+  }
+
+  export type ProfessionalUncheckedCreateWithoutUsuarioInput = {
+    id?: number
+    telefone: string
+    crp: string
+    descricao: string
+    cpf: string
+    especialidadeId: number
+  }
+
+  export type ProfessionalCreateOrConnectWithoutUsuarioInput = {
+    where: ProfessionalWhereUniqueInput
+    create: XOR<ProfessionalCreateWithoutUsuarioInput, ProfessionalUncheckedCreateWithoutUsuarioInput>
+  }
+
   export type FeedbackUpsertWithWhereUniqueWithoutUsuarioInput = {
     where: FeedbackWhereUniqueInput
     update: XOR<FeedbackUpdateWithoutUsuarioInput, FeedbackUncheckedUpdateWithoutUsuarioInput>
@@ -4934,6 +7855,116 @@ export namespace Prisma {
     userId?: IntFilter<"Feedback"> | number
   }
 
+  export type EnderecoUpsertWithoutUsuarioInput = {
+    update: XOR<EnderecoUpdateWithoutUsuarioInput, EnderecoUncheckedUpdateWithoutUsuarioInput>
+    create: XOR<EnderecoCreateWithoutUsuarioInput, EnderecoUncheckedCreateWithoutUsuarioInput>
+    where?: EnderecoWhereInput
+  }
+
+  export type EnderecoUpdateToOneWithWhereWithoutUsuarioInput = {
+    where?: EnderecoWhereInput
+    data: XOR<EnderecoUpdateWithoutUsuarioInput, EnderecoUncheckedUpdateWithoutUsuarioInput>
+  }
+
+  export type EnderecoUpdateWithoutUsuarioInput = {
+    cep?: StringFieldUpdateOperationsInput | string
+    cidade?: StringFieldUpdateOperationsInput | string
+    bairro?: StringFieldUpdateOperationsInput | string
+    numero?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type EnderecoUncheckedUpdateWithoutUsuarioInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    cep?: StringFieldUpdateOperationsInput | string
+    cidade?: StringFieldUpdateOperationsInput | string
+    bairro?: StringFieldUpdateOperationsInput | string
+    numero?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProfessionalUpsertWithoutUsuarioInput = {
+    update: XOR<ProfessionalUpdateWithoutUsuarioInput, ProfessionalUncheckedUpdateWithoutUsuarioInput>
+    create: XOR<ProfessionalCreateWithoutUsuarioInput, ProfessionalUncheckedCreateWithoutUsuarioInput>
+    where?: ProfessionalWhereInput
+  }
+
+  export type ProfessionalUpdateToOneWithWhereWithoutUsuarioInput = {
+    where?: ProfessionalWhereInput
+    data: XOR<ProfessionalUpdateWithoutUsuarioInput, ProfessionalUncheckedUpdateWithoutUsuarioInput>
+  }
+
+  export type ProfessionalUpdateWithoutUsuarioInput = {
+    telefone?: StringFieldUpdateOperationsInput | string
+    crp?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    especialidade?: EspecialidadeUpdateOneRequiredWithoutProfissionalNestedInput
+  }
+
+  export type ProfessionalUncheckedUpdateWithoutUsuarioInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    telefone?: StringFieldUpdateOperationsInput | string
+    crp?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    especialidadeId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProfessionalCreateWithoutEspecialidadeInput = {
+    telefone: string
+    crp: string
+    descricao: string
+    cpf: string
+    usuario: UsuarioCreateNestedOneWithoutProfissionalInput
+  }
+
+  export type ProfessionalUncheckedCreateWithoutEspecialidadeInput = {
+    id?: number
+    telefone: string
+    crp: string
+    descricao: string
+    cpf: string
+    usuarioId: number
+  }
+
+  export type ProfessionalCreateOrConnectWithoutEspecialidadeInput = {
+    where: ProfessionalWhereUniqueInput
+    create: XOR<ProfessionalCreateWithoutEspecialidadeInput, ProfessionalUncheckedCreateWithoutEspecialidadeInput>
+  }
+
+  export type ProfessionalCreateManyEspecialidadeInputEnvelope = {
+    data: ProfessionalCreateManyEspecialidadeInput | ProfessionalCreateManyEspecialidadeInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProfessionalUpsertWithWhereUniqueWithoutEspecialidadeInput = {
+    where: ProfessionalWhereUniqueInput
+    update: XOR<ProfessionalUpdateWithoutEspecialidadeInput, ProfessionalUncheckedUpdateWithoutEspecialidadeInput>
+    create: XOR<ProfessionalCreateWithoutEspecialidadeInput, ProfessionalUncheckedCreateWithoutEspecialidadeInput>
+  }
+
+  export type ProfessionalUpdateWithWhereUniqueWithoutEspecialidadeInput = {
+    where: ProfessionalWhereUniqueInput
+    data: XOR<ProfessionalUpdateWithoutEspecialidadeInput, ProfessionalUncheckedUpdateWithoutEspecialidadeInput>
+  }
+
+  export type ProfessionalUpdateManyWithWhereWithoutEspecialidadeInput = {
+    where: ProfessionalScalarWhereInput
+    data: XOR<ProfessionalUpdateManyMutationInput, ProfessionalUncheckedUpdateManyWithoutEspecialidadeInput>
+  }
+
+  export type ProfessionalScalarWhereInput = {
+    AND?: ProfessionalScalarWhereInput | ProfessionalScalarWhereInput[]
+    OR?: ProfessionalScalarWhereInput[]
+    NOT?: ProfessionalScalarWhereInput | ProfessionalScalarWhereInput[]
+    id?: IntFilter<"Professional"> | number
+    telefone?: StringFilter<"Professional"> | string
+    crp?: StringFilter<"Professional"> | string
+    descricao?: StringFilter<"Professional"> | string
+    cpf?: StringFilter<"Professional"> | string
+    especialidadeId?: IntFilter<"Professional"> | number
+    usuarioId?: IntFilter<"Professional"> | number
+  }
+
   export type UsuarioCreateWithoutFeedbacksInput = {
     nome: string
     email: string
@@ -4941,6 +7972,8 @@ export namespace Prisma {
     foto?: string | null
     acesso: string
     deletedAt?: Date | string | null
+    endereco?: EnderecoCreateNestedOneWithoutUsuarioInput
+    profissional?: ProfessionalCreateNestedOneWithoutUsuarioInput
   }
 
   export type UsuarioUncheckedCreateWithoutFeedbacksInput = {
@@ -4951,6 +7984,8 @@ export namespace Prisma {
     foto?: string | null
     acesso: string
     deletedAt?: Date | string | null
+    endereco?: EnderecoUncheckedCreateNestedOneWithoutUsuarioInput
+    profissional?: ProfessionalUncheckedCreateNestedOneWithoutUsuarioInput
   }
 
   export type UsuarioCreateOrConnectWithoutFeedbacksInput = {
@@ -4976,6 +8011,8 @@ export namespace Prisma {
     foto?: NullableStringFieldUpdateOperationsInput | string | null
     acesso?: StringFieldUpdateOperationsInput | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endereco?: EnderecoUpdateOneWithoutUsuarioNestedInput
+    profissional?: ProfessionalUpdateOneWithoutUsuarioNestedInput
   }
 
   export type UsuarioUncheckedUpdateWithoutFeedbacksInput = {
@@ -4986,6 +8023,166 @@ export namespace Prisma {
     foto?: NullableStringFieldUpdateOperationsInput | string | null
     acesso?: StringFieldUpdateOperationsInput | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    endereco?: EnderecoUncheckedUpdateOneWithoutUsuarioNestedInput
+    profissional?: ProfessionalUncheckedUpdateOneWithoutUsuarioNestedInput
+  }
+
+  export type UsuarioCreateWithoutEnderecoInput = {
+    nome: string
+    email: string
+    senha: string
+    foto?: string | null
+    acesso: string
+    deletedAt?: Date | string | null
+    feedbacks?: FeedbackCreateNestedManyWithoutUsuarioInput
+    profissional?: ProfessionalCreateNestedOneWithoutUsuarioInput
+  }
+
+  export type UsuarioUncheckedCreateWithoutEnderecoInput = {
+    id?: number
+    nome: string
+    email: string
+    senha: string
+    foto?: string | null
+    acesso: string
+    deletedAt?: Date | string | null
+    feedbacks?: FeedbackUncheckedCreateNestedManyWithoutUsuarioInput
+    profissional?: ProfessionalUncheckedCreateNestedOneWithoutUsuarioInput
+  }
+
+  export type UsuarioCreateOrConnectWithoutEnderecoInput = {
+    where: UsuarioWhereUniqueInput
+    create: XOR<UsuarioCreateWithoutEnderecoInput, UsuarioUncheckedCreateWithoutEnderecoInput>
+  }
+
+  export type UsuarioUpsertWithoutEnderecoInput = {
+    update: XOR<UsuarioUpdateWithoutEnderecoInput, UsuarioUncheckedUpdateWithoutEnderecoInput>
+    create: XOR<UsuarioCreateWithoutEnderecoInput, UsuarioUncheckedCreateWithoutEnderecoInput>
+    where?: UsuarioWhereInput
+  }
+
+  export type UsuarioUpdateToOneWithWhereWithoutEnderecoInput = {
+    where?: UsuarioWhereInput
+    data: XOR<UsuarioUpdateWithoutEnderecoInput, UsuarioUncheckedUpdateWithoutEnderecoInput>
+  }
+
+  export type UsuarioUpdateWithoutEnderecoInput = {
+    nome?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    foto?: NullableStringFieldUpdateOperationsInput | string | null
+    acesso?: StringFieldUpdateOperationsInput | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    feedbacks?: FeedbackUpdateManyWithoutUsuarioNestedInput
+    profissional?: ProfessionalUpdateOneWithoutUsuarioNestedInput
+  }
+
+  export type UsuarioUncheckedUpdateWithoutEnderecoInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    foto?: NullableStringFieldUpdateOperationsInput | string | null
+    acesso?: StringFieldUpdateOperationsInput | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    feedbacks?: FeedbackUncheckedUpdateManyWithoutUsuarioNestedInput
+    profissional?: ProfessionalUncheckedUpdateOneWithoutUsuarioNestedInput
+  }
+
+  export type EspecialidadeCreateWithoutProfissionalInput = {
+    nome: string
+  }
+
+  export type EspecialidadeUncheckedCreateWithoutProfissionalInput = {
+    id?: number
+    nome: string
+  }
+
+  export type EspecialidadeCreateOrConnectWithoutProfissionalInput = {
+    where: EspecialidadeWhereUniqueInput
+    create: XOR<EspecialidadeCreateWithoutProfissionalInput, EspecialidadeUncheckedCreateWithoutProfissionalInput>
+  }
+
+  export type UsuarioCreateWithoutProfissionalInput = {
+    nome: string
+    email: string
+    senha: string
+    foto?: string | null
+    acesso: string
+    deletedAt?: Date | string | null
+    feedbacks?: FeedbackCreateNestedManyWithoutUsuarioInput
+    endereco?: EnderecoCreateNestedOneWithoutUsuarioInput
+  }
+
+  export type UsuarioUncheckedCreateWithoutProfissionalInput = {
+    id?: number
+    nome: string
+    email: string
+    senha: string
+    foto?: string | null
+    acesso: string
+    deletedAt?: Date | string | null
+    feedbacks?: FeedbackUncheckedCreateNestedManyWithoutUsuarioInput
+    endereco?: EnderecoUncheckedCreateNestedOneWithoutUsuarioInput
+  }
+
+  export type UsuarioCreateOrConnectWithoutProfissionalInput = {
+    where: UsuarioWhereUniqueInput
+    create: XOR<UsuarioCreateWithoutProfissionalInput, UsuarioUncheckedCreateWithoutProfissionalInput>
+  }
+
+  export type EspecialidadeUpsertWithoutProfissionalInput = {
+    update: XOR<EspecialidadeUpdateWithoutProfissionalInput, EspecialidadeUncheckedUpdateWithoutProfissionalInput>
+    create: XOR<EspecialidadeCreateWithoutProfissionalInput, EspecialidadeUncheckedCreateWithoutProfissionalInput>
+    where?: EspecialidadeWhereInput
+  }
+
+  export type EspecialidadeUpdateToOneWithWhereWithoutProfissionalInput = {
+    where?: EspecialidadeWhereInput
+    data: XOR<EspecialidadeUpdateWithoutProfissionalInput, EspecialidadeUncheckedUpdateWithoutProfissionalInput>
+  }
+
+  export type EspecialidadeUpdateWithoutProfissionalInput = {
+    nome?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type EspecialidadeUncheckedUpdateWithoutProfissionalInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type UsuarioUpsertWithoutProfissionalInput = {
+    update: XOR<UsuarioUpdateWithoutProfissionalInput, UsuarioUncheckedUpdateWithoutProfissionalInput>
+    create: XOR<UsuarioCreateWithoutProfissionalInput, UsuarioUncheckedCreateWithoutProfissionalInput>
+    where?: UsuarioWhereInput
+  }
+
+  export type UsuarioUpdateToOneWithWhereWithoutProfissionalInput = {
+    where?: UsuarioWhereInput
+    data: XOR<UsuarioUpdateWithoutProfissionalInput, UsuarioUncheckedUpdateWithoutProfissionalInput>
+  }
+
+  export type UsuarioUpdateWithoutProfissionalInput = {
+    nome?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    foto?: NullableStringFieldUpdateOperationsInput | string | null
+    acesso?: StringFieldUpdateOperationsInput | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    feedbacks?: FeedbackUpdateManyWithoutUsuarioNestedInput
+    endereco?: EnderecoUpdateOneWithoutUsuarioNestedInput
+  }
+
+  export type UsuarioUncheckedUpdateWithoutProfissionalInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nome?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    senha?: StringFieldUpdateOperationsInput | string
+    foto?: NullableStringFieldUpdateOperationsInput | string | null
+    acesso?: StringFieldUpdateOperationsInput | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    feedbacks?: FeedbackUncheckedUpdateManyWithoutUsuarioNestedInput
+    endereco?: EnderecoUncheckedUpdateOneWithoutUsuarioNestedInput
   }
 
   export type FeedbackCreateManyUsuarioInput = {
@@ -5013,6 +8210,41 @@ export namespace Prisma {
     titulo?: StringFieldUpdateOperationsInput | string
     conteudo?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ProfessionalCreateManyEspecialidadeInput = {
+    id?: number
+    telefone: string
+    crp: string
+    descricao: string
+    cpf: string
+    usuarioId: number
+  }
+
+  export type ProfessionalUpdateWithoutEspecialidadeInput = {
+    telefone?: StringFieldUpdateOperationsInput | string
+    crp?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    usuario?: UsuarioUpdateOneRequiredWithoutProfissionalNestedInput
+  }
+
+  export type ProfessionalUncheckedUpdateWithoutEspecialidadeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    telefone?: StringFieldUpdateOperationsInput | string
+    crp?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    usuarioId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ProfessionalUncheckedUpdateManyWithoutEspecialidadeInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    telefone?: StringFieldUpdateOperationsInput | string
+    crp?: StringFieldUpdateOperationsInput | string
+    descricao?: StringFieldUpdateOperationsInput | string
+    cpf?: StringFieldUpdateOperationsInput | string
+    usuarioId?: IntFieldUpdateOperationsInput | number
   }
 
 

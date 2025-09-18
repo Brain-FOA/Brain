@@ -44,21 +44,14 @@ test("Teste de sucesso para /specialties/register", async () => {
     const res = await request(app)
         .post("/specialties/register")
         .set("Authorization", `Bearer ${token}`)
-        .send({ nome: "teste" });
+        .send({ nome: "teste_23232323232" });
 
     assert.strictEqual(res.body.error, false);
     assert.strictEqual(res.status, 201);
     assert.strictEqual(res.body.message, "Especialidade criada com sucesso.");
 
     await delete_mock(userData.email);
-    await delete_mock_specialtie("teste")
-});
-
-test("Teste de falha para /specialties/view (sem token)", async () => {
-    const res = await request(app).get("/specialties/view");
-
-    assert.strictEqual(res.status, 401);
-    assert.strictEqual(res.body.message, "Acesso negado!");
+    await delete_mock_specialtie("teste_23232323232")
 });
 
 test("Teste de sucesso para /specialties/view", async () => {

@@ -23,7 +23,9 @@ model Usuario {
   acesso    String    @db.VarChar(45)
   deletedAt DateTime?
 
-  feedbacks Feedback[]
+  feedbacks    Feedback[]
+  endereco     Endereco?
+  profissional Professional?
 
   @@map("usuarios")
 }
@@ -31,6 +33,8 @@ model Usuario {
 model Especialidade {
   id   Int    @id @default(autoincrement())
   nome String @unique @db.VarChar(45)
+
+  profissional Professional[]
 
   @@map("especialidades")
 }
@@ -45,4 +49,33 @@ model Feedback {
   usuario Usuario @relation(fields: [userId], references: [id])
 
   @@map("feedbacks")
+}
+
+model Endereco {
+  id     Int    @id @default(autoincrement())
+  cep    String @db.VarChar(9)
+  cidade String @db.VarChar(45)
+  bairro String @db.VarChar(45)
+  numero String @db.VarChar(10)
+
+  usuario   Usuario @relation(fields: [usuarioId], references: [id])
+  usuarioId Int     @unique
+
+  @@map("enderecos")
+}
+
+model Professional {
+  id        Int    @id @default(autoincrement())
+  telefone  String @db.VarChar(20)
+  crp       String @unique @db.VarChar(20)
+  descricao String @db.VarChar(400)
+  cpf       String @unique @db.VarChar(14)
+
+  especialidade   Especialidade @relation(fields: [especialidadeId], references: [id])
+  especialidadeId Int
+
+  usuario   Usuario @relation(fields: [usuarioId], references: [id])
+  usuarioId Int     @unique
+
+  @@map("profissionais")
 }
