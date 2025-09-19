@@ -32,7 +32,7 @@ export class ProfessionalsController {
         if (!especialidadeExist) {
             return res.status(400).json({
                 status: 400,
-                message: 'Especialidade inválida.',
+                message: 'Especialidade não existe.',
                 error: true
             })
         }
@@ -185,6 +185,132 @@ export class ProfessionalsController {
 
         } catch (e) {
             return res.status(500).json({ status: 500, message: "Falha ao aprovar profissional.", error: true, details: e.message });
+        }
+    }
+
+    static async awaitPermissionProfessionals(req, res) {
+        const { page = 1 } = req.query;
+        const limit = 2;
+        const currentPage = parseInt(page);
+        const skip = (currentPage - 1) * limit;
+
+        try {
+            const [professionals, total] = await Promise.all([
+                prisma.professional.findMany({
+                    where: { aprovacao: null },
+                    skip,
+                    take: limit,
+                    include: {
+                        usuario: {
+                            select: {
+                                id: true,
+                                nome: true,
+                                email: true,
+                                foto: true,
+                                acesso: true
+                            }
+                        },
+                        especialidade: true
+                    }
+                }),
+                prisma.professional.count({ where: { aprovacao: null } })
+            ]);
+
+            const totalPages = Math.ceil(total / limit);
+            const baseUrl = `http://127.0.0.1:3000/professionals/accepted`;
+
+            if(totalPages < page) {
+                return res.status(400).json({ status: 400, message: 'Página não encontrada.', error: true })
+            }
+
+            if(page <= 0) {
+                return res.status(400).json({ status: 400, message: 'Página não encontrada.', error: true })
+            }
+
+            return res.status(200).json({
+                status: 200,
+                error: false,
+                message: "Profissionais aprovados listados com sucesso.",
+                data: professionals,
+                pagination: {
+                    total,
+                    page: currentPage,
+                    nextPage: currentPage < totalPages ? currentPage + 1 : null,
+                    prevPage: currentPage >= totalPages && currentPage - 1  != 0 ? currentPage - 1 : null,
+                    totalPages,
+                    next: currentPage < totalPages ? `${baseUrl}?page=${currentPage + 1}` : null,
+                    prev: currentPage > 1 ? `${baseUrl}?page=${currentPage - 1}` : null
+                }
+            });
+
+        } catch (e) {
+            return res.status(500).json({
+                status: 500,
+                message: "Página não encontrada.",
+                error: true,
+                // details: e.message
+            });
+        }
+    }
+
+    static async acceptedProfessionals(req, res) {
+        const { page = 1 } = req.query;
+        const limit = 2;
+        const currentPage = parseInt(page);
+        const skip = (currentPage - 1) * limit;
+
+        try {
+            const [professionals, total] = await Promise.all([
+                prisma.professional.findMany({
+                    where: { aprovacao: true },
+                    skip,
+                    take: limit,
+                    include: {
+                        usuario: {
+                            select: {
+                                id: true,
+                                nome: true,
+                                email: true,
+                                foto: true,
+                                acesso: true
+                            }
+                        },
+                        especialidade: true
+                    }
+                }),
+                prisma.professional.count({ where: { aprovacao: true } })
+            ]);
+
+            const totalPages = Math.ceil(total / limit);
+            const baseUrl = `http://127.0.0.1:3000/professionals/accepted`;
+
+            if(totalPages < page) {
+                return res.status(400).json({ status: 400, message: 'Página não encontrada.', error: true })
+            }
+
+            return res.status(200).json({
+                status: 200,
+                error: false,
+                message: "Profissionais aprovados listados com sucesso.",
+                data: professionals,
+                pagination: {
+                    total,
+                    page: currentPage,
+                    nextPage: currentPage < totalPages ? currentPage + 1 : null,
+                    prevPage: currentPage >= totalPages && currentPage - 1  != 0 ? currentPage - 1 : null,
+                    totalPages,
+                    next: currentPage < totalPages ? `${baseUrl}?page=${currentPage + 1}` : null,
+                    prev: currentPage > 1 ? `${baseUrl}?page=${currentPage - 1}` : null
+                }
+            });
+
+        } catch (e) {
+            return res.status(500).json({
+                status: 500,
+                message: "Página não encontrada.",
+                error: true,
+                // details: e.message
+            });
         }
     }
 }

@@ -70,7 +70,7 @@ model Professional {
   crp           String       @db.VarChar(20) @unique
   descricao     String       @db.VarChar(400)
   cpf           String       @db.VarChar(14) @unique
-  aprovacao       Boolean?      
+  aprovacao     Boolean?      
 
   especialidade Especialidade @relation(fields: [especialidadeId], references: [id])
   especialidadeId Int        
