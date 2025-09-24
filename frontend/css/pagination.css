@@ -1,0 +1,40 @@
+:root {
+    /* Cores principais */
+    --primary-green: #2E7D32;      /* Verde mais escuro e profissional */
+    --secondary-green: #4CAF50;    /* Verde médio para botões e destaques */
+    --light-green: #81C784;        /* Verde claro para hover e elementos sutis */
+    --accent-green: #1B5E20;       /* Verde escuro para textos e elementos de destaque */
+    
+    /* Neutros */
+    --pure-white: #FFFFFF;         /* Branco puro para fundos */
+    --off-white: #F5F5F5;          /* Branco suave para fundos secundários */
+    --light-gray: #E0E0E0;         /* Cinza claro para bordas e divisões */
+    --dark-gray: #424242;          /* Cinza escuro para textos secundários */
+    --pure-black: #212121;         /* Preto suave para textos principais */
+    
+    /* Cores de estado */
+    --success: #43A047;            /* Verde para mensagens de sucesso */
+    --error: #D32F2F;              /* Vermelho para mensagens de erro */
+    --warning: #FFA000;            /* Laranja para avisos */
+    --info: #1976D2;               /* Azul para informações */
+}
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2em;
+    margin-top: 1em !important;
+}
+
+#pagination  button {
+    padding: 0.5em 0.7em;
+    background-color: var(--success);
+    border: none;
+    color: white;
+}
+
+.professional-modal {
+    margin: auto;
+    margin-top: 14em;
+}

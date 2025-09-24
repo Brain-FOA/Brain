@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/feedback.css">
     <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/pagination.css">
     
     <!-- Scripts -->
     <script src="scripts/header.js" defer></script>
@@ -34,6 +35,8 @@
     <script src="scripts/responsiveMenu.js" defer></script>
     <script src="scripts/feedbacks/getAll.js" defer></script>
     <script src="scripts/feedbacks/delete.js" defer></script>
+    <script src="scripts/professionals/get-stats-dashboard.js" defer></script>
+    <script src="scripts/professionals/get-await-professionals.js" defer></script>
 </head>
 <body>
     <header>
@@ -87,7 +90,7 @@
                         </div>
                         <div class="stat-info">
                             <h3>Total de Profissionais</h3>
-                            <p>150</p>
+                            <p></p>
                         </div>
                     </div>
 
@@ -97,7 +100,7 @@
                         </div>
                         <div class="stat-info">
                             <h3>Solicitações Pendentes</h3>
-                            <p>5</p>
+                            <p></p>
                         </div>
                     </div>
 
@@ -107,7 +110,7 @@
                         </div>
                         <div class="stat-info">
                             <h3>Profissionais Ativos</h3>
-                            <p>145</p>
+                            <p></p>
                         </div>
                     </div>
                 </div>
@@ -126,74 +129,6 @@
                             <span class="material-icons">category</span>
                             Especialidades
                         </button>
-                    </div>
-
-                    <div class="tab-content active" id="requests-tab">
-                        <div class="requests-list">
-                            <div class="professional-card">
-                                <div class="card-header">
-                                    <div class="professional-image">
-                                        <img src="assets/images/noimg.png" alt="Foto do profissional">
-                                    </div>
-                                    <div class="professional-info">
-                                        <h2>Dr. João Silva</h2>
-                                        <p class="specialty">Psicólogo Clínico</p>
-                                        <p class="crp">CRP: 12345/SP</p>
-                                        <p class="location">São Paulo, SP</p>
-                                        <div class="request-actions">
-                                            <button class="action-btn reject-btn">
-                                                <span class="material-icons">close</span>
-                                                Rejeitar
-                                            </button>
-                                            <button class="action-btn approve-btn">
-                                                <span class="material-icons">check</span>
-                                                Aprovar
-                                            </button>
-                                        </div>
-                                        <button class="view-more-btn" onclick="openModal('professionalModal')">
-                                            <span class="material-icons">visibility</span>
-                                            Ver mais
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="card-description">
-                                    <h3 class="about-title">Sobre mim</h3>
-                                    <p class="description">Especialista em terapia cognitivo-comportamental com foco em ansiedade e depressão. Atendimento presencial e online.</p>
-                                </div>
-                            </div>
-
-                            <div class="professional-card">
-                                <div class="card-header">
-                                    <div class="professional-image">
-                                        <img src="assets/images/noimg.png" alt="Foto do profissional">
-                                    </div>
-                                    <div class="professional-info">
-                                        <h2>Dra. Maria Santos</h2>
-                                        <p class="specialty">Psiquiatra</p>
-                                        <p class="crp">CRM: 67890/SP</p>
-                                        <p class="location">São Paulo, SP</p>
-                                        <div class="request-actions">
-                                            <button class="action-btn reject-btn">
-                                                <span class="material-icons">close</span>
-                                                Rejeitar
-                                            </button>
-                                            <button class="action-btn approve-btn">
-                                                <span class="material-icons">check</span>
-                                                Aprovar
-                                            </button>
-                                        </div>
-                                        <button class="view-more-btn" onclick="openModal('professionalModal')">
-                                            <span class="material-icons">visibility</span>
-                                            Ver mais
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="card-description">
-                                    <h3 class="about-title">Sobre mim</h3>
-                                    <p class="description">Psiquiatra especializada em saúde mental adulta, com foco em transtornos de ansiedade e depressão. Atendimento online.</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="tab-content" id="feedbacks-tab">
@@ -220,6 +155,15 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <!-- Profissional -->
+                    <div class="tab-content active" id="requests-tab">
+                        <div class="requests-list">
+                            
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </main>
@@ -241,43 +185,40 @@
                         <h4>Identidade</h4>
                         <div class="info-grid">
                             <div class="info-item">
-                                <span class="label">Nome</span>
-                                <span class="value">Dr. João Silva</span>
+                                <span class="label"></span>
+                                <span class="value"></span>
                             </div>
                             <div class="info-item">
-                                <span class="label">CRP/CRM</span>
-                                <span class="value">12345/SP</span>
+                                <span class="label"></span>
+                                <span class="value"></span>
                             </div>
                             <div class="info-item">
-                                <span class="label">Especialidade</span>
-                                <span class="value">Psicólogo Clínico</span>
+                                <span class="label"></span>
+                                <span class="value"> </span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Seção de Endereço -->
                     <div class="professional-modal-section">
-                        <h4>Endereço</h4>
+                        <h4></h4>
                         <div class="info-grid">
                             <div class="info-item">
-                                <span class="label">Rua</span>
-                                <span class="value">Av. Paulista, 1000</span>
+                                <span class="label"></span>
+                                <span class="value"></span>
                             </div>
                             <div class="info-item">
-                                <span class="label">Bairro</span>
-                                <span class="value">Bela Vista</span>
+                                <span class="label"></span>
+                                <span class="value"> </span>
                             </div>
                             <div class="info-item">
-                                <span class="label">Cidade</span>
-                                <span class="value">São Paulo</span>
+                                <span class="label"></span>
+                                <span class="value"> </span>
                             </div>
+
                             <div class="info-item">
-                                <span class="label">Estado</span>
-                                <span class="value">SP</span>
-                            </div>
-                            <div class="info-item">
-                                <span class="label">CEP</span>
-                                <span class="value">01310-100</span>
+                                <span class="label"></span>
+                                <span class="value"></span>
                             </div>
                         </div>
                     </div>

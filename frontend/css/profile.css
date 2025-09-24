@@ -303,6 +303,11 @@
     width: 100%;
 }
 
+.warn-professional {
+    margin: 1em 0 0.4em 0;
+    color: var(--primary-green);
+}
+
 .upload-btn {
     display: inline-flex;
     align-items: center;

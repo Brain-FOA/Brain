@@ -56,6 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
         userContainer.style.display = 'inline-block'
         userName.innerHTML = `Olá, ${payload.name}`
 
+        if (payload.acesso === 'professional') {
+            adminLink.style.display = 'flex'
+            userName.innerHTML = `Olá, ${payload.name}<span class="material-symbols-outlined small-icon">health_metrics</span>`
+        }
          // Se for admin, mostra o link de administração
         if (payload.acesso === 'admin') {
             adminLink.style.display = 'flex'

@@ -75,6 +75,10 @@ header {
     color: var(--secondary-green);
 }
 
+.small-icon {
+    font-size: 1.2em !important;
+}
+
 .register-btn, .login-btn {
     background-color: var(--secondary-green);
     color: var(--pure-white) !important;

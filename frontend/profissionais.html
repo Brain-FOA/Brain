@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="css/profissionais.css">
     <link rel="stylesheet" href="css/feedback.css">
     <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/pagination.css">
 
     <script src="scripts/feedbacks/register.js" defer></script>
     <script src="scripts/modal.js" defer></script>
@@ -31,6 +32,7 @@
     <script src="scripts/cep.js" defer></script>
     <script src="scripts/responsiveMenu.js" defer></script>
     <script src="scripts/profissionais.js" defer></script>
+    <script src="scripts/professionals/get-accept-professinals.js" defer></script>
 </head>
 <body>
     <header>
@@ -93,28 +95,7 @@
 
         <section class="professionals-section">
             <div class="container">
-                <div class="professional-card">
-                    <div class="card-header">
-                        <div class="professional-image">
-                            <img src="assets/images/noimg.png" alt="Foto do profissional">
-                        </div>
-                        <div class="professional-info">
-                            <h2>Dra. Ana Silva <span class="verified-badge"><span class="material-icons">verified</span></span></h2>
-                            <p class="specialty">Psicóloga Clínica</p>
-                            <p class="crp">CRP: 12345/SP</p>
-                            <p class="location">São Paulo, SP</p>
-                            <button class="btn-view-more" onclick="openContactModal('Dra. Ana Silva', 'ana.silva@email.com', '(11) 99999-9999', 'Av. Paulista, 1000 - Bela Vista, São Paulo - SP')">
-                                Ver mais
-                                <i class="fas fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-description">
-                        <h3 class="about-title">Sobre mim</h3>
-                        <p class="description">Especialista em terapia cognitivo-comportamental com foco em ansiedade e depressão. Atendimento presencial e online.</p>
-                    </div>
-                </div>
-            </div>
+                
         </section>
     </main>
 
@@ -124,7 +105,7 @@
             <div class="modal-header">
                 <div class="modal-title">
                     <h2 id="modalName"></h2>
-                    <p class="modal-specialty">Psicóloga Clínica</p>
+                    <p class="modal-specialty"></p>
                 </div>
                 <button class="close-modal" onclick="closeContactModal()">
                     <i class="fas fa-times"></i>

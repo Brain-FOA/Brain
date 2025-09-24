@@ -37,6 +37,26 @@ export class ProfessionalsController {
             })
         }
 
+        // Validação de CPF (formato: 000.000.000-00 ou apenas números)
+        const cpfRegex = /^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$/;
+        if (!cpfRegex.test(cpf)) 
+            return res.status(400).json({ status: 400, message: 'CPF inválido.', error: true });
+
+        // Validação de CRP (apenas números, 5 a 10 dígitos)
+        const crpRegex = /^\d{5,10}$/;
+        if (!crpRegex.test(crp))
+            return res.status(400).json({ status: 400, message: 'CRP inválido.', error: true });
+
+        // Validação de CEP (formato 00000-000 ou apenas números)
+        const cepRegex = /^\d{5}-?\d{3}$/;
+        if (!cepRegex.test(cep))
+            return res.status(400).json({ status: 400, message: 'CEP inválido.', error: true });
+
+        // Validação de telefone (formato brasileiro, com ou sem DDD, 10 ou 11 dígitos)
+        const telefoneRegex = /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/;
+        if (!telefoneRegex.test(telefone))
+        return res.status(400).json({ status: 400, message: 'Telefone inválido.', error: true });
+
         const professionalCPF = await prisma.professional.findUnique({ where: { cpf }})
 
         if (professionalCPF) {
@@ -164,27 +184,26 @@ export class ProfessionalsController {
             return res.status(400).json({ status: 400, message: "ID inválido.", error: true });
         }
 
-        const professionalExist = await prisma.professional.findUnique({ where: { usuarioId: parseInt(id) }})
+        const professionalExist = await prisma.professional.findUnique({ where: { usuarioId: parseInt(id) }});
 
         if(!professionalExist) {
             return res.status(400).json({ status: 400, message: "Profissional não encontrado.", error: true });
         }
 
         try {
-            const updated = await prisma.professional.update({
-                where: { usuarioId: parseInt(id) },
-                data: { aprovacao: false }
+            // Deleta o registro profissional
+            await prisma.professional.delete({
+                where: { usuarioId: parseInt(id) }
             });
 
             return res.status(200).json({
                 status: 200,
-                message: "Profissional reprovado com sucesso.",
-                error: false,
-                data: updated
+                message: "Profissional rejeitado com sucesso.",
+                error: false
             });
 
         } catch (e) {
-            return res.status(500).json({ status: 500, message: "Falha ao aprovar profissional.", error: true, details: e.message });
+            return res.status(500).json({ status: 500, message: "Falha ao remover profissional.", error: true, details: e.message });
         }
     }
 
@@ -207,7 +226,15 @@ export class ProfessionalsController {
                                 nome: true,
                                 email: true,
                                 foto: true,
-                                acesso: true
+                                acesso: true,
+                                endereco: {
+                                    select: {
+                                        cep: true,
+                                        cidade: true,
+                                        bairro: true,
+                                        numero: true
+                                    }
+                                }
                             }
                         },
                         especialidade: true
@@ -216,14 +243,15 @@ export class ProfessionalsController {
                 prisma.professional.count({ where: { aprovacao: null } })
             ]);
 
+
             const totalPages = Math.ceil(total / limit);
             const baseUrl = `http://127.0.0.1:3000/professionals/accepted`;
 
-            if(totalPages < page) {
-                return res.status(400).json({ status: 400, message: 'Página não encontrada.', error: true })
+            if(page <= 0) {
+                return res.status(400).json({ status: 400, message: 'Sem profissionais', error: true })
             }
 
-            if(page <= 0) {
+            if(totalPages < page) {
                 return res.status(400).json({ status: 400, message: 'Página não encontrada.', error: true })
             }
 
@@ -272,7 +300,15 @@ export class ProfessionalsController {
                                 nome: true,
                                 email: true,
                                 foto: true,
-                                acesso: true
+                                acesso: true,
+                                endereco: {
+                                    select: {
+                                        cep: true,
+                                        cidade: true,
+                                        bairro: true,
+                                        numero: true
+                                    }
+                                }
                             }
                         },
                         especialidade: true
@@ -281,8 +317,13 @@ export class ProfessionalsController {
                 prisma.professional.count({ where: { aprovacao: true } })
             ]);
 
+
             const totalPages = Math.ceil(total / limit);
             const baseUrl = `http://127.0.0.1:3000/professionals/accepted`;
+
+            if(page <= 0) {
+                return res.status(400).json({ status: 400, message: 'Sem profissionais', error: true })
+            }
 
             if(totalPages < page) {
                 return res.status(400).json({ status: 400, message: 'Página não encontrada.', error: true })
@@ -310,6 +351,36 @@ export class ProfessionalsController {
                 message: "Página não encontrada.",
                 error: true,
                 // details: e.message
+            });
+        }
+    }
+
+    static async dashboardStats(req, res) {
+        try {
+            const [totalProfessionals, pendingProfessionals, activeProfessionals] = await Promise.all([
+                prisma.professional.count(), // todos
+                prisma.professional.count({ where: { aprovacao: null } }), // pendentes
+                prisma.professional.count({ where: { aprovacao: true } }) // ativos/aprovados
+            ]);
+
+            return res.status(200).json({
+                status: 200,
+                error: false,
+                message: "Estatísticas do dashboard carregadas com sucesso.",
+                stats: {
+                    totalProfessionals,
+                    pendingProfessionals,
+                    activeProfessionals
+                }
+            });
+
+        } catch (e) {
+            console.error(e);
+            return res.status(500).json({
+                status: 500,
+                error: true,
+                message: "Erro ao carregar estatísticas.",
+                details: e.message
             });
         }
     }

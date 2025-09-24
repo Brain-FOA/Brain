@@ -21,10 +21,5 @@ document.addEventListener('DOMContentLoaded', function() {
     crpInput.addEventListener('blur', function(e) {
         const value = e.target.value;
         const crpRegex = /^\d{2}\/\d{5}$/;
-        
-        if (value && !crpRegex.test(value)) {
-            alert('Por favor, insira um CRP válido no formato 06/12345');
-            e.target.value = '';
-        }
     });
 }); 
