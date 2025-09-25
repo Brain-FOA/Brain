@@ -37,22 +37,18 @@ export class ProfessionalsController {
             })
         }
 
-        // Validação de CPF (formato: 000.000.000-00 ou apenas números)
         const cpfRegex = /^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$/;
         if (!cpfRegex.test(cpf)) 
             return res.status(400).json({ status: 400, message: 'CPF inválido.', error: true });
 
-        // Validação de CRP (apenas números, 5 a 10 dígitos)
         const crpRegex = /^\d{5,10}$/;
         if (!crpRegex.test(crp))
             return res.status(400).json({ status: 400, message: 'CRP inválido.', error: true });
 
-        // Validação de CEP (formato 00000-000 ou apenas números)
         const cepRegex = /^\d{5}-?\d{3}$/;
         if (!cepRegex.test(cep))
             return res.status(400).json({ status: 400, message: 'CEP inválido.', error: true });
 
-        // Validação de telefone (formato brasileiro, com ou sem DDD, 10 ou 11 dígitos)
         const telefoneRegex = /^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$/;
         if (!telefoneRegex.test(telefone))
         return res.status(400).json({ status: 400, message: 'Telefone inválido.', error: true });
@@ -264,7 +260,7 @@ export class ProfessionalsController {
                     total,
                     page: currentPage,
                     nextPage: currentPage < totalPages ? currentPage + 1 : null,
-                    prevPage: currentPage >= totalPages && currentPage - 1  != 0 ? currentPage - 1 : null,
+                    prevPage: currentPage <= totalPages && currentPage - 1  != 0 ? currentPage - 1 : null,
                     totalPages,
                     next: currentPage < totalPages ? `${baseUrl}?page=${currentPage + 1}` : null,
                     prev: currentPage > 1 ? `${baseUrl}?page=${currentPage - 1}` : null
@@ -334,11 +330,11 @@ export class ProfessionalsController {
                 error: false,
                 message: "Profissionais aprovados listados com sucesso.",
                 data: professionals,
-                pagination: {
+                pagination: { 
                     total,
                     page: currentPage,
                     nextPage: currentPage < totalPages ? currentPage + 1 : null,
-                    prevPage: currentPage >= totalPages && currentPage - 1  != 0 ? currentPage - 1 : null,
+                    prevPage: currentPage <= totalPages && currentPage - 1  != 0 ? currentPage - 1 : null,
                     totalPages,
                     next: currentPage < totalPages ? `${baseUrl}?page=${currentPage + 1}` : null,
                     prev: currentPage > 1 ? `${baseUrl}?page=${currentPage - 1}` : null
