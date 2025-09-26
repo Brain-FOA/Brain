@@ -1,5 +1,24 @@
 const professionalsContainer = document.querySelector(".professionals-section .container");
 
+function parseJwt(token) {
+    try {
+        const base64Url = token.split('.')[1]
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
+        const jsonPayload = decodeURIComponent(
+            atob(base64)
+                .split('')
+                .map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+                .join('')
+        )
+        return JSON.parse(jsonPayload)
+    } catch (e) {
+        console.error('Token inválido:', e)
+        return null
+    }
+}
+
+const payload = token ? parseJwt(token) : null
+
 async function getAcceptedProfessionals(url = "http://localhost:3000/professionals/accepted?page=1") {
     try {
         const req = await fetch(url, {
@@ -52,7 +71,8 @@ function renderAcceptedProfessionals(professionals) {
         const card = document.createElement("div");
         card.classList.add("professional-card");
 
-        card.innerHTML = `
+        if(payload.acesso === 'admin') {
+            card.innerHTML = `
             <div class="card-header">
                 <div class="professional-image">
                     <img src="${p.usuario.foto || 'assets/images/noimg.png'}" alt="Foto do profissional">
@@ -63,6 +83,7 @@ function renderAcceptedProfessionals(professionals) {
                     <p class="crp">CRP: ${p.crp}</p>
                     <p class="cep">CEP: ${p.usuario.endereco?.cep || "Não informado"}</p>
                     <p class="location">${p.usuario.endereco?.cidade || "Cidade não informada"}</p>
+                    <div class="buttons-container">
                     <button class="btn-view-more"
                         onclick="openContactModal(
                             '${p.usuario.nome}',
@@ -73,6 +94,10 @@ function renderAcceptedProfessionals(professionals) {
                         Ver mais
                         <i class="fas fa-arrow-right"></i>
                     </button>
+                    <button class="delete-feedback-btn" onclick="deleteProfessionalAlert('${p.usuario.id}')">
+                        <span class="material-icons">delete</span>
+                    </button>
+                </div>
                 </div>
             </div>
             <div class="card-description">
@@ -80,10 +105,86 @@ function renderAcceptedProfessionals(professionals) {
                 <p class="description">${p.descricao || 'Descrição não informada.'}</p>
             </div>
         `;
+        } else {
+            card.innerHTML = `
+                <div class="card-header">
+                    <div class="professional-image">
+                        <img src="${p.usuario.foto || 'assets/images/noimg.png'}" alt="Foto do profissional">
+                    </div>
+                    <div class="professional-info">
+                        <h2>${p.usuario.nome} <span class="verified-badge"><span class="material-icons">verified</span></span></h2>
+                        <p class="specialty">${p.especialidade?.nome || 'Não informada'}</p>
+                        <p class="crp">CRP: ${p.crp}</p>
+                        <p class="cep">CEP: ${p.usuario.endereco?.cep || "Não informado"}</p>
+                        <p class="location">${p.usuario.endereco?.cidade || "Cidade não informada"}</p>
+                        <div class="buttons-container">
+                        <button class="btn-view-more"
+                            onclick="openContactModal(
+                                '${p.usuario.nome}',
+                                '${p.usuario.email}',
+                                '${p.telefone || ''}',
+                                '${p.usuario.endereco?.bairro || ''} (${p.usuario.endereco?.cidade || ''}), ${p.usuario.endereco?.numero || ''}'
+                            )">
+                            Ver mais
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    </div>
+                </div>
+                <div class="card-description">
+                    <h3 class="about-title">Sobre mim</h3>
+                    <p class="description">${p.descricao || 'Descrição não informada.'}</p>
+                </div>
+            `;
+        }
+
 
         professionalsContainer.appendChild(card);
     });
 }
+
+function deleteProfessionalAlert(id) {
+    modal.show(
+        'warning', 
+        'Atenção!', 
+        'Tem certeza que deseja excluir este profissional? Essa ação não poderá ser desfeita!', 
+        () => {
+            deleteProfessional(id);
+        }
+    );
+}
+
+async function deleteProfessional(id) {
+    try {
+        const req = await fetch(`http://localhost:3000/professionals/reject/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        });
+
+        const res = await req.json();
+
+        if (!req.ok) {
+            modal.show('error', 'Erro!', res.message || "Erro ao excluir profissional.");
+            return;
+        }
+
+        let confirm = false 
+
+        
+
+        modal.show('success', 'Sucesso!', "Profissional excluído com sucesso!");
+        getAcceptedProfessionals();
+
+    } catch (err) {
+        console.error("Erro ao excluir:", err);
+        modal.show('error', 'Erro!', "Erro inesperado ao excluir profissional.");
+    }
+}
+
+
 
 function renderAcceptedPagination(pagination) {
     let nav = document.getElementById("pagination");
