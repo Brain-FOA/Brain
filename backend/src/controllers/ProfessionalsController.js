@@ -41,10 +41,6 @@ export class ProfessionalsController {
         if (!cpfRegex.test(cpf)) 
             return res.status(400).json({ status: 400, message: 'CPF inválido.', error: true });
 
-        const crpRegex = /^\d{5,10}$/;
-        if (!crpRegex.test(crp))
-            return res.status(400).json({ status: 400, message: 'CRP inválido.', error: true });
-
         const cepRegex = /^\d{5}-?\d{3}$/;
         if (!cepRegex.test(cep))
             return res.status(400).json({ status: 400, message: 'CEP inválido.', error: true });

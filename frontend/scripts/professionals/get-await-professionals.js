@@ -91,9 +91,11 @@ function showProfessionalModal(professional) {
             <div class="professional-modal-section">
                 <h4>Identidade</h4>
                 <div class="info-grid">
-                    <div class="info-item"><span class="label">Nome</span><span class="value">${professional.usuario.nome}</span></div>
+                    <div class="info-item"><span class="label">Nome</span><span class="valu<e">${professional.usuario.nome}</span></div>
                     <div class="info-item"><span class="label">CRP</span><span class="value">${professional.crp}</span></div>
                     <div class="info-item"><span class="label">Especialidade</span><span class="value">${professional.especialidade?.nome || 'Não informada'}</span></div>
+                    <div class="info-item"><span class="label">Telefone</span><span class="value">${professional.telefone || 'Não informada'}</span></div>
+                </div>
                 </div>
             </div>
 
