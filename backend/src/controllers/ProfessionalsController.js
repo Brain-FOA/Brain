@@ -183,7 +183,6 @@ export class ProfessionalsController {
         }
 
         try {
-            // Deleta o registro profissional
             await prisma.professional.delete({
                 where: { usuarioId: parseInt(id) }
             });
